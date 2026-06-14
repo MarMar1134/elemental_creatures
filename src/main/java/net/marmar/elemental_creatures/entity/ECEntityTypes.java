@@ -1,0 +1,53 @@
+package net.marmar.elemental_creatures.entity;
+
+import net.marmar.elemental_creatures.ElementalCreatures;
+import net.marmar.elemental_creatures.entity.projectile.LightningArrowEntity;
+import net.marmar.elemental_creatures.entity.projectile.SoulArrowEntity;
+import net.marmar.elemental_creatures.entity.zombie.Illapista;
+import net.marmar.elemental_creatures.entity.zombie.Lost;
+import net.marmar.elemental_creatures.entity.zombie.Rotten;
+import net.marmar.elemental_creatures.entity.zombie.Scorched;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.MobCategory;
+import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
+
+public class ECEntityTypes {
+    public static final DeferredRegister<EntityType<?>> ENTITY_TYPES =
+            DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, ElementalCreatures.MOD_ID);
+
+    //Projectiles
+    public static final RegistryObject<EntityType<LightningArrowEntity>> LIGHTNING_ARROW =
+            ENTITY_TYPES.register("lightning_arrow", () -> EntityType.Builder.<LightningArrowEntity>of(LightningArrowEntity::new, MobCategory.MISC)
+                    .sized(0.5F, 0.5F).clientTrackingRange(4).updateInterval(20)
+                    .build("lightning_arrow"));
+
+    public static final RegistryObject<EntityType<SoulArrowEntity>> SOUL_ARROW =
+            ENTITY_TYPES.register("soul_arrow", () -> EntityType.Builder.<SoulArrowEntity>of(SoulArrowEntity::new, MobCategory.MISC)
+                    .sized(0.5F, 0.5F).clientTrackingRange(4).updateInterval(20)
+                    .build("soul_arrow"));
+
+    //Zombies
+    public static final RegistryObject<EntityType<Scorched>> SCORCHED =
+            ENTITY_TYPES.register("scorched", () -> EntityType.Builder.of(Scorched::new, MobCategory.MONSTER)
+                    .sized(0.6F, 1.95F).build("scorched"));
+
+    public static final RegistryObject<EntityType<Lost>> LOST =
+            ENTITY_TYPES.register("lost", () -> EntityType.Builder.of(Lost::new, MobCategory.MONSTER)
+                    .sized(0.6F, 1.95F).build("lost"));
+
+    public static final RegistryObject<EntityType<Rotten>> ROTTEN =
+            ENTITY_TYPES.register("rotten", () -> EntityType.Builder.of(Rotten::new, MobCategory.MONSTER)
+                    .sized(0.6F, 1.95F).build("rotten"));
+
+    public static final RegistryObject<EntityType<Illapista>> ILLAPISTA =
+            ENTITY_TYPES.register("illapista", () -> EntityType.Builder.of(Illapista::new, MobCategory.MONSTER)
+                    .sized(0.6F, 1.95F).build("illapista"));
+
+    public static void register(IEventBus eventBus){
+        ElementalCreatures.LOGGER.info("Registering Elemental Creatures entities...");
+        ENTITY_TYPES.register(eventBus);
+    }
+}

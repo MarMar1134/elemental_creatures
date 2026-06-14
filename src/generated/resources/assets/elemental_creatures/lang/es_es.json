@@ -1,0 +1,14 @@
+{
+  "death.attack.lightning_damage": "%1$s fue castigado por los dioses",
+  "death.attack.lightning_damage.player": "%1$s fue castigado por los dioses mientras luchaba con %2$s",
+  "entity.elemental_creatures.illapista": "Adorador de Illapa",
+  "entity.elemental_creatures.lost": "Lost",
+  "entity.elemental_creatures.rotten": "Rotten",
+  "entity.elemental_creatures.scorched": "Scorched",
+  "item.elemental_creatures.illapista_spawn_egg": "Generar Adorador de Illapa",
+  "item.elemental_creatures.lightning_arrow": "Flecha eléctrica",
+  "item.elemental_creatures.lost_spawn_egg": "Generar Lost",
+  "item.elemental_creatures.rotten_spawn_egg": "Generar Rotten",
+  "item.elemental_creatures.scorched_spawn_egg": "Generar Scorched",
+  "tab.elemental_creatures.elementals_spawn_eggs": "Generadores de elementales"
+}

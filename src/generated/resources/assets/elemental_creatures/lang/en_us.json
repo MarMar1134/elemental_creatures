@@ -1,0 +1,14 @@
+{
+  "death.attack.lightning_damage": "%1$s has been punished by the gods",
+  "death.attack.lightning_damage.player": "%1$s has been punished by the gods trying to scape %2$s",
+  "entity.elemental_creatures.illapista": "Worshipper of Illapa",
+  "entity.elemental_creatures.lost": "Lost",
+  "entity.elemental_creatures.rotten": "Rotten",
+  "entity.elemental_creatures.scorched": "Scorched",
+  "item.elemental_creatures.illapista_spawn_egg": "Worshipper of Illapa spawn egg",
+  "item.elemental_creatures.lightning_arrow": "Lightning arrow",
+  "item.elemental_creatures.lost_spawn_egg": "Lost spawn egg",
+  "item.elemental_creatures.rotten_spawn_egg": "Rotten spawn egg",
+  "item.elemental_creatures.scorched_spawn_egg": "Scorched spawn egg",
+  "tab.elemental_creatures.elementals_spawn_eggs": "Elemental spawn eggs"
+}
