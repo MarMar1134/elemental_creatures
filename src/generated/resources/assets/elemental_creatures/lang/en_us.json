@@ -5,10 +5,14 @@
   "entity.elemental_creatures.lost": "Lost",
   "entity.elemental_creatures.rotten": "Rotten",
   "entity.elemental_creatures.scorched": "Scorched",
+  "entity.elemental_creatures.soul_reaper": "Soul Reaper",
   "item.elemental_creatures.illapista_spawn_egg": "Worshipper of Illapa spawn egg",
   "item.elemental_creatures.lightning_arrow": "Lightning arrow",
   "item.elemental_creatures.lost_spawn_egg": "Lost spawn egg",
   "item.elemental_creatures.rotten_spawn_egg": "Rotten spawn egg",
   "item.elemental_creatures.scorched_spawn_egg": "Scorched spawn egg",
-  "tab.elemental_creatures.elementals_spawn_eggs": "Elemental spawn eggs"
+  "item.elemental_creatures.soul_arrow": "Soul arrow",
+  "item.elemental_creatures.soul_reaper_spawn_egg": "Soul Reaper spawn egg",
+  "tab.elemental_creatures.elemental_items": "Elemental's Items",
+  "tab.elemental_creatures.elementals_spawn_eggs": "Elemental's Spawn Eggs"
 }

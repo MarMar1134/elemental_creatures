@@ -8,6 +8,7 @@ public class ECConfig {
 
     public static final ForgeConfigSpec.BooleanValue SPAWN_LOST;
     public static final ForgeConfigSpec.BooleanValue SPAWN_ROTTEN;
+    public static final ForgeConfigSpec.BooleanValue SPAWN_SOUL_REAPER;
 
     static {
         BUILDER.push("Elemental Creatures spawn configuration");
@@ -17,6 +18,9 @@ public class ECConfig {
 
         SPAWN_ROTTEN = BUILDER.comment("Defines if the Rotten can spawn naturally on the Overworld.")
                 .define("spawnRotten", true);
+
+        SPAWN_SOUL_REAPER = BUILDER.comment("Defines if the Soul Reaper can spawn naturally on the Nether.")
+                .define("spawnSoulReaper", true);
 
         BUILDER.pop();
         SPEC = BUILDER.build();

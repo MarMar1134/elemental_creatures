@@ -5,7 +5,10 @@ import net.marmar.elemental_creatures.entity.projectile.SoulArrowEntity;
 import net.minecraft.client.renderer.entity.ArrowRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
+@OnlyIn(Dist.CLIENT)
 public class SoulArrowRenderer extends ArrowRenderer<SoulArrowEntity> {
     public SoulArrowRenderer(EntityRendererProvider.Context pContext) {
         super(pContext);

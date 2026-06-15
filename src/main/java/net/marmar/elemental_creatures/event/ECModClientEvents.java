@@ -5,12 +5,14 @@ import net.marmar.elemental_creatures.entity.ECEntityTypes;
 import net.marmar.elemental_creatures.model.ECModelLayers;
 import net.marmar.elemental_creatures.model.projectile.LightningArrowRenderer;
 import net.marmar.elemental_creatures.model.projectile.SoulArrowRenderer;
+import net.marmar.elemental_creatures.model.skeleton.soulreaper.SoulReaperRenderer;
 import net.marmar.elemental_creatures.model.zombie.illapista.IllapistaRenderer;
 import net.marmar.elemental_creatures.model.zombie.lost.LostRenderer;
 import net.marmar.elemental_creatures.model.zombie.rotten.RottenRenderer;
 import net.marmar.elemental_creatures.model.zombie.scorched.ScorchedRenderer;
 import net.minecraft.client.model.HumanoidArmorModel;
 import net.minecraft.client.model.HumanoidModel;
+import net.minecraft.client.model.SkeletonModel;
 import net.minecraft.client.model.geom.builders.CubeDeformation;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.renderer.entity.EntityRenderers;
@@ -36,6 +38,9 @@ public class ECModClientEvents {
         EntityRenderers.register(ECEntityTypes.LOST.get(), LostRenderer::new);
         EntityRenderers.register(ECEntityTypes.ROTTEN.get(), RottenRenderer::new);
         EntityRenderers.register(ECEntityTypes.ILLAPISTA.get(), IllapistaRenderer::new);
+
+        //Skeletons
+        EntityRenderers.register(ECEntityTypes.SOUL_REAPER.get(), SoulReaperRenderer::new);
     }
 
     @SubscribeEvent
@@ -77,5 +82,14 @@ public class ECModClientEvents {
                 LayerDefinition.create(HumanoidArmorModel.createBodyLayer(INNER_ARMOR_DEFORMATION), 64, 32));
         event.registerLayerDefinition(ECModelLayers.ILLAPISTA_OUTER_ARMOR, () ->
                 LayerDefinition.create(HumanoidArmorModel.createBodyLayer(OUTER_ARMOR_DEFORMATION), 64, 32));
+        
+        //Soul Reaper
+        event.registerLayerDefinition(ECModelLayers.SOUL_REAPER, SkeletonModel::createBodyLayer);
+        event.registerLayerDefinition(ECModelLayers.SOUL_REAPER_INNER_ARMOR, () ->
+                LayerDefinition.create(HumanoidArmorModel.createBodyLayer(INNER_ARMOR_DEFORMATION), 64, 32));
+        event.registerLayerDefinition(ECModelLayers.SOUL_REAPER_OUTER_ARMOR, () ->
+                LayerDefinition.create(HumanoidArmorModel.createBodyLayer(OUTER_ARMOR_DEFORMATION), 64, 32));
+        event.registerLayerDefinition(ECModelLayers.SOUL_REAPER_OUTER, () ->
+                LayerDefinition.create(HumanoidModel.createMesh(new CubeDeformation(0.2f), 0.0f), 64, 32));
     }
 }

@@ -18,11 +18,25 @@ public class ECTabs {
             "elementals_spawm_eggs", () -> CreativeModeTab.builder()
                     .icon(() -> new ItemStack(ECItems.SCORCHED_SPAWN_EGG.get()))
                     .title(Component.translatable("tab." + ElementalCreatures.MOD_ID + ".elementals_spawn_eggs"))
+                    .withTabsAfter(ECTabs.ELEMENTAL_ITEMS.getId())
                     .displayItems(((pParameters, pOutput) -> {
                         pOutput.accept(ECItems.SCORCHED_SPAWN_EGG.get());
                         pOutput.accept(ECItems.LOST_SPAWN_EGG.get());
                         pOutput.accept(ECItems.ROTTEN_SPAWN_EGG.get());
                         pOutput.accept(ECItems.ILLAPISTA_SPAWN_EGG.get());
+
+                        pOutput.accept(ECItems.SOUL_REAPER_SPAWN_EGG.get());
+                    }))
+                    .build());
+
+    public static final RegistryObject<CreativeModeTab> ELEMENTAL_ITEMS = TABS.register(
+            "elemental_items", () -> CreativeModeTab.builder()
+                    .icon(() -> new ItemStack(ECItems.SOUL_ARROW.get()))
+                    .title(Component.translatable("tab." + ElementalCreatures.MOD_ID + ".elemental_items"))
+                    .withTabsBefore(ECTabs.ELEMENTALS_SPAWN_EGGS.getId())
+                    .displayItems(((pParameters, pOutput) -> {
+                        pOutput.accept(ECItems.LIGHTNING_ARROW.get());
+                        pOutput.accept(ECItems.SOUL_ARROW.get());
                     }))
                     .build());
 

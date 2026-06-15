@@ -10,7 +10,10 @@ import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.RenderLayerParent;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
+@OnlyIn(Dist.CLIENT)
 @SuppressWarnings("removal")
 public class RottenOuterLayer<T extends Rotten> extends RenderLayer<T, ZombieModel<T>> {
     private static final ResourceLocation ROTTEN_OUTER_LOCATION = new ResourceLocation(ElementalCreatures.MOD_ID,

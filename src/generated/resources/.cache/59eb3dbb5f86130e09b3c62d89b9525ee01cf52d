@@ -1,1 +1,5 @@
-// 1.20.1	2026-06-08T14:01:32.8439283	Loot Tables
+// 1.20.1	2026-06-15T12:42:41.3626335	Loot Tables
+1a33c8d5fb9997f8cd023a6afaadae4c15c88761 data/elemental_creatures/loot_tables/entities/lost.json
+c8ebe2eba3e065e8e16d290dee1603c2d981a528 data/elemental_creatures/loot_tables/entities/rotten.json
+ccea1309b83cc977c6e582fbc5dc87b4e1b01bc4 data/elemental_creatures/loot_tables/entities/scorched.json
+dafdc9391c0f7c1860e6abfd35838ea4ae99a457 data/elemental_creatures/loot_tables/entities/soul_reaper.json

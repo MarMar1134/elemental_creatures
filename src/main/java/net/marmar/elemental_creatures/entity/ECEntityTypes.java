@@ -3,6 +3,7 @@ package net.marmar.elemental_creatures.entity;
 import net.marmar.elemental_creatures.ElementalCreatures;
 import net.marmar.elemental_creatures.entity.projectile.LightningArrowEntity;
 import net.marmar.elemental_creatures.entity.projectile.SoulArrowEntity;
+import net.marmar.elemental_creatures.entity.skeleton.SoulReaper;
 import net.marmar.elemental_creatures.entity.zombie.Illapista;
 import net.marmar.elemental_creatures.entity.zombie.Lost;
 import net.marmar.elemental_creatures.entity.zombie.Rotten;
@@ -45,6 +46,11 @@ public class ECEntityTypes {
     public static final RegistryObject<EntityType<Illapista>> ILLAPISTA =
             ENTITY_TYPES.register("illapista", () -> EntityType.Builder.of(Illapista::new, MobCategory.MONSTER)
                     .sized(0.6F, 1.95F).build("illapista"));
+
+    //Skeletons
+    public static final RegistryObject<EntityType<SoulReaper>> SOUL_REAPER =
+            ENTITY_TYPES.register("soul_reaper", () -> EntityType.Builder.of(SoulReaper::new, MobCategory.MONSTER)
+                    .sized(0.6F, 1.99F).build("soul_reaper"));
 
     public static void register(IEventBus eventBus){
         ElementalCreatures.LOGGER.info("Registering Elemental Creatures entities...");

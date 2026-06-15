@@ -3,6 +3,7 @@ package net.marmar.elemental_creatures.datagen.lang;
 import net.marmar.elemental_creatures.ElementalCreatures;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.monster.AbstractSkeleton;
 import net.minecraft.world.entity.monster.Zombie;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.common.data.LanguageProvider;
@@ -13,8 +14,17 @@ public abstract class AbstractLangProvider extends LanguageProvider {
         super(output, ElementalCreatures.MOD_ID, locale);
     }
 
+    protected void addCreativeModeTab(String pTab, String pName){
+        this.add("tab." + ElementalCreatures.MOD_ID + "." + pTab, pName);
+    }
+
     protected void addZombieType(EntityType<? extends Zombie> pZombie, String pName, RegistryObject<Item> pEgg, String pEggName){
         this.add(pZombie, pName);
+        this.addItem(pEgg, pEggName);
+    }
+
+    protected void addSkeletonType(EntityType<? extends AbstractSkeleton> pSkeleton, String pName, RegistryObject<Item> pEgg, String pEggName){
+        this.add(pSkeleton, pName);
         this.addItem(pEgg, pEggName);
     }
 

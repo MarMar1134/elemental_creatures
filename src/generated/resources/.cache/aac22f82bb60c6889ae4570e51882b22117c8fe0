@@ -1,7 +1,8 @@
-// 1.20.1	2026-06-14T11:36:41.6710458	Item Models: elemental_creatures
+// 1.20.1	2026-06-15T11:03:07.8806645	Item Models: elemental_creatures
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/elemental_creatures/models/item/illapista_spawn_egg.json
 db8433116ec81db0f70f509525914cfd51149650 assets/elemental_creatures/models/item/lightning_arrow.json
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/elemental_creatures/models/item/lost_spawn_egg.json
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/elemental_creatures/models/item/rotten_spawn_egg.json
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/elemental_creatures/models/item/scorched_spawn_egg.json
 11bca2058f855d5bbb232a5e97e7a1d41ef1650c assets/elemental_creatures/models/item/soul_arrow.json
+63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/elemental_creatures/models/item/soul_reaper_spawn_egg.json

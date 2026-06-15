@@ -38,6 +38,11 @@ public class ECItems {
             "illapista_spawn_egg", () -> new ForgeSpawnEggItem(ECEntityTypes.ILLAPISTA, 0x6d1604,
                     0x3a4730, new Item.Properties()));
 
+    //Skeleton spawn eggs
+    public static final RegistryObject<Item> SOUL_REAPER_SPAWN_EGG = ITEMS.register(
+            "soul_reaper_spawn_egg", () -> new ForgeSpawnEggItem(ECEntityTypes.SOUL_REAPER, 0x292420,
+                    0x01a7ac, new Item.Properties()));
+
     public static void register(IEventBus eventBus){
         ElementalCreatures.LOGGER.info("Registering Elemental Creatures items...");
         ITEMS.register(eventBus);

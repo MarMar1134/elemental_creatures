@@ -12,9 +12,11 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.MobSpawnType;
+import net.minecraft.world.entity.monster.Skeleton;
 import net.minecraft.world.entity.monster.Zombie;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.biome.Biomes;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.event.ForgeEventFactory;
 import net.minecraftforge.event.entity.living.LivingEvent;
@@ -29,7 +31,8 @@ public class ECForgeEvents {
     public static void onLivingEntityTick(LivingEvent event){
         LivingEntity entity = event.getEntity();
 
-        if (entity == null) return;
+        if (entity == null)
+            return;
 
         if (SoulFireUtils.hasSoulFire(entity) && !entity.isOnFire()){
             SoulFireUtils.clearSoulFire(entity);
@@ -50,12 +53,31 @@ public class ECForgeEvents {
         Holder<Biome> biome = level.getBiome(pos);
         RandomSource random = zombie.getRandom();
 
-        if (biome.is(ECTags.Biomes.CAN_SPAWN_LOST) && random.nextFloat() < 0.8F && ECConfig.SPAWN_LOST.get()) {
+        if (biome.is(ECTags.Biomes.CAN_SPAWN_LOST) && random.nextFloat() < 0.8f && ECConfig.SPAWN_LOST.get()) {
             spawnReplacement(ECEntityTypes.LOST.get(), event, level, pos);
         }
 
-        if (biome.is(Tags.Biomes.IS_SWAMP) && random.nextFloat() < 0.8F && ECConfig.SPAWN_ROTTEN.get()) {
+        if (biome.is(Tags.Biomes.IS_SWAMP) && random.nextFloat() < 0.8f && ECConfig.SPAWN_ROTTEN.get()) {
             spawnReplacement(ECEntityTypes.ROTTEN.get(), event, level, pos);
+        }
+    }
+
+    @SubscribeEvent
+    public static void onSkeletonSpawn(MobSpawnEvent.FinalizeSpawn event){
+        if (!(event.getEntity() instanceof Skeleton skeleton) || skeleton.getClass() != Skeleton.class)
+            return;
+
+        if (skeleton.getSpawnType() == MobSpawnType.SPAWN_EGG)
+            return;
+
+        ServerLevelAccessor level = event.getLevel();
+        BlockPos pos = skeleton.blockPosition();
+        Holder<Biome> biome = level.getBiome(pos);
+        RandomSource random = skeleton.getRandom();
+
+        if (biome.is(Biomes.SOUL_SAND_VALLEY) && random.nextFloat() < 0.8f && ECConfig.SPAWN_SOUL_REAPER.get()){
+            ElementalCreatures.LOGGER.info("Triying to spawn Soul Reaper at: {}, the Biome is: {}", pos, biome);
+            spawnReplacement(ECEntityTypes.SOUL_REAPER.get(), event, level, pos);
         }
     }
 
@@ -65,12 +87,11 @@ public class ECForgeEvents {
             return;
 
         Mob original = event.getEntity();
-        replacement.moveTo(pPos.getX() + 0.5, pPos.getY(), pPos.getZ() + 0.5,
-                original.getYRot(), original.getXRot());
+        replacement.moveTo(pPos.getX() + 0.5f, pPos.getY(), pPos.getZ() + 0.5f, original.getYRot(), original.getXRot());
 
         ForgeEventFactory.onFinalizeSpawn(replacement, pLevel, event.getDifficulty(), MobSpawnType.NATURAL, null, null);
 
-        pLevel.addFreshEntityWithPassengers(replacement);
+        pLevel.addFreshEntity(replacement);
         event.setResult(Event.Result.DENY);
     }
 }

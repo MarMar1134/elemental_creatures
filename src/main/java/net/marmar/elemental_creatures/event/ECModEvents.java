@@ -2,6 +2,7 @@ package net.marmar.elemental_creatures.event;
 
 import net.marmar.elemental_creatures.ElementalCreatures;
 import net.marmar.elemental_creatures.entity.ECEntityTypes;
+import net.marmar.elemental_creatures.entity.skeleton.SoulReaper;
 import net.marmar.elemental_creatures.entity.zombie.Illapista;
 import net.marmar.elemental_creatures.entity.zombie.Lost;
 import net.marmar.elemental_creatures.entity.zombie.Rotten;
@@ -19,18 +20,27 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 public class ECModEvents {
     @SubscribeEvent
     public static void registerAttributes(EntityAttributeCreationEvent event){
+        //Zombie attributes
         event.put(ECEntityTypes.SCORCHED.get(), Scorched.createAttributes().build());
         event.put(ECEntityTypes.LOST.get(), Lost.createAttributes().build());
         event.put(ECEntityTypes.ROTTEN.get(), Rotten.createAttributes().build());
         event.put(ECEntityTypes.ILLAPISTA.get(), Illapista.createAttributes().build());
+
+        //Skeleton attributes
+        event.put(ECEntityTypes.SOUL_REAPER.get(), SoulReaper.createAttributes().build());
     }
 
     @SubscribeEvent
     public static void registerMobSpawns(SpawnPlacementRegisterEvent event){
+        //Zombies
         event.register(ECEntityTypes.LOST.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 Lost::checkLostSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
         event.register(ECEntityTypes.ROTTEN.get(),SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 Rotten::checkMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
+
+        //Skeletons
+        event.register(ECEntityTypes.SOUL_REAPER.get(),SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                SoulReaper::checkMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
     }
 
     @SubscribeEvent

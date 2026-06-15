@@ -5,10 +5,14 @@
   "entity.elemental_creatures.lost": "Lost",
   "entity.elemental_creatures.rotten": "Rotten",
   "entity.elemental_creatures.scorched": "Scorched",
+  "entity.elemental_creatures.soul_reaper": "Segador de Almas",
   "item.elemental_creatures.illapista_spawn_egg": "Generar Adorador de Illapa",
   "item.elemental_creatures.lightning_arrow": "Flecha eléctrica",
   "item.elemental_creatures.lost_spawn_egg": "Generar Lost",
   "item.elemental_creatures.rotten_spawn_egg": "Generar Rotten",
   "item.elemental_creatures.scorched_spawn_egg": "Generar Scorched",
-  "tab.elemental_creatures.elementals_spawn_eggs": "Generadores de elementales"
+  "item.elemental_creatures.soul_arrow": "Flecha de alma",
+  "item.elemental_creatures.soul_reaper_spawn_egg": "Generar Segador de Almas",
+  "tab.elemental_creatures.elemental_items": "Objetos de Elementales",
+  "tab.elemental_creatures.elementals_spawn_eggs": "Generadores de Elementales"
 }
