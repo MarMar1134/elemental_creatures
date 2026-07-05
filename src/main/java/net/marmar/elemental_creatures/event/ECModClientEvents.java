@@ -4,8 +4,11 @@ import net.marmar.elemental_creatures.ElementalCreatures;
 import net.marmar.elemental_creatures.entity.ECEntityTypes;
 import net.marmar.elemental_creatures.model.ECModelLayers;
 import net.marmar.elemental_creatures.model.projectile.LightningArrowRenderer;
+import net.marmar.elemental_creatures.model.projectile.PrismarineArrowRenderer;
 import net.marmar.elemental_creatures.model.projectile.SoulArrowRenderer;
 import net.marmar.elemental_creatures.model.skeleton.soulreaper.SoulReaperRenderer;
+import net.marmar.elemental_creatures.model.skeleton.sunken.SunkenRenderer;
+import net.marmar.elemental_creatures.model.skeleton.tlalocquian.TlalocquianRenderer;
 import net.marmar.elemental_creatures.model.zombie.illapista.IllapistaRenderer;
 import net.marmar.elemental_creatures.model.zombie.lost.LostRenderer;
 import net.marmar.elemental_creatures.model.zombie.rotten.RottenRenderer;
@@ -32,6 +35,7 @@ public class ECModClientEvents {
         //Projectiles
         EntityRenderers.register(ECEntityTypes.LIGHTNING_ARROW.get(), LightningArrowRenderer::new);
         EntityRenderers.register(ECEntityTypes.SOUL_ARROW.get(), SoulArrowRenderer::new);
+        EntityRenderers.register(ECEntityTypes.PRISMARINE_ARROW.get(), PrismarineArrowRenderer::new);
 
         //Zombies
         EntityRenderers.register(ECEntityTypes.SCORCHED.get(), ScorchedRenderer::new);
@@ -41,6 +45,8 @@ public class ECModClientEvents {
 
         //Skeletons
         EntityRenderers.register(ECEntityTypes.SOUL_REAPER.get(), SoulReaperRenderer::new);
+        EntityRenderers.register(ECEntityTypes.TLALOCQUIAN.get(), TlalocquianRenderer::new);
+        EntityRenderers.register(ECEntityTypes.SUNKEN.get(), SunkenRenderer::new);
     }
 
     @SubscribeEvent
@@ -90,6 +96,23 @@ public class ECModClientEvents {
         event.registerLayerDefinition(ECModelLayers.SOUL_REAPER_OUTER_ARMOR, () ->
                 LayerDefinition.create(HumanoidArmorModel.createBodyLayer(OUTER_ARMOR_DEFORMATION), 64, 32));
         event.registerLayerDefinition(ECModelLayers.SOUL_REAPER_OUTER, () ->
+                LayerDefinition.create(HumanoidModel.createMesh(new CubeDeformation(0.2f), 0.0f), 64, 32));
+
+        //Tlalocquian
+        event.registerLayerDefinition(ECModelLayers.TLALOCQUIAN, SkeletonModel::createBodyLayer);
+        event.registerLayerDefinition(ECModelLayers.TLALOCQUIAN_INNER_ARMOR, () ->
+                LayerDefinition.create(HumanoidArmorModel.createBodyLayer(INNER_ARMOR_DEFORMATION), 64, 32));
+        event.registerLayerDefinition(ECModelLayers.TLALOCQUIAN_OUTER_ARMOR, () ->
+                LayerDefinition.create(HumanoidArmorModel.createBodyLayer(OUTER_ARMOR_DEFORMATION), 64, 32));
+        event.registerLayerDefinition(ECModelLayers.TLALOCQUIAN_OUTER, () ->
+                LayerDefinition.create(HumanoidModel.createMesh(new CubeDeformation(0.2f), 0.0f), 64, 32));
+
+        event.registerLayerDefinition(ECModelLayers.SUNKEN, SkeletonModel::createBodyLayer);
+        event.registerLayerDefinition(ECModelLayers.SUNKEN_INNER_ARMOR, () ->
+                LayerDefinition.create(HumanoidArmorModel.createBodyLayer(INNER_ARMOR_DEFORMATION), 64, 32));
+        event.registerLayerDefinition(ECModelLayers.SUNKEN_OUTER_ARMOR, () ->
+                LayerDefinition.create(HumanoidArmorModel.createBodyLayer(OUTER_ARMOR_DEFORMATION), 64, 32));
+        event.registerLayerDefinition(ECModelLayers.SUNKEN_OUTER, () ->
                 LayerDefinition.create(HumanoidModel.createMesh(new CubeDeformation(0.2f), 0.0f), 64, 32));
     }
 }

@@ -3,6 +3,7 @@ package net.marmar.elemental_creatures.item;
 import net.marmar.elemental_creatures.ElementalCreatures;
 import net.marmar.elemental_creatures.entity.ECEntityTypes;
 import net.marmar.elemental_creatures.item.arrow.LightningArrowItem;
+import net.marmar.elemental_creatures.item.arrow.PrismarineArrowItem;
 import net.marmar.elemental_creatures.item.arrow.SoulArrowItem;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.common.ForgeSpawnEggItem;
@@ -20,6 +21,8 @@ public class ECItems {
             "lightning_arrow", () -> new LightningArrowItem(new Item.Properties()));
     public static final RegistryObject<Item> SOUL_ARROW = ITEMS.register(
             "soul_arrow", () -> new SoulArrowItem(new Item.Properties()));
+    public static final RegistryObject<Item> PRISMARINE_ARROW = ITEMS.register(
+            "prismarine_arrow", () -> new PrismarineArrowItem(new Item.Properties()));
 
     //Zombie spawn eggs
     public static final RegistryObject<Item> SCORCHED_SPAWN_EGG = ITEMS.register(
@@ -42,6 +45,13 @@ public class ECItems {
     public static final RegistryObject<Item> SOUL_REAPER_SPAWN_EGG = ITEMS.register(
             "soul_reaper_spawn_egg", () -> new ForgeSpawnEggItem(ECEntityTypes.SOUL_REAPER, 0x292420,
                     0x01a7ac, new Item.Properties()));
+
+    public static final RegistryObject<Item> TLALOCQUIAN_SPAWN_EGG = ITEMS.register(
+            "tlalocquian_spawn_egg", () -> new ForgeSpawnEggItem(ECEntityTypes.TLALOCQUIAN, 0x979797,
+                    0x061e83, new Item.Properties()));
+    public static final RegistryObject<Item> SUNKEN_SPAWN_EGG = ITEMS.register(
+            "sunken_spawn_egg", () -> new ForgeSpawnEggItem(ECEntityTypes.SUNKEN, 0x40615f,
+                    0x53ba73, new Item.Properties()));
 
     public static void register(IEventBus eventBus){
         ElementalCreatures.LOGGER.info("Registering Elemental Creatures items...");

@@ -9,6 +9,14 @@ import net.minecraftforge.network.PacketDistributor;
 public class SoulFireUtils {
     private static boolean applyingSoulFire = false;
 
+    public static void applySoulFire(LivingEntity target){
+        if (target.level().isClientSide())
+            return;
+
+        target.getPersistentData().putBoolean("elemental_creatures.soul_fire", true);
+        SyncFireStateToNetwork(target, true);
+    }
+
     public static void applySoulFire(LivingEntity target, int seconds) {
         if (target.level().isClientSide())
             return;

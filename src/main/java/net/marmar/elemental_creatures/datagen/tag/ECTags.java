@@ -19,7 +19,14 @@ public class ECTags {
     }
 
     public static class Biomes {
+        public static final TagKey<Biome> CAN_SPAWN_SCORCHED = biomeTag("can_spawn_scorched");
         public static final TagKey<Biome> CAN_SPAWN_LOST = biomeTag("can_spawn_lost");
+        public static final TagKey<Biome> CAN_SPAWN_ROTTEN = biomeTag("can_spawn_rotten");
+        public static final TagKey<Biome> CAN_SPAWN_ILLAPISTA = biomeTag("can_spawn_illapista");
+
+        public static final TagKey<Biome> CAN_SPAWN_SOUL_REAPER = biomeTag("can_spawn_soul_reaper");
+        public static final TagKey<Biome> CAN_SPAWN_TLALOCQUIAN = biomeTag("can_spawn_tlalocquian");
+        public static final TagKey<Biome> CAN_SPAWN_SUNKEN = biomeTag("can_spawn_sunken");
 
         private static TagKey<Biome> biomeTag(String name){
             return TagKey.create(Registries.BIOME, new ResourceLocation(ElementalCreatures.MOD_ID,name));

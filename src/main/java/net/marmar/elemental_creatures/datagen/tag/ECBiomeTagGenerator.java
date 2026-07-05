@@ -4,6 +4,7 @@ import net.marmar.elemental_creatures.ElementalCreatures;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.BiomeTagsProvider;
+import net.minecraft.tags.BiomeTags;
 import net.minecraft.world.level.biome.Biomes;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
@@ -26,6 +27,27 @@ public class ECBiomeTagGenerator extends BiomeTagsProvider {
                 Biomes.FROZEN_OCEAN,
                 Biomes.FROZEN_RIVER,
                 Biomes.SNOWY_SLOPES
+        );
+
+        this.tag(ECTags.Biomes.CAN_SPAWN_ROTTEN).add(
+                Biomes.SWAMP,
+                Biomes.MANGROVE_SWAMP
+        );
+
+        this.tag(ECTags.Biomes.CAN_SPAWN_SOUL_REAPER).add(
+                Biomes.SOUL_SAND_VALLEY
+        );
+
+        this.tag(ECTags.Biomes.CAN_SPAWN_SUNKEN).add(
+                Biomes.OCEAN,
+                Biomes.DEEP_OCEAN,
+                Biomes.COLD_OCEAN,
+                Biomes.DEEP_COLD_OCEAN,
+                Biomes.FROZEN_OCEAN,
+                Biomes.DEEP_FROZEN_OCEAN,
+                Biomes.LUKEWARM_OCEAN,
+                Biomes.DEEP_LUKEWARM_OCEAN,
+                Biomes.WARM_OCEAN
         );
     }
 }

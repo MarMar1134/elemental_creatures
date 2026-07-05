@@ -34,6 +34,18 @@ public class ECModelLayers {
     public static final ModelLayerLocation SOUL_REAPER_OUTER_ARMOR = registerOuterArmorLayer("soul_reaper_outer_armor");
     public static final ModelLayerLocation SOUL_REAPER_OUTER = registerOuterLayer("soul_reaper_outer");
 
+    //Tlalocquian
+    public static final ModelLayerLocation TLALOCQUIAN = registerMainLayer("tlalocquian");
+    public static final ModelLayerLocation TLALOCQUIAN_INNER_ARMOR = registerInnerArmorLayer("tlalocquian_inner_armor");
+    public static final ModelLayerLocation TLALOCQUIAN_OUTER_ARMOR = registerOuterArmorLayer("tlalocquian_outer_armor");
+    public static final ModelLayerLocation TLALOCQUIAN_OUTER = registerOuterLayer("tlalocquian_outer");
+
+    //Sunken
+    public static final ModelLayerLocation SUNKEN = registerMainLayer("sunken");
+    public static final ModelLayerLocation SUNKEN_INNER_ARMOR = registerInnerArmorLayer("sunken_inner_armor");
+    public static final ModelLayerLocation SUNKEN_OUTER_ARMOR = registerOuterArmorLayer("sunken_outer_armor");
+    public static final ModelLayerLocation SUNKEN_OUTER = registerOuterLayer("sunken_outer");
+
     //Helpers
     @SuppressWarnings("removal")
     private static ResourceLocation modLoc(String pPath){

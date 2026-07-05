@@ -19,7 +19,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 @SuppressWarnings("removal")
 public class SoulReaperOuterLayer<T extends Mob & RangedAttackMob, M extends EntityModel<T>> extends RenderLayer<T, M> {
     private static final ResourceLocation SOUL_REAPER_OUTER_LOCATION = new ResourceLocation(ElementalCreatures.MOD_ID,
-            "textures/entity/skeleton/soul_reaper_outer_layer.png");
+            "textures/entity/skeleton/soul_reaper/soul_reaper_outer_layer.png");
     private final SkeletonModel<T> model;
 
     public SoulReaperOuterLayer(RenderLayerParent<T, M> pRenderer, EntityModelSet pModelSet) {

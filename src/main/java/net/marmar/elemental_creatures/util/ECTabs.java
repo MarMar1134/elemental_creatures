@@ -26,6 +26,8 @@ public class ECTabs {
                         pOutput.accept(ECItems.ILLAPISTA_SPAWN_EGG.get());
 
                         pOutput.accept(ECItems.SOUL_REAPER_SPAWN_EGG.get());
+                        pOutput.accept(ECItems.TLALOCQUIAN_SPAWN_EGG.get());
+                        pOutput.accept(ECItems.SUNKEN_SPAWN_EGG.get());
                     }))
                     .build());
 

@@ -1,4 +1,4 @@
-package net.marmar.elemental_creatures.mixin;
+package net.marmar.elemental_creatures.mixin.entity;
 
 import net.marmar.elemental_creatures.entity.ECEntityTypes;
 import net.minecraft.nbt.CompoundTag;
@@ -36,9 +36,8 @@ public class ZombieMixin {
     private void onTick(CallbackInfo ci){
         Zombie self = (Zombie) (Object) this;
 
-        if (self.getClass() != Zombie.class || self.level().isClientSide)
+        if (self.getClass() != Zombie.class || self.level().isClientSide())
             return;
-
 
         if (self.isFullyFrozen()){
             timeToFreeze++;
@@ -66,15 +65,11 @@ public class ZombieMixin {
     public void onHurt(DamageSource pSource, float pAmount, CallbackInfoReturnable<Boolean> cir){
         Zombie self = (Zombie) (Object) this;
 
-        if (self.getClass() != Zombie.class || self.level().isClientSide)
+        if (self.getClass() != Zombie.class || self.level().isClientSide())
             return;
 
-
         if (pSource.is(DamageTypes.LIGHTNING_BOLT)){
-            //self.hurt(pSource, pAmount);
             self.convertTo(ECEntityTypes.ILLAPISTA.get(), true);
         }
-
-        //self.hurt(pSource, pAmount);
     }
 }

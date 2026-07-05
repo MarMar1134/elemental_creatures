@@ -3,6 +3,8 @@ package net.marmar.elemental_creatures.event;
 import net.marmar.elemental_creatures.ElementalCreatures;
 import net.marmar.elemental_creatures.entity.ECEntityTypes;
 import net.marmar.elemental_creatures.entity.skeleton.SoulReaper;
+import net.marmar.elemental_creatures.entity.skeleton.Sunken;
+import net.marmar.elemental_creatures.entity.skeleton.Tlalocquian;
 import net.marmar.elemental_creatures.entity.zombie.Illapista;
 import net.marmar.elemental_creatures.entity.zombie.Lost;
 import net.marmar.elemental_creatures.entity.zombie.Rotten;
@@ -28,19 +30,29 @@ public class ECModEvents {
 
         //Skeleton attributes
         event.put(ECEntityTypes.SOUL_REAPER.get(), SoulReaper.createAttributes().build());
+        event.put(ECEntityTypes.TLALOCQUIAN.get(), Tlalocquian.createAttributes().build());
+        event.put(ECEntityTypes.SUNKEN.get(), Sunken.createAttributes().build());
     }
 
     @SubscribeEvent
     public static void registerMobSpawns(SpawnPlacementRegisterEvent event){
         //Zombies
+        event.register(ECEntityTypes.SCORCHED.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                Scorched::checkMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
         event.register(ECEntityTypes.LOST.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 Lost::checkLostSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
         event.register(ECEntityTypes.ROTTEN.get(),SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 Rotten::checkMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
+        event.register(ECEntityTypes.ILLAPISTA.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                Illapista::checkMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
 
         //Skeletons
         event.register(ECEntityTypes.SOUL_REAPER.get(),SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 SoulReaper::checkMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
+        event.register(ECEntityTypes.TLALOCQUIAN.get(),SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                Tlalocquian::checkMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
+        event.register(ECEntityTypes.SUNKEN.get(),SpawnPlacements.Type.NO_RESTRICTIONS, Heightmap.Types.OCEAN_FLOOR_WG,
+                Sunken::checkMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
     }
 
     @SubscribeEvent

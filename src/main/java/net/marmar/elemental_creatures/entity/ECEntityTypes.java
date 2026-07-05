@@ -2,8 +2,11 @@ package net.marmar.elemental_creatures.entity;
 
 import net.marmar.elemental_creatures.ElementalCreatures;
 import net.marmar.elemental_creatures.entity.projectile.LightningArrowEntity;
+import net.marmar.elemental_creatures.entity.projectile.PrismarineArrowEntity;
 import net.marmar.elemental_creatures.entity.projectile.SoulArrowEntity;
 import net.marmar.elemental_creatures.entity.skeleton.SoulReaper;
+import net.marmar.elemental_creatures.entity.skeleton.Sunken;
+import net.marmar.elemental_creatures.entity.skeleton.Tlalocquian;
 import net.marmar.elemental_creatures.entity.zombie.Illapista;
 import net.marmar.elemental_creatures.entity.zombie.Lost;
 import net.marmar.elemental_creatures.entity.zombie.Rotten;
@@ -30,6 +33,11 @@ public class ECEntityTypes {
                     .sized(0.5F, 0.5F).clientTrackingRange(4).updateInterval(20)
                     .build("soul_arrow"));
 
+    public static final RegistryObject<EntityType<PrismarineArrowEntity>> PRISMARINE_ARROW =
+            ENTITY_TYPES.register("prismarine_arrow", () -> EntityType.Builder.<PrismarineArrowEntity>of(PrismarineArrowEntity::new, MobCategory.MISC)
+                    .sized(0.5F, 0.5F).clientTrackingRange(4).updateInterval(20)
+                    .build("prismarine_arrow"));
+
     //Zombies
     public static final RegistryObject<EntityType<Scorched>> SCORCHED =
             ENTITY_TYPES.register("scorched", () -> EntityType.Builder.of(Scorched::new, MobCategory.MONSTER)
@@ -51,6 +59,14 @@ public class ECEntityTypes {
     public static final RegistryObject<EntityType<SoulReaper>> SOUL_REAPER =
             ENTITY_TYPES.register("soul_reaper", () -> EntityType.Builder.of(SoulReaper::new, MobCategory.MONSTER)
                     .sized(0.6F, 1.99F).build("soul_reaper"));
+
+    public static final RegistryObject<EntityType<Tlalocquian>> TLALOCQUIAN =
+            ENTITY_TYPES.register("tlalocquian", () -> EntityType.Builder.of(Tlalocquian::new, MobCategory.MONSTER)
+                    .sized(0.6F, 1.99F).build("tlalocquian"));
+
+    public static final RegistryObject<EntityType<Sunken>> SUNKEN =
+            ENTITY_TYPES.register("sunken", () -> EntityType.Builder.of(Sunken::new, MobCategory.MONSTER)
+                    .sized(0.6F, 1.99F).build("sunken"));
 
     public static void register(IEventBus eventBus){
         ElementalCreatures.LOGGER.info("Registering Elemental Creatures entities...");

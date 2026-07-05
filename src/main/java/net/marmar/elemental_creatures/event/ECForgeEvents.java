@@ -16,8 +16,6 @@ import net.minecraft.world.entity.monster.Skeleton;
 import net.minecraft.world.entity.monster.Zombie;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.biome.Biome;
-import net.minecraft.world.level.biome.Biomes;
-import net.minecraftforge.common.Tags;
 import net.minecraftforge.event.ForgeEventFactory;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.MobSpawnEvent;
@@ -28,7 +26,7 @@ import net.minecraftforge.fml.common.Mod;
 @Mod.EventBusSubscriber(modid = ElementalCreatures.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class ECForgeEvents {
     @SubscribeEvent
-    public static void onLivingEntityTick(LivingEvent event){
+    public static void onLivingEntityTick(LivingEvent.LivingTickEvent event){
         LivingEntity entity = event.getEntity();
 
         if (entity == null)
@@ -44,21 +42,28 @@ public class ECForgeEvents {
         if (!(event.getEntity() instanceof Zombie zombie) || zombie.getClass() != Zombie.class)
             return;
 
-        if (zombie.getSpawnType() != MobSpawnType.NATURAL)
+        if (zombie.getSpawnType() == MobSpawnType.SPAWN_EGG)
             return;
-
 
         ServerLevelAccessor level = event.getLevel();
         BlockPos pos = zombie.blockPosition();
         Holder<Biome> biome = level.getBiome(pos);
         RandomSource random = zombie.getRandom();
 
-        if (biome.is(ECTags.Biomes.CAN_SPAWN_LOST) && random.nextFloat() < 0.8f && ECConfig.SPAWN_LOST.get()) {
+        if (ECConfig.SPAWN_SCORCHED.get() && biome.is(ECTags.Biomes.CAN_SPAWN_SCORCHED) && random.nextDouble() < ECConfig.SCORCHED_SPAWN_RATE.get()) {
+            spawnReplacement(ECEntityTypes.SCORCHED.get(), event, level, pos);
+        }
+
+        if (ECConfig.SPAWN_LOST.get() && biome.is(ECTags.Biomes.CAN_SPAWN_LOST) && random.nextDouble() < ECConfig.LOST_SPAWN_RATE.get()) {
             spawnReplacement(ECEntityTypes.LOST.get(), event, level, pos);
         }
 
-        if (biome.is(Tags.Biomes.IS_SWAMP) && random.nextFloat() < 0.8f && ECConfig.SPAWN_ROTTEN.get()) {
+        if (ECConfig.SPAWN_ROTTEN.get() && biome.is(ECTags.Biomes.CAN_SPAWN_ROTTEN) && random.nextDouble() < ECConfig.ROTTEN_SPAWN_RATE.get()) {
             spawnReplacement(ECEntityTypes.ROTTEN.get(), event, level, pos);
+        }
+
+        if (ECConfig.SPAWN_ILLAPISTA.get() && biome.is(ECTags.Biomes.CAN_SPAWN_ILLAPISTA) && random.nextDouble() < ECConfig.ILLAPISTA_SPAWN_RATE.get()) {
+            spawnReplacement(ECEntityTypes.ILLAPISTA.get(), event, level, pos);
         }
     }
 
@@ -75,9 +80,16 @@ public class ECForgeEvents {
         Holder<Biome> biome = level.getBiome(pos);
         RandomSource random = skeleton.getRandom();
 
-        if (biome.is(Biomes.SOUL_SAND_VALLEY) && random.nextFloat() < 0.8f && ECConfig.SPAWN_SOUL_REAPER.get()){
-            ElementalCreatures.LOGGER.info("Triying to spawn Soul Reaper at: {}, the Biome is: {}", pos, biome);
+        if (ECConfig.SPAWN_SOUL_REAPER.get() && biome.is(ECTags.Biomes.CAN_SPAWN_SOUL_REAPER) && random.nextDouble() < ECConfig.SOUL_REAPER_SPAWN_RATE.get()){
             spawnReplacement(ECEntityTypes.SOUL_REAPER.get(), event, level, pos);
+        }
+
+        if (ECConfig.SPAWN_TLALOCQUIAN.get() && biome.is(ECTags.Biomes.CAN_SPAWN_TLALOCQUIAN) && random.nextDouble() < ECConfig.TLALOCQUIAN_SPAWN_RATE.get()){
+            spawnReplacement(ECEntityTypes.TLALOCQUIAN.get(), event, level, pos);
+        }
+
+        if (ECConfig.SPAWN_SUNKEN.get() && biome.is(ECTags.Biomes.CAN_SPAWN_SUNKEN) && random.nextDouble() < ECConfig.SUNKEN_SPAWN_RATE.get()){
+            spawnReplacement(ECEntityTypes.SUNKEN.get(), event, level, pos);
         }
     }
 
@@ -87,11 +99,12 @@ public class ECForgeEvents {
             return;
 
         Mob original = event.getEntity();
-        replacement.moveTo(pPos.getX() + 0.5f, pPos.getY(), pPos.getZ() + 0.5f, original.getYRot(), original.getXRot());
+        replacement.moveTo(pPos.getX() + 1f, pPos.getY(), pPos.getZ() + 1f, original.getYRot(), original.getXRot());
 
         ForgeEventFactory.onFinalizeSpawn(replacement, pLevel, event.getDifficulty(), MobSpawnType.NATURAL, null, null);
 
-        pLevel.addFreshEntity(replacement);
+        pLevel.addFreshEntityWithPassengers(replacement);
+
         event.setResult(Event.Result.DENY);
     }
 }

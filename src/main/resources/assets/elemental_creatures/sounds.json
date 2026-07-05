@@ -1,0 +1,130 @@
+{
+  "scorched_ambient": {
+    "subtitles": "sound.elemental_creatures.scorched_ambient",
+    "sounds": [
+      "elemental_creatures:entity/zombie/scorched/scorched_idle1",
+      "elemental_creatures:entity/zombie/scorched/scorched_idle2",
+      "elemental_creatures:entity/zombie/scorched/scorched_idle3"
+    ]
+  },
+  "scorched_step": {
+    "subtitles": "sound.elemental_creatures.scorched_step",
+    "sounds": [
+      "elemental_creatures:entity/zombie/scorched/scorched_step1",
+      "elemental_creatures:entity/zombie/scorched/scorched_step2",
+      "elemental_creatures:entity/zombie/scorched/scorched_step3",
+      "elemental_creatures:entity/zombie/scorched/scorched_step4",
+      "elemental_creatures:entity/zombie/scorched/scorched_step5"
+    ]
+  },
+  "scorched_hurt": {
+    "subtitles": "sound.elemental_creatures.scorched_hurt",
+    "sounds": [
+      "elemental_creatures:entity/zombie/scorched/scorched_hurt1",
+      "elemental_creatures:entity/zombie/scorched/scorched_hurt2"
+    ]
+  },
+  "scorched_death": {
+    "subtitles": "sound.elemental_creatures.scorched_death",
+    "sounds": [
+      "elemental_creatures:entity/zombie/scorched/scorched_death"
+    ]
+  },
+
+  "lost_ambient": {
+    "subtitles": "sound.elemental_creatures.lost_ambient",
+    "sounds": [
+      "elemental_creatures:entity/zombie/lost/lost_idle1",
+      "elemental_creatures:entity/zombie/lost/lost_idle2",
+      "elemental_creatures:entity/zombie/lost/lost_idle3"
+    ]
+  },
+  "lost_step": {
+    "subtitles": "sound.elemental_creatures.lost_step",
+    "sounds": [
+      "elemental_creatures:entity/zombie/lost/lost_step1",
+      "elemental_creatures:entity/zombie/lost/lost_step2",
+      "elemental_creatures:entity/zombie/lost/lost_step3",
+      "elemental_creatures:entity/zombie/lost/lost_step4",
+      "elemental_creatures:entity/zombie/lost/lost_step5"
+    ]
+  },
+  "lost_hurt": {
+    "subtitles": "sound.elemental_creatures.lost_hurt",
+    "sounds": [
+      "elemental_creatures:entity/zombie/lost/lost_hurt1",
+      "elemental_creatures:entity/zombie/lost/lost_hurt2"
+    ]
+  },
+  "lost_death": {
+    "subtitles": "sound.elemental_creatures.lost_death",
+    "sounds": [
+      "elemental_creatures:entity/zombie/lost/lost_death"
+    ]
+  },
+
+  "rotten_ambient": {
+    "subtitles": "sound.elemental_creatures.rotten_ambient",
+    "sounds": [
+      "elemental_creatures:entity/zombie/rotten/rotten_idle1",
+      "elemental_creatures:entity/zombie/rotten/rotten_idle2",
+      "elemental_creatures:entity/zombie/rotten/rotten_idle3"
+    ]
+  },
+  "rotten_step": {
+    "subtitles": "sound.elemental_creatures.rotten_step",
+    "sounds": [
+      "elemental_creatures:entity/zombie/rotten/rotten_step1",
+      "elemental_creatures:entity/zombie/rotten/rotten_step2",
+      "elemental_creatures:entity/zombie/rotten/rotten_step3",
+      "elemental_creatures:entity/zombie/rotten/rotten_step4",
+      "elemental_creatures:entity/zombie/rotten/rotten_step5"
+    ]
+  },
+  "rotten_hurt": {
+    "subtitles": "sound.elemental_creatures.rotten_hurt",
+    "sounds": [
+      "elemental_creatures:entity/zombie/rotten/rotten_hurt1",
+      "elemental_creatures:entity/zombie/rotten/rotten_hurt2"
+    ]
+  },
+  "rotten_death": {
+    "subtitles": "sound.elemental_creatures.rotten_death",
+    "sounds": [
+      "elemental_creatures:entity/zombie/rotten/rotten_death"
+    ]
+  },
+
+  "soul_reaper_ambient": {
+    "subtitles": "sound.elemental_creatures.soul_reaper_ambient",
+    "sounds": [
+      "elemental_creatures:entity/skeleton/soul_reaper/soul_reaper_idle1",
+      "elemental_creatures:entity/skeleton/soul_reaper/soul_reaper_idle2",
+      "elemental_creatures:entity/skeleton/soul_reaper/soul_reaper_idle3"
+    ]
+  },
+  "soul_reaper_step": {
+    "subtitles": "sound.elemental_creatures.soul_reaper_step",
+    "sounds": [
+      "elemental_creatures:entity/skeleton/soul_reaper/soul_reaper_step1",
+      "elemental_creatures:entity/skeleton/soul_reaper/soul_reaper_step2",
+      "elemental_creatures:entity/skeleton/soul_reaper/soul_reaper_step3",
+      "elemental_creatures:entity/skeleton/soul_reaper/soul_reaper_step4"
+    ]
+  },
+  "soul_reaper_hurt": {
+    "subtitles": "sound.elemental_creatures.soul_reaper_hurt",
+    "sounds": [
+      "elemental_creatures:entity/skeleton/soul_reaper/soul_reaper_hurt1",
+      "elemental_creatures:entity/skeleton/soul_reaper/soul_reaper_hurt2",
+      "elemental_creatures:entity/skeleton/soul_reaper/soul_reaper_hurt3",
+      "elemental_creatures:entity/skeleton/soul_reaper/soul_reaper_hurt4"
+    ]
+  },
+  "soul_reaper_death": {
+    "subtitles": "sound.elemental_creatures.soul_reaper_death",
+    "sounds": [
+      "elemental_creatures:entity/skeleton/soul_reaper/soul_reaper_death"
+    ]
+  }
+}

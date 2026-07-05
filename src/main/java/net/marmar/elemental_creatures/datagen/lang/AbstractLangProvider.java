@@ -18,6 +18,13 @@ public abstract class AbstractLangProvider extends LanguageProvider {
         this.add("tab." + ElementalCreatures.MOD_ID + "." + pTab, pName);
     }
 
+    protected void addMobSubtitles(String pMob, String pIdle, String pStep, String pHurt, String pDeath){
+        this.add("sound." + ElementalCreatures.MOD_ID + "." + pMob + "_ambient", pIdle);
+        this.add("sound." + ElementalCreatures.MOD_ID + "." + pMob + "_step", pStep);
+        this.add("sound." + ElementalCreatures.MOD_ID + "." + pMob + "_hurt", pHurt);
+        this.add("sound." + ElementalCreatures.MOD_ID + "." + pMob + "_death", pDeath);
+    }
+
     protected void addZombieType(EntityType<? extends Zombie> pZombie, String pName, RegistryObject<Item> pEgg, String pEggName){
         this.add(pZombie, pName);
         this.addItem(pEgg, pEggName);

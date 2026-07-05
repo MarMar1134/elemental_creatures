@@ -21,7 +21,8 @@ public class ECItemTagGenerator extends ItemTagsProvider {
     protected void addTags(HolderLookup.Provider pProvider) {
         this.tag(ItemTags.ARROWS).add(
                 ECItems.LIGHTNING_ARROW.get(),
-                ECItems.SOUL_ARROW.get()
+                ECItems.SOUL_ARROW.get(),
+                ECItems.PRISMARINE_ARROW.get()
         );
     }
 }

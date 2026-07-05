@@ -13,10 +13,10 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 @SuppressWarnings("removal")
 public class SoulReaperRenderer extends SkeletonRenderer {
     private static final ResourceLocation SOUL_REAPER_LOCATION = new ResourceLocation(ElementalCreatures.MOD_ID,
-            "textures/entity/skeleton/soul_reaper.png");
+            "textures/entity/skeleton/soul_reaper/soul_reaper.png");
 
     public SoulReaperRenderer(EntityRendererProvider.Context pContext) {
-        super(pContext, ECModelLayers.SOUL_REAPER, ECModelLayers.LOST_INNER_ARMOR, ECModelLayers.SOUL_REAPER_OUTER_ARMOR);
+        super(pContext, ECModelLayers.SOUL_REAPER, ECModelLayers.SOUL_REAPER_INNER_ARMOR, ECModelLayers.SOUL_REAPER_OUTER_ARMOR);
 
         this.addLayer(new SoulReaperOuterLayer<>(this, pContext.getModelSet()));
     }

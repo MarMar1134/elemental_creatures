@@ -19,6 +19,7 @@ public class ECItemModelProvider extends ItemModelProvider {
         //Projectiles
         addItem(ECItems.LIGHTNING_ARROW);
         addItem(ECItems.SOUL_ARROW);
+        addItem(ECItems.PRISMARINE_ARROW);
 
         //Zombie spawn eggs
         spawnEggItem(ECItems.SCORCHED_SPAWN_EGG);
@@ -28,6 +29,8 @@ public class ECItemModelProvider extends ItemModelProvider {
 
         //Skeleton spawn eggs
         spawnEggItem(ECItems.SOUL_REAPER_SPAWN_EGG);
+        spawnEggItem(ECItems.TLALOCQUIAN_SPAWN_EGG);
+        spawnEggItem(ECItems.SUNKEN_SPAWN_EGG);
     }
 
     private ItemModelBuilder addItem(RegistryObject<Item> pItem){

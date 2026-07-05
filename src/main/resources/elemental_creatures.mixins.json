@@ -4,8 +4,10 @@
   "package": "net.marmar.elemental_creatures.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "EntityMixin",
-    "ZombieMixin"
+    "block.BaseFireBlockMixin",
+    "entity.EntityMixin",
+    "entity.LivingEntityMixin",
+    "entity.ZombieMixin"
   ],
   "injectors": {
     "defaultRequire": 1
