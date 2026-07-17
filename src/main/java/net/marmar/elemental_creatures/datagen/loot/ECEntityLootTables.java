@@ -11,7 +11,6 @@ import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.LootingEnchantFunction;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
-import net.minecraft.world.level.storage.loot.functions.SetItemDamageFunction;
 import net.minecraft.world.level.storage.loot.functions.SetPotionFunction;
 import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceWithLootingCondition;
@@ -21,28 +20,42 @@ import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import java.util.function.BiConsumer;
 
 public class ECEntityLootTables implements LootTableSubProvider {
+    //Zombies
     public static final ResourceLocation SCORCHED = register("scorched");
+    public static final ResourceLocation SOUL_SCORCHED = register("soul_scorched");
     public static final ResourceLocation LOST = register("lost");
     public static final ResourceLocation ROTTEN = register("rotten");
     public static final ResourceLocation ILLAPISTA = register("illapista");
 
+    //Skeletons
     public static final ResourceLocation SOUL_REAPER = register("soul_reaper");
+    public static final ResourceLocation SUNKEN = register("sunken");
+    public static final ResourceLocation DRIED = register("dried");
+    public static final ResourceLocation PUTRID = register("putrid");
 
     @Override
     public void generate(BiConsumer<ResourceLocation, LootTable.Builder> pOutput) {
         pOutput.accept(SCORCHED, generateScorchedLootTable());
+        pOutput.accept(SOUL_SCORCHED, generateScorchedLootTable());
         pOutput.accept(LOST, generateLostLootTable());
         pOutput.accept(ROTTEN, generateRottenLootTable());
 
         pOutput.accept(SOUL_REAPER, generateSoulReaperLootTable());
+        pOutput.accept(SUNKEN, generateSunkenLootTable());
+        pOutput.accept(DRIED, generateDriedLootTable());
+        pOutput.accept(PUTRID, generatePutridLootTable());
     }
 
+    //Zombies
     private LootTable.Builder generateScorchedLootTable(){
         return LootTable.lootTable()
                 .withPool(LootPool.lootPool().setBonusRolls(ConstantValue.exactly(1))
                         .add(LootItem.lootTableItem(Items.ROTTEN_FLESH)
                                 .apply(SetItemCountFunction.setCount(UniformGenerator.between(0, 3)))
                                 .apply(LootingEnchantFunction.lootingMultiplier(ConstantValue.exactly(1))))
+                        .add(LootItem.lootTableItem(Items.CHARCOAL)
+                                .when(LootItemRandomChanceWithLootingCondition.randomChanceAndLootingBoost(0.5f, 0.1f))
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1, 2))))
                 )
                 .withPool(LootPool.lootPool().setBonusRolls(ConstantValue.exactly(1))
                         .add(LootItem.lootTableItem(Items.BAKED_POTATO)
@@ -97,6 +110,7 @@ public class ECEntityLootTables implements LootTableSubProvider {
                 );
     }
 
+    //Skeletons
     private LootTable.Builder generateSoulReaperLootTable(){
         return LootTable.lootTable()
                 .withPool(LootPool.lootPool().setBonusRolls(ConstantValue.exactly(1))
@@ -111,9 +125,71 @@ public class ECEntityLootTables implements LootTableSubProvider {
                         .add(LootItem.lootTableItem(Items.SOUL_TORCH)
                                 .when(LootItemRandomChanceWithLootingCondition.randomChanceAndLootingBoost(0.083f, 0.1f))
                                 .apply(SetItemCountFunction.setCount(UniformGenerator.between(0, 3))))
-                        .add(LootItem.lootTableItem(Items.BOW)
-                                .when(LootItemRandomChanceWithLootingCondition.randomChanceAndLootingBoost(0.085f, 0.1f))
-                                .apply(SetItemDamageFunction.setDamage(UniformGenerator.between(50, 340))))
+//                        .add(LootItem.lootTableItem(Items.BOW)
+//                                .when(LootItemRandomChanceWithLootingCondition.randomChanceAndLootingBoost(0.085f, 0.1f))
+//                                .apply(SetItemDamageFunction.setDamage(UniformGenerator.between(50, 340))))
+                );
+    }
+
+    private LootTable.Builder generateSunkenLootTable(){
+        return LootTable.lootTable()
+                .withPool(LootPool.lootPool().setBonusRolls(ConstantValue.exactly(1))
+                        .add(LootItem.lootTableItem(ECItems.PRISMARINE_ARROW.get())
+                                .when(LootItemRandomChanceWithLootingCondition.randomChanceAndLootingBoost(0.66f, 0.1f))
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(0, 2))))
+                        .add(LootItem.lootTableItem(Items.BONE)
+                                .when(LootItemRandomChanceWithLootingCondition.randomChanceAndLootingBoost(0.66f, 0.1f))
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(0,2))))
+                )
+                .withPool(LootPool.lootPool().setBonusRolls(ConstantValue.exactly(1))
+                                .add(LootItem.lootTableItem(Items.PRISMARINE_SHARD)
+                                        .when(LootItemRandomChanceWithLootingCondition.randomChanceAndLootingBoost(0.083f, 0.1f))
+                                        .apply(SetItemCountFunction.setCount(ConstantValue.exactly(1))))
+                        .add(LootItem.lootTableItem(Items.SEAGRASS)
+                                .when(LootItemRandomChanceWithLootingCondition.randomChanceAndLootingBoost(0.66f, 0.1f))
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(0, 2))))
+                );
+    }
+
+    private LootTable.Builder generateDriedLootTable(){
+        return LootTable.lootTable()
+                .withPool(LootPool.lootPool().setBonusRolls(ConstantValue.exactly(1))
+                        .add(LootItem.lootTableItem(Items.TIPPED_ARROW)
+                                .when(LootItemRandomChanceWithLootingCondition.randomChanceAndLootingBoost(0.66f, 0.1f))
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(0, 2)))
+                                .apply(SetPotionFunction.setPotion(Potions.WEAKNESS)))
+                        .add(LootItem.lootTableItem(Items.BONE)
+                                .when(LootItemRandomChanceWithLootingCondition.randomChanceAndLootingBoost(0.66f, 0.1f))
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(0,2))))
+                )
+                .withPool(LootPool.lootPool().setBonusRolls(ConstantValue.exactly(1))
+                        .add(LootItem.lootTableItem(Items.STRING)
+                                .when(LootItemRandomChanceWithLootingCondition.randomChanceAndLootingBoost(0.083f, 0.1f))
+                                .apply(SetItemCountFunction.setCount(ConstantValue.exactly(1))))
+                        .add(LootItem.lootTableItem(Items.SAND)
+                                .when(LootItemRandomChanceWithLootingCondition.randomChanceAndLootingBoost(0.66f, 0.1f))
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(0, 2))))
+                );
+    }
+
+    private LootTable.Builder generatePutridLootTable(){
+        return LootTable.lootTable()
+                .withPool(LootPool.lootPool().setBonusRolls(ConstantValue.exactly(1))
+                        .add(LootItem.lootTableItem(Items.TIPPED_ARROW)
+                                .when(LootItemRandomChanceWithLootingCondition.randomChanceAndLootingBoost(0.66f, 0.1f))
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(0, 2)))
+                                .apply(SetPotionFunction.setPotion(Potions.POISON)))
+                        .add(LootItem.lootTableItem(Items.BONE)
+                                .when(LootItemRandomChanceWithLootingCondition.randomChanceAndLootingBoost(0.66f, 0.1f))
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(0,2))))
+                )
+                .withPool(LootPool.lootPool().setBonusRolls(ConstantValue.exactly(1))
+                        .add(LootItem.lootTableItem(Items.LILY_PAD)
+                                .when(LootItemRandomChanceWithLootingCondition.randomChanceAndLootingBoost(0.083f, 0.1f))
+                                .apply(SetItemCountFunction.setCount(ConstantValue.exactly(1))))
+                        .add(LootItem.lootTableItem(Items.STICK)
+                                .when(LootItemRandomChanceWithLootingCondition.randomChanceAndLootingBoost(0.66f, 0.1f))
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(0, 2))))
                 );
     }
 

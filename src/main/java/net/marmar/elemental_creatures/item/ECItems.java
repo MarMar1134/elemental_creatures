@@ -28,15 +28,15 @@ public class ECItems {
     public static final RegistryObject<Item> SCORCHED_SPAWN_EGG = ITEMS.register(
             "scorched_spawn_egg", () -> new ForgeSpawnEggItem(ECEntityTypes.SCORCHED, 0x53310d,
                     0xac6e2a, new Item.Properties()));
-
+    public static final RegistryObject<Item> SOUL_SCORCHED_SPAWN_EGG = ITEMS.register(
+            "soul_scorched_spawn_egg", () -> new ForgeSpawnEggItem(ECEntityTypes.SOUL_SCORCHED, 0x113b3c,
+                    0x3f483e, new Item.Properties()));
     public static final RegistryObject<Item> LOST_SPAWN_EGG = ITEMS.register(
             "lost_spawn_egg", () -> new ForgeSpawnEggItem(ECEntityTypes.LOST, 0x525a51,
                     0x4c4630, new Item.Properties()));
-
     public static final RegistryObject<Item> ROTTEN_SPAWN_EGG = ITEMS.register(
             "rotten_spawn_egg", () -> new ForgeSpawnEggItem(ECEntityTypes.ROTTEN, 0x343a4c,
                     0x71955b, new Item.Properties()));
-
     public static final RegistryObject<Item> ILLAPISTA_SPAWN_EGG = ITEMS.register(
             "illapista_spawn_egg", () -> new ForgeSpawnEggItem(ECEntityTypes.ILLAPISTA, 0x6d1604,
                     0x3a4730, new Item.Properties()));
@@ -45,13 +45,18 @@ public class ECItems {
     public static final RegistryObject<Item> SOUL_REAPER_SPAWN_EGG = ITEMS.register(
             "soul_reaper_spawn_egg", () -> new ForgeSpawnEggItem(ECEntityTypes.SOUL_REAPER, 0x292420,
                     0x01a7ac, new Item.Properties()));
-
     public static final RegistryObject<Item> TLALOCQUIAN_SPAWN_EGG = ITEMS.register(
             "tlalocquian_spawn_egg", () -> new ForgeSpawnEggItem(ECEntityTypes.TLALOCQUIAN, 0x979797,
                     0x061e83, new Item.Properties()));
     public static final RegistryObject<Item> SUNKEN_SPAWN_EGG = ITEMS.register(
             "sunken_spawn_egg", () -> new ForgeSpawnEggItem(ECEntityTypes.SUNKEN, 0x40615f,
                     0x53ba73, new Item.Properties()));
+    public static final RegistryObject<Item> DRIED_SPAWN_EGG = ITEMS.register(
+            "dried_spawn_egg", () -> new ForgeSpawnEggItem(ECEntityTypes.DRIED, 0x74746b,
+                    0x9e8a5f, new Item.Properties()));
+    public static final RegistryObject<Item> PUTRID_SPAWN_EGG = ITEMS.register(
+            "putrid_spawn_egg", () -> new ForgeSpawnEggItem(ECEntityTypes.PUTRID, 0xcbccbb,
+                    0x212c06, new Item.Properties()));
 
     public static void register(IEventBus eventBus){
         ElementalCreatures.LOGGER.info("Registering Elemental Creatures items...");

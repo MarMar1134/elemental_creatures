@@ -23,7 +23,7 @@ public class SoulReaper extends AbstractSkeleton {
         super(pEntityType, pLevel);
     }
 
-    public static AttributeSupplier.Builder createAttributes() {
+    public static AttributeSupplier.Builder createSoulReaperAttributes() {
         return Monster.createMonsterAttributes()
                 .add(Attributes.MAX_HEALTH, 26f)
                 .add(Attributes.ARMOR, 4f)

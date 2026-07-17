@@ -1,10 +1,12 @@
 package net.marmar.elemental_creatures.entity.zombie;
 
 import net.marmar.elemental_creatures.util.ECSounds;
+import net.marmar.elemental_creatures.util.SoulFireUtils;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.monster.Monster;
@@ -16,7 +18,7 @@ public class Scorched extends Zombie {
         super(pEntityType, pLevel);
     }
 
-    public static AttributeSupplier.Builder createAttributes(){
+    public static AttributeSupplier.Builder createScorchedAttributes(){
         return Monster.createMonsterAttributes()
                 .add(Attributes.FOLLOW_RANGE, 20.0f)
                 .add(Attributes.MOVEMENT_SPEED, 0.26f)
@@ -47,12 +49,21 @@ public class Scorched extends Zombie {
         return ECSounds.SCORCHED_DEATH.get();
     }
 
-    @Override
-    public boolean doHurtTarget(Entity pEntity) {
+    protected boolean applySoulFire(Entity pEntity, boolean isSoulFire){
         float timeOnFire = this.level().getCurrentDifficultyAt(this.blockPosition()).getEffectiveDifficulty();
-        pEntity.setSecondsOnFire(2 * (int)timeOnFire);
+
+        if (isSoulFire){
+            SoulFireUtils.applySoulFire((LivingEntity) pEntity, (int) (2 * timeOnFire));
+        } else {
+            pEntity.setSecondsOnFire(2 * (int)timeOnFire);
+        }
 
         return super.doHurtTarget(pEntity);
+    }
+
+    @Override
+    public boolean doHurtTarget(Entity pEntity) {
+        return applySoulFire(pEntity, false);
     }
 
     @Override

@@ -1,6 +1,7 @@
 package net.marmar.elemental_creatures.mixin.entity;
 
 import net.marmar.elemental_creatures.entity.ECEntityTypes;
+import net.marmar.elemental_creatures.util.SoulFireUtils;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageTypes;
@@ -15,20 +16,21 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(Zombie.class)
 public class ZombieMixin {
     @Unique
-    private int timeInLava;
+    private int timeOnFire;
 
     @Unique
     private int timeToFreeze;
 
+
     @Inject(method = "addAdditionalSaveData", at = @At("RETURN"))
     private void writeAdditional(CompoundTag pCompound, CallbackInfo ci){
-        pCompound.putInt("elemental_creatures.timeInLava", timeInLava);
+        pCompound.putInt("elemental_creatures.timeInLava", timeOnFire);
         pCompound.putInt("elemental_creatures.timeToFreeze", timeToFreeze);
     }
 
     @Inject(method = "readAdditionalSaveData", at = @At("RETURN"))
     private void readAdditional(CompoundTag pCompound, CallbackInfo ci){
-        timeInLava = pCompound.getInt("elemental_creatures.timeInLava");
+        timeOnFire = pCompound.getInt("elemental_creatures.timeInLava");
         timeToFreeze = pCompound.getInt("elemental_creatures.timeToFreeze");
     }
 
@@ -45,19 +47,21 @@ public class ZombieMixin {
             if (timeToFreeze >= 200){
                 self.convertTo(ECEntityTypes.LOST.get(), true);
             }
-
         } else {
             timeToFreeze = 0;
         }
 
-        if (self.isInLava()){
-            timeInLava++;
+        if (self.isInLava() || self.isOnFire()){
+            timeOnFire++;
 
-            if (timeInLava >= 200){
-                self.convertTo(ECEntityTypes.SCORCHED.get(), true);
+            if (timeOnFire >= 300){
+                if (SoulFireUtils.hasSoulFire(self))
+                    self.convertTo(ECEntityTypes.SOUL_SCORCHED.get(), true);
+                else
+                    self.convertTo(ECEntityTypes.SCORCHED.get(), true);
             }
         } else {
-            timeInLava = 0;
+            timeOnFire = 0;
         }
     }
 

@@ -1,5 +1,7 @@
-// 1.20.1	2026-07-02T22:48:56.6686082	Tags for minecraft:worldgen/biome mod id elemental_creatures
+// 1.20.1	2026-07-17T16:00:37.581988	Tags for minecraft:worldgen/biome mod id elemental_creatures
+f3ef2895c49e29111297e950661e5bc71a79989e data/elemental_creatures/tags/worldgen/biome/can_spawn_dried.json
 eee64b20d55679cbbd779fa70cce02840f0f29da data/elemental_creatures/tags/worldgen/biome/can_spawn_lost.json
-6525dda69924a36f16797ed873bffc083e1f4de5 data/elemental_creatures/tags/worldgen/biome/can_spawn_rotten.json
+34772c1d36ab2f676e7eac5fe6e46ad9799d30db data/elemental_creatures/tags/worldgen/biome/can_spawn_putrid.json
+34772c1d36ab2f676e7eac5fe6e46ad9799d30db data/elemental_creatures/tags/worldgen/biome/can_spawn_rotten.json
 15343ca7e7931ca3b093f52c77b5d7fae920fed9 data/elemental_creatures/tags/worldgen/biome/can_spawn_soul_reaper.json
-1aa070a87fa86fbdcfe42fe151f6c30ec6a1957f data/elemental_creatures/tags/worldgen/biome/can_spawn_sunken.json
+3a061a482cf49c0f639d2a05d1b3629175140c30 data/elemental_creatures/tags/worldgen/biome/can_spawn_sunken.json

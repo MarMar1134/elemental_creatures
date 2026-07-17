@@ -1,5 +1,9 @@
-// 1.20.1	2026-06-15T12:42:41.3626335	Loot Tables
+// 1.20.1	2026-07-17T16:00:37.5849793	Loot Tables
+0ac0533a26c66ba68ae3998cdf46718d154e1f68 data/elemental_creatures/loot_tables/entities/dried.json
 1a33c8d5fb9997f8cd023a6afaadae4c15c88761 data/elemental_creatures/loot_tables/entities/lost.json
+10755262add352e49842a34c9ba3897fb5a52ee0 data/elemental_creatures/loot_tables/entities/putrid.json
 c8ebe2eba3e065e8e16d290dee1603c2d981a528 data/elemental_creatures/loot_tables/entities/rotten.json
-ccea1309b83cc977c6e582fbc5dc87b4e1b01bc4 data/elemental_creatures/loot_tables/entities/scorched.json
-dafdc9391c0f7c1860e6abfd35838ea4ae99a457 data/elemental_creatures/loot_tables/entities/soul_reaper.json
+06a37423fbe1b96b1e79598c8c95923e53b043a5 data/elemental_creatures/loot_tables/entities/scorched.json
+ce6e06c29f5123594dfd9ad2d9f2f12363b56fb1 data/elemental_creatures/loot_tables/entities/soul_reaper.json
+4389ee0a743bfd011887ea5ab95a74dbc0537c1b data/elemental_creatures/loot_tables/entities/soul_scorched.json
+b55484a081b5a3440101d2945fad6618169e0a0a data/elemental_creatures/loot_tables/entities/sunken.json

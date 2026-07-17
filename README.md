@@ -11,19 +11,29 @@ There are five new zombie variants awarding for you. Most of then even spawn nat
     The Lost frosts the player on touch, and generates alongside Strays. They also generates when a Zombie freezes without lethal damage.
 - ### The Scorched
     The Scorched ignites the player on touch, but can't spawn naturally on the Overworld.
-    Scorcheds are generated when a Zombie stays on lava for 10 seconds (try to don't give them Fire Resistance!)
+    Scorcheds are generated when a Zombie stays on fire for 15 seconds or more.
+  - ### Soul Scorched
+    If a Zombie stays on blue fire for 15 seconds, it will become a Soul Scorched instead. Soul Scorcheds have less health but more damage, so be careful.
 - ### Worshipper of Illapa
     This loyal follower of the Gods inflicts lightning damage, which penetrates armor, and has double damage points than a
     regular Zombie. Is generated when a Zombie is struck by a Lightning Bolt.
 ---
 
 ## Skeletons
-There are three new skeleton variants.
+There are five new skeleton variants.
 - ### Soul Reaper
   Soul Reapers spawn on Soul Sand Valleys, which are in the Nether, and shoot special arrows that inflicts soul fire to the target.
 - ### Follower of Tláloc
   This loyal follower of the Gods shoots a new type of arrow, Lightning arrows, which inflict lightning damage. Followers of Tláloc can't spawn naturally, but are
   generated when a Skeleton is struck with a Lightning Bolt.
+- ### The Sunken
+  The Sunken is an underwater mob similar to the Drowned. It shoots the new Prismarine Arrows, which travels the water like if it was air.
+  Sunkens are generated when a Skeleton stays underwater for 30 or more seconds.
+- ### The Dried
+  The Dried is a backport of vanilla's Parched, behaving like the vanilla one. Spawns on deserts, with an 80% chance to replace Skeletons. Shoots weakness arrows.
+  Like the Husk, if a Dried stays on water 30 seconds or more, it will be converted to a Skeleton.
+- ### The Putrid
+  The Putrid is a backport of vanilla's Bogged. Spawns naturally on swamps, mangrove swamps and lush caves, with an 80% chance of replace a Skeleton. Shoots poisonous arrows.
 ---
 
 ## Compatibility
@@ -45,3 +55,7 @@ There are three new skeleton variants.
 - You can create forks and addons for/of this mod. Forks need credits retribution.
 - Some sounds utilize alternative licenses, so here are the credits of its authors:
   - Fire Forest 2 by SoundReality -- https://freesound.org/s/819492/ -- License: Attribution NonCommercial 4.0
+  - Video Game SFX - Drowning sound by Breviceps -- https://freesound.org/s/445971/ -- License: Creative Commons 0
+  - Drowning Girl 2 by killbaybee -- https://freesound.org/s/321461/ -- License: Attribution 3.0
+  - drowning by RNAn_SoundDesign -- https://freesound.org/s/725874/ -- License: Creative Commons 0
+  - Steps_Fine_Snow_Or_Sand_Strong_29 by BlondPanda -- https://freesound.org/s/778568/ -- License: Creative Commons 0

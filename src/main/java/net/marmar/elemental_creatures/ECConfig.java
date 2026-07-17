@@ -10,6 +10,9 @@ public class ECConfig {
     public static final ForgeConfigSpec.BooleanValue SPAWN_SCORCHED;
     public static final ForgeConfigSpec.DoubleValue SCORCHED_SPAWN_RATE;
 
+    public static final ForgeConfigSpec.BooleanValue SPAWN_SOUL_SCORCHED;
+    public static final ForgeConfigSpec.DoubleValue SOUL_SCORCHED_SPAWN_RATE;
+
     public static final ForgeConfigSpec.BooleanValue SPAWN_LOST;
     public static final ForgeConfigSpec.DoubleValue LOST_SPAWN_RATE;
 
@@ -29,6 +32,12 @@ public class ECConfig {
     public static final ForgeConfigSpec.BooleanValue SPAWN_SUNKEN;
     public static final ForgeConfigSpec.DoubleValue SUNKEN_SPAWN_RATE;
 
+    public static final ForgeConfigSpec.BooleanValue SPAWN_DRIED;
+    public static final ForgeConfigSpec.DoubleValue DRIED_SPAWN_RATE;
+
+    public static final ForgeConfigSpec.BooleanValue SPAWN_PUTRID;
+    public static final ForgeConfigSpec.DoubleValue PUTRID_SPAWN_RATE;
+
     static {
         BUILDER.push("Elemental Creatures spawn configuration");
 
@@ -37,6 +46,11 @@ public class ECConfig {
                 .define("spawn_scorched", false);
         SCORCHED_SPAWN_RATE = BUILDER.comment("Determines the probability of a Zombie being replaced by a Scorched.")
                 .defineInRange("scorched_spawn_rate", 0.8d, 0.01d, 1d);
+
+        SPAWN_SOUL_SCORCHED = BUILDER.comment("Defines if the Soul Scorched can spawn naturally on the Overworld.")
+                .define("spawn_soul_scorched", false);
+        SOUL_SCORCHED_SPAWN_RATE = BUILDER.comment("Determines the probability of a Zombie being replaced by a Soul Scorched.")
+                .defineInRange("soul_scorched_spawn_rate", 0.8d, 0.01d, 1d);
 
         SPAWN_LOST = BUILDER.comment("Defines if the Lost can spawn naturally on the Overworld.")
                 .define("spawn_lost", true);
@@ -68,6 +82,16 @@ public class ECConfig {
                 .define("spawn_sunken", true);
         SUNKEN_SPAWN_RATE = BUILDER.comment("Determines the probability of a Sunken to be placed.")
                 .defineInRange("sunken_spawn_rate", 0.8d, 0.01d, 1d);
+
+        SPAWN_DRIED = BUILDER.comment("Defines if the Dried can spawn naturally on the Overworld.")
+                .define("spawn_dried", true);
+        DRIED_SPAWN_RATE = BUILDER.comment("Determines the probability of a Dried to be placed.")
+                .defineInRange("dried_spawn_rate", 0.8d, 0.01d, 1d);
+
+        SPAWN_PUTRID = BUILDER.comment("Defines if the Putrid can spawn naturally on the Overworld.")
+                .define("spawn_putrid", true);
+        PUTRID_SPAWN_RATE = BUILDER.comment("Determines the probability of a Putrid to be placed.")
+                .defineInRange("putrid_spawn_rate", 0.8d, 0.01d, 1d);
 
         BUILDER.pop();
         SPEC = BUILDER.build();

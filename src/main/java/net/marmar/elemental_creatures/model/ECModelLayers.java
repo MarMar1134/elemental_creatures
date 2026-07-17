@@ -11,6 +11,12 @@ public class ECModelLayers {
     public static final ModelLayerLocation SCORCHED_OUTER_ARMOR = registerOuterArmorLayer("scorched_outer_armor");
     public static final ModelLayerLocation SCORCHED_OUTER = registerOuterLayer("scorched_outer");
 
+    //Soul scorched
+    public static final ModelLayerLocation SOUL_SCORCHED = registerMainLayer("soul_scorched");
+    public static final ModelLayerLocation SOUL_SCORCHED_INNER_ARMOR = registerInnerArmorLayer("soul_scorched_inner_armor");
+    public static final ModelLayerLocation SOUL_SCORCHED_OUTER_ARMOR = registerOuterArmorLayer("soul_scorched_outer_armor");
+    public static final ModelLayerLocation SOUL_SCORCHED_OUTER = registerOuterLayer("soul_scorched_outer");
+
     //Lost
     public static final ModelLayerLocation LOST = registerMainLayer("lost");
     public static final ModelLayerLocation LOST_INNER_ARMOR = registerInnerArmorLayer("lost_inner_armor");
@@ -45,6 +51,18 @@ public class ECModelLayers {
     public static final ModelLayerLocation SUNKEN_INNER_ARMOR = registerInnerArmorLayer("sunken_inner_armor");
     public static final ModelLayerLocation SUNKEN_OUTER_ARMOR = registerOuterArmorLayer("sunken_outer_armor");
     public static final ModelLayerLocation SUNKEN_OUTER = registerOuterLayer("sunken_outer");
+
+    //Dried
+    public static final ModelLayerLocation DRIED = registerMainLayer("dried");
+    public static final ModelLayerLocation DRIED_INNER_ARMOR = registerInnerArmorLayer("dried_inner_armor");
+    public static final ModelLayerLocation DRIED_OUTER_ARMOR = registerOuterArmorLayer("dried_outer_armor");
+    public static final ModelLayerLocation DRIED_OUTER = registerOuterLayer("dried_outer");
+
+    //Putrid
+    public static final ModelLayerLocation PUTRID = registerMainLayer("putrid");
+    public static final ModelLayerLocation PUTRID_INNER_ARMOR = registerInnerArmorLayer("putrid_inner_armor");
+    public static final ModelLayerLocation PUTRID_OUTER_ARMOR = registerOuterArmorLayer("putrid_outer_armor");
+    public static final ModelLayerLocation PUTRID_OUTER = registerOuterLayer("putrid_outer");
 
     //Helpers
     @SuppressWarnings("removal")

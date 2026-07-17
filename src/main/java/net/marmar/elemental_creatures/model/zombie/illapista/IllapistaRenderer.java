@@ -17,13 +17,11 @@ public class IllapistaRenderer extends AbstractZombieRenderer<Illapista, ZombieM
         super(pContext, new ZombieModel<>(pContext.bakeLayer(ECModelLayers.ILLAPISTA)),
                 new ZombieModel<>(pContext.bakeLayer(ECModelLayers.ILLAPISTA_INNER_ARMOR)),
                 new ZombieModel<>(pContext.bakeLayer(ECModelLayers.ILLAPISTA_OUTER_ARMOR)));
-
-        //this.addLayer(new ScorchedOuterLayer<>(this, pContext.getModelSet()));
     }
 
     @Override
     @SuppressWarnings("removal")
     public ResourceLocation getTextureLocation(Zombie pEntity) {
-        return new ResourceLocation(ElementalCreatures.MOD_ID, "textures/entity/zombie/illapista.png");
+        return new ResourceLocation(ElementalCreatures.MOD_ID, "textures/entity/zombie/illapsita/illapista.png");
     }
 }

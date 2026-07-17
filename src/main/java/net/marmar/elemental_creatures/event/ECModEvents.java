@@ -2,13 +2,8 @@ package net.marmar.elemental_creatures.event;
 
 import net.marmar.elemental_creatures.ElementalCreatures;
 import net.marmar.elemental_creatures.entity.ECEntityTypes;
-import net.marmar.elemental_creatures.entity.skeleton.SoulReaper;
-import net.marmar.elemental_creatures.entity.skeleton.Sunken;
-import net.marmar.elemental_creatures.entity.skeleton.Tlalocquian;
-import net.marmar.elemental_creatures.entity.zombie.Illapista;
-import net.marmar.elemental_creatures.entity.zombie.Lost;
-import net.marmar.elemental_creatures.entity.zombie.Rotten;
-import net.marmar.elemental_creatures.entity.zombie.Scorched;
+import net.marmar.elemental_creatures.entity.skeleton.*;
+import net.marmar.elemental_creatures.entity.zombie.*;
 import net.marmar.elemental_creatures.network.ECNetwork;
 import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.level.levelgen.Heightmap;
@@ -23,15 +18,18 @@ public class ECModEvents {
     @SubscribeEvent
     public static void registerAttributes(EntityAttributeCreationEvent event){
         //Zombie attributes
-        event.put(ECEntityTypes.SCORCHED.get(), Scorched.createAttributes().build());
-        event.put(ECEntityTypes.LOST.get(), Lost.createAttributes().build());
-        event.put(ECEntityTypes.ROTTEN.get(), Rotten.createAttributes().build());
-        event.put(ECEntityTypes.ILLAPISTA.get(), Illapista.createAttributes().build());
+        event.put(ECEntityTypes.SCORCHED.get(), Scorched.createScorchedAttributes().build());
+        event.put(ECEntityTypes.SOUL_SCORCHED.get(), SoulScorched.createSoulScorchedAttributes().build());
+        event.put(ECEntityTypes.LOST.get(), Lost.createLostAttributes().build());
+        event.put(ECEntityTypes.ROTTEN.get(), Rotten.createRottenAttributes().build());
+        event.put(ECEntityTypes.ILLAPISTA.get(), Illapista.createIllapistaAttributes().build());
 
         //Skeleton attributes
-        event.put(ECEntityTypes.SOUL_REAPER.get(), SoulReaper.createAttributes().build());
-        event.put(ECEntityTypes.TLALOCQUIAN.get(), Tlalocquian.createAttributes().build());
-        event.put(ECEntityTypes.SUNKEN.get(), Sunken.createAttributes().build());
+        event.put(ECEntityTypes.SOUL_REAPER.get(), SoulReaper.createSoulReaperAttributes().build());
+        event.put(ECEntityTypes.TLALOCQUIAN.get(), Tlalocquian.createTlalocquianAttributes().build());
+        event.put(ECEntityTypes.SUNKEN.get(), Sunken.createSunkenAttributes().build());
+        event.put(ECEntityTypes.DRIED.get(), Dried.createDriedAttributes().build());
+        event.put(ECEntityTypes.PUTRID.get(), Putrid.createPutridAttributes().build());
     }
 
     @SubscribeEvent
@@ -39,6 +37,8 @@ public class ECModEvents {
         //Zombies
         event.register(ECEntityTypes.SCORCHED.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 Scorched::checkMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
+        event.register(ECEntityTypes.SOUL_SCORCHED.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                SoulScorched::checkMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
         event.register(ECEntityTypes.LOST.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 Lost::checkLostSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
         event.register(ECEntityTypes.ROTTEN.get(),SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
@@ -51,8 +51,12 @@ public class ECModEvents {
                 SoulReaper::checkMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
         event.register(ECEntityTypes.TLALOCQUIAN.get(),SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 Tlalocquian::checkMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
-        event.register(ECEntityTypes.SUNKEN.get(),SpawnPlacements.Type.NO_RESTRICTIONS, Heightmap.Types.OCEAN_FLOOR_WG,
-                Sunken::checkMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
+        event.register(ECEntityTypes.SUNKEN.get(),SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                Sunken::checkSunkenSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
+        event.register(ECEntityTypes.DRIED.get(),SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                Dried::checkMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
+        event.register(ECEntityTypes.PUTRID.get(),SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                Putrid::checkMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
     }
 
     @SubscribeEvent

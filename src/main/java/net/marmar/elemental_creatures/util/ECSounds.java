@@ -36,6 +36,18 @@ public class ECSounds {
     public static final RegistryObject<SoundEvent> SOUL_REAPER_HURT = registerSoundEvents("soul_reaper_hurt");
     public static final RegistryObject<SoundEvent> SOUL_REAPER_DEATH = registerSoundEvents("soul_reaper_death");
 
+    //Sunken
+    public static final RegistryObject<SoundEvent> SUNKEN_AMBIENT = registerSoundEvents("sunken_ambient");
+    public static final RegistryObject<SoundEvent> SUNKEN_STEP = registerSoundEvents("sunken_step");
+    public static final RegistryObject<SoundEvent> SUNKEN_HURT = registerSoundEvents("sunken_hurt");
+    public static final RegistryObject<SoundEvent> SUNKEN_DEATH = registerSoundEvents("sunken_death");
+
+    //Dried
+    public static final RegistryObject<SoundEvent> DRIED_AMBIENT = registerSoundEvents("dried_ambient");
+    public static final RegistryObject<SoundEvent> DRIED_STEP = registerSoundEvents("dried_step");
+    public static final RegistryObject<SoundEvent> DRIED_HURT = registerSoundEvents("dried_hurt");
+    public static final RegistryObject<SoundEvent> DRIED_DEATH = registerSoundEvents("dried_death");
+
     @SuppressWarnings("removal")
     private static RegistryObject<SoundEvent> registerSoundEvents(String sound_name){
         return SOUND_EVENTS.register(sound_name, () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(ElementalCreatures.MOD_ID, sound_name)));

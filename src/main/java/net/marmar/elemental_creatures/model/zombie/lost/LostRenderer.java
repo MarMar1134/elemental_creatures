@@ -24,6 +24,6 @@ public class LostRenderer extends AbstractZombieRenderer<Lost, ZombieModel<Lost>
     @Override
     @SuppressWarnings("removal")
     public ResourceLocation getTextureLocation(Zombie pEntity) {
-        return new ResourceLocation(ElementalCreatures.MOD_ID, "textures/entity/zombie/lost.png");
+        return new ResourceLocation(ElementalCreatures.MOD_ID, "textures/entity/zombie/lost/lost.png");
     }
 }

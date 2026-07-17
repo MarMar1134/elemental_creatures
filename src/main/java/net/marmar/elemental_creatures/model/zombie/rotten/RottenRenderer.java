@@ -24,6 +24,6 @@ public class RottenRenderer extends AbstractZombieRenderer<Rotten, ZombieModel<R
     @Override
     @SuppressWarnings("removal")
     public ResourceLocation getTextureLocation(Zombie pEntity) {
-        return new ResourceLocation(ElementalCreatures.MOD_ID, "textures/entity/zombie/rotten.png");
+        return new ResourceLocation(ElementalCreatures.MOD_ID, "textures/entity/zombie/rotten/rotten.png");
     }
 }

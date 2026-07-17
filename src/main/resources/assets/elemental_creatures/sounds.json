@@ -126,5 +126,71 @@
     "sounds": [
       "elemental_creatures:entity/skeleton/soul_reaper/soul_reaper_death"
     ]
+  },
+
+  "sunken_ambient": {
+    "subtitles": "sound.elemental_creatures.sunken_ambient",
+    "sounds": [
+      "elemental_creatures:entity/skeleton/sunken/sunken_idle1",
+      "elemental_creatures:entity/skeleton/sunken/sunken_idle2",
+      "elemental_creatures:entity/skeleton/sunken/sunken_idle3"
+    ]
+  },
+  "sunken_step": {
+    "subtitles": "sound.elemental_creatures.sunken_step",
+    "sounds": [
+      "elemental_creatures:entity/skeleton/sunken/sunken_step1",
+      "elemental_creatures:entity/skeleton/sunken/sunken_step2",
+      "elemental_creatures:entity/skeleton/sunken/sunken_step3",
+      "elemental_creatures:entity/skeleton/sunken/sunken_step4"
+    ]
+  },
+  "sunken_hurt": {
+    "subtitles": "sound.elemental_creatures.sunken_hurt",
+    "sounds": [
+      "elemental_creatures:entity/skeleton/sunken/sunken_hurt1",
+      "elemental_creatures:entity/skeleton/sunken/sunken_hurt2",
+      "elemental_creatures:entity/skeleton/sunken/sunken_hurt3",
+      "elemental_creatures:entity/skeleton/sunken/sunken_hurt4"
+    ]
+  },
+  "sunken_death": {
+    "subtitles": "sound.elemental_creatures.sunken_death",
+    "sounds": [
+      "elemental_creatures:entity/skeleton/sunken/sunken_death"
+    ]
+  },
+
+  "dried_ambient": {
+    "subtitles": "sound.elemental_creatures.dried_ambient",
+    "sounds": [
+      "elemental_creatures:entity/skeleton/dried/dried_idle1",
+      "elemental_creatures:entity/skeleton/dried/dried_idle2",
+      "elemental_creatures:entity/skeleton/dried/dried_idle3"
+    ]
+  },
+  "dried_step": {
+    "subtitles": "sound.elemental_creatures.dried_step",
+    "sounds": [
+      "elemental_creatures:entity/skeleton/dried/dried_step1",
+      "elemental_creatures:entity/skeleton/dried/dried_step2",
+      "elemental_creatures:entity/skeleton/dried/dried_step3",
+      "elemental_creatures:entity/skeleton/dried/dried_step4"
+    ]
+  },
+  "dried_hurt": {
+    "subtitles": "sound.elemental_creatures.dried_hurt",
+    "sounds": [
+      "elemental_creatures:entity/skeleton/dried/dried_hurt1",
+      "elemental_creatures:entity/skeleton/dried/dried_hurt2",
+      "elemental_creatures:entity/skeleton/dried/dried_hurt3",
+      "elemental_creatures:entity/skeleton/dried/dried_hurt4"
+    ]
+  },
+  "dried_death": {
+    "subtitles": "sound.elemental_creatures.dried_death",
+    "sounds": [
+      "elemental_creatures:entity/skeleton/dried/dried_death"
+    ]
   }
 }

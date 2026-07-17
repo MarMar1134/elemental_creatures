@@ -54,6 +54,10 @@ public class ECForgeEvents {
             spawnReplacement(ECEntityTypes.SCORCHED.get(), event, level, pos);
         }
 
+        if (ECConfig.SPAWN_SOUL_SCORCHED.get() && biome.is(ECTags.Biomes.CAN_SPAWN_SOUL_SCORCHED) && random.nextDouble() < ECConfig.SOUL_SCORCHED_SPAWN_RATE.get()) {
+            spawnReplacement(ECEntityTypes.SOUL_SCORCHED.get(), event, level, pos);
+        }
+
         if (ECConfig.SPAWN_LOST.get() && biome.is(ECTags.Biomes.CAN_SPAWN_LOST) && random.nextDouble() < ECConfig.LOST_SPAWN_RATE.get()) {
             spawnReplacement(ECEntityTypes.LOST.get(), event, level, pos);
         }
@@ -90,6 +94,14 @@ public class ECForgeEvents {
 
         if (ECConfig.SPAWN_SUNKEN.get() && biome.is(ECTags.Biomes.CAN_SPAWN_SUNKEN) && random.nextDouble() < ECConfig.SUNKEN_SPAWN_RATE.get()){
             spawnReplacement(ECEntityTypes.SUNKEN.get(), event, level, pos);
+        }
+
+        if (ECConfig.SPAWN_DRIED.get() && biome.is(ECTags.Biomes.CAN_SPAWN_DRIED) && random.nextDouble() < ECConfig.DRIED_SPAWN_RATE.get()){
+            spawnReplacement(ECEntityTypes.DRIED.get(), event, level, pos);
+        }
+
+        if (ECConfig.SPAWN_PUTRID.get() && biome.is(ECTags.Biomes.CAN_SPAWN_PUTRID) && random.nextDouble() < ECConfig.PUTRID_SPAWN_RATE.get()){
+            spawnReplacement(ECEntityTypes.PUTRID.get(), event, level, pos);
         }
     }
 

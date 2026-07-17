@@ -5,6 +5,6 @@
     "type": "elemental_creatures:sunken",
     "maxCount": 4,
     "minCount": 2,
-    "weight": 70
+    "weight": 120
   }
 }

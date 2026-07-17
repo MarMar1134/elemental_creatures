@@ -21,7 +21,7 @@ public class Tlalocquian extends AbstractSkeleton {
         super(pEntityType, pLevel);
     }
 
-    public static AttributeSupplier.Builder createAttributes() {
+    public static AttributeSupplier.Builder createTlalocquianAttributes() {
         return Monster.createMonsterAttributes()
                 .add(Attributes.MAX_HEALTH, 24f)
                 .add(Attributes.ATTACK_DAMAGE, 2f)

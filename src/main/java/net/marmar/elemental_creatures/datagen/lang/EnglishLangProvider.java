@@ -18,10 +18,14 @@ public class EnglishLangProvider extends AbstractLangProvider {
 
         addItem(ECItems.LIGHTNING_ARROW, "Lightning arrow");
         addItem(ECItems.SOUL_ARROW, "Soul arrow");
+        addItem(ECItems.PRISMARINE_ARROW, "Prismarine arrow");
 
         //Zombies
         addZombieType(ECEntityTypes.SCORCHED.get(),"Scorched", ECItems.SCORCHED_SPAWN_EGG, "Scorched spawn egg");
         addMobSubtitles("scorched", "Scorched growling", "Scorched walking", "Hurt Scorched", "Dying Scorched");
+
+        addZombieType(ECEntityTypes.SOUL_SCORCHED.get(),"Soul Scorched", ECItems.SOUL_SCORCHED_SPAWN_EGG, "Soul Scorched spawn egg");
+        addMobSubtitles("soul_scorched", "Soul Scorched growling", "Soul Scorched walking", "Hurt Soul Scorched", "Dying Soul Scorched");
 
         addZombieType(ECEntityTypes.LOST.get(),"Lost", ECItems.LOST_SPAWN_EGG, "Lost spawn egg");
         addMobSubtitles("lost", "Lost freezing", "Lost walking", "Hurt Lost", "Dying Lost");
@@ -40,5 +44,14 @@ public class EnglishLangProvider extends AbstractLangProvider {
         addSkeletonType(ECEntityTypes.TLALOCQUIAN.get(), "Follower of Tláloc", ECItems.TLALOCQUIAN_SPAWN_EGG, "Follower of Tláloc spawn egg");
         addMobSubtitles("tlalocquian", "Follower of Tláloc growling", "Follower of Tláloc walking",
                 "Hurt Follower of Tláloc", "Dying Follower of Tláloc");
+
+        addSkeletonType(ECEntityTypes.SUNKEN.get(), "Sunken", ECItems.SUNKEN_SPAWN_EGG, "Sunken spawn egg");
+        addMobSubtitles("sunken", "Sunken growling", "Sunken walking", "Hurt Sunken", "Dying Sunken");
+
+        addSkeletonType(ECEntityTypes.DRIED.get(), "Dried", ECItems.DRIED_SPAWN_EGG, "Dried spawn egg");
+        addMobSubtitles("dried", "Dried growling", "Dried walking", "Hurt Dried", "Dying Dried");
+
+        addSkeletonType(ECEntityTypes.PUTRID.get(), "Putrid", ECItems.PUTRID_SPAWN_EGG, "Putrid spawn egg");
+        addMobSubtitles("putrid", "Putrid growling", "Putrid walking", "Hurt Putrid", "Dying Putrid");
     }
 }

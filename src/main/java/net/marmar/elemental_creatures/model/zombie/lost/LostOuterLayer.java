@@ -17,7 +17,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 @SuppressWarnings("removal")
 public class LostOuterLayer<T extends Lost> extends RenderLayer<T, ZombieModel<T>> {
     private static final ResourceLocation LOST_OUTER_LOCATION = new ResourceLocation(ElementalCreatures.MOD_ID,
-            "textures/entity/zombie/lost_outer_layer.png");
+            "textures/entity/zombie/lost/lost_outer_layer.png");
     private final ZombieModel<T> model;
 
     public LostOuterLayer(RenderLayerParent<T, ZombieModel<T>> pRenderer, EntityModelSet pModelSet) {

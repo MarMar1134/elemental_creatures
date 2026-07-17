@@ -17,7 +17,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 @SuppressWarnings("removal")
 public class RottenOuterLayer<T extends Rotten> extends RenderLayer<T, ZombieModel<T>> {
     private static final ResourceLocation ROTTEN_OUTER_LOCATION = new ResourceLocation(ElementalCreatures.MOD_ID,
-            "textures/entity/zombie/rotten_outer_layer.png");
+            "textures/entity/zombie/rotten/rotten_outer_layer.png");
     private final ZombieModel<T> model;
 
     public RottenOuterLayer(RenderLayerParent<T, ZombieModel<T>> pRenderer, EntityModelSet pModelSet) {

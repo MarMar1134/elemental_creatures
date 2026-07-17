@@ -31,7 +31,7 @@ public class Lost extends Zombie {
         return checkMonsterSpawnRules(pLost, pLevel, pSpawnType, pPos, pRandom) && (pSpawnType == MobSpawnType.SPAWNER || pLevel.canSeeSky(blockpos.below()));
     }
 
-    public static AttributeSupplier.Builder createAttributes(){
+    public static AttributeSupplier.Builder createLostAttributes(){
         return Monster.createMonsterAttributes()
                 .add(Attributes.FOLLOW_RANGE, 20.0f)
                 .add(Attributes.MOVEMENT_SPEED, 0.20f)

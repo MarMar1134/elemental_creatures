@@ -24,6 +24,6 @@ public class ScorchedRenderer extends AbstractZombieRenderer<Scorched, ZombieMod
     @Override
     @SuppressWarnings("removal")
     public ResourceLocation getTextureLocation(Zombie pEntity) {
-        return new ResourceLocation(ElementalCreatures.MOD_ID, "textures/entity/zombie/scorched.png");
+        return new ResourceLocation(ElementalCreatures.MOD_ID, "textures/entity/zombie/scorched/scorched.png");
     }
 }

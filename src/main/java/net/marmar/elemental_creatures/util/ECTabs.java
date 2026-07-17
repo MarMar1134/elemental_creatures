@@ -20,14 +20,19 @@ public class ECTabs {
                     .title(Component.translatable("tab." + ElementalCreatures.MOD_ID + ".elementals_spawn_eggs"))
                     .withTabsAfter(ECTabs.ELEMENTAL_ITEMS.getId())
                     .displayItems(((pParameters, pOutput) -> {
+                        //Zombies
                         pOutput.accept(ECItems.SCORCHED_SPAWN_EGG.get());
+                        pOutput.accept(ECItems.SOUL_SCORCHED_SPAWN_EGG.get());
                         pOutput.accept(ECItems.LOST_SPAWN_EGG.get());
                         pOutput.accept(ECItems.ROTTEN_SPAWN_EGG.get());
                         pOutput.accept(ECItems.ILLAPISTA_SPAWN_EGG.get());
 
+                        //Skeletons
                         pOutput.accept(ECItems.SOUL_REAPER_SPAWN_EGG.get());
                         pOutput.accept(ECItems.TLALOCQUIAN_SPAWN_EGG.get());
                         pOutput.accept(ECItems.SUNKEN_SPAWN_EGG.get());
+                        pOutput.accept(ECItems.DRIED_SPAWN_EGG.get());
+                        pOutput.accept(ECItems.PUTRID_SPAWN_EGG.get());
                     }))
                     .build());
 

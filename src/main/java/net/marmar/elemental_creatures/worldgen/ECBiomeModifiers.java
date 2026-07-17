@@ -19,12 +19,11 @@ public class ECBiomeModifiers {
 
     public static void bootstrap(BootstapContext<BiomeModifier> context){
         var biomes = context.lookup(Registries.BIOME);
-        var entities = context.lookup(Registries.ENTITY_TYPE);
 
         //Sunken
         context.register(ADD_SUNKEN, new ForgeBiomeModifiers.AddSpawnsBiomeModifier(
                 biomes.getOrThrow(ECTags.Biomes.CAN_SPAWN_SUNKEN),
-                List.of(new MobSpawnSettings.SpawnerData(ECEntityTypes.SUNKEN.get(), 70, 2, 4))
+                List.of(new MobSpawnSettings.SpawnerData(ECEntityTypes.SUNKEN.get(), 120, 2, 4))
         ));
     }
 

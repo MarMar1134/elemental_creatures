@@ -14,7 +14,7 @@ public class Illapista extends Zombie {
         super(pEntityType, pLevel);
     }
 
-    public static AttributeSupplier.Builder createAttributes(){
+    public static AttributeSupplier.Builder createIllapistaAttributes(){
         return Monster.createMonsterAttributes()
                 .add(Attributes.FOLLOW_RANGE, 20.0f)
                 .add(Attributes.MOVEMENT_SPEED, 0.23f)

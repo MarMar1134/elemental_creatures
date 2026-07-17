@@ -17,7 +17,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 @SuppressWarnings("removal")
 public class ScorchedOuterLayer<T extends Scorched> extends RenderLayer<T, ZombieModel<T>> {
     private static final ResourceLocation SCORCHED_OUTER_LOCATION = new ResourceLocation(ElementalCreatures.MOD_ID,
-            "textures/entity/zombie/scorched_outer_layer.png");
+            "textures/entity/zombie/scorched/scorched_outer_layer.png");
     private final ZombieModel<T> model;
 
     public ScorchedOuterLayer(RenderLayerParent<T, ZombieModel<T>> pRenderer, EntityModelSet pModelSet) {

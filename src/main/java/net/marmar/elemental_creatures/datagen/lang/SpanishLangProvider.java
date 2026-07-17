@@ -18,15 +18,19 @@ public class SpanishLangProvider extends AbstractLangProvider {
 
         addItem(ECItems.LIGHTNING_ARROW, "Flecha eléctrica");
         addItem(ECItems.SOUL_ARROW, "Flecha de alma");
+        addItem(ECItems.PRISMARINE_ARROW, "Flecha de prismarina");
 
         //Zombies
-        addZombieType(ECEntityTypes.SCORCHED.get(),"Scorched", ECItems.SCORCHED_SPAWN_EGG, "Generar Quemado (Scorched)");
+        addZombieType(ECEntityTypes.SCORCHED.get(),"Scorched", ECItems.SCORCHED_SPAWN_EGG, "Generar Quemado");
         addMobSubtitles("scorched", "Quemado gruñendo", "Quemado caminando", "Quemado lastimado", "Quemado muriendo");
 
-        addZombieType(ECEntityTypes.LOST.get(),"Lost", ECItems.LOST_SPAWN_EGG, "Generar Perdido (Lost)");
+        addZombieType(ECEntityTypes.SOUL_SCORCHED.get(),"Soul Scorched", ECItems.SOUL_SCORCHED_SPAWN_EGG, "Generar Quemado pneumático");
+        addMobSubtitles("soul_scorched", "Quemado pneumático gruñendo", "Quemado pneumático caminando", "Quemado pneumático lastimado", "Quemado pneumático muriendo");
+
+        addZombieType(ECEntityTypes.LOST.get(),"Lost", ECItems.LOST_SPAWN_EGG, "Generar Perdido");
         addMobSubtitles("lost", "Perdido gruñendo", "Perdido caminando", "Perdido lastimado", "Perdido muriendo");
 
-        addZombieType(ECEntityTypes.ROTTEN.get(),"Rotten", ECItems.ROTTEN_SPAWN_EGG, "Generar Podrido (Rotten)");
+        addZombieType(ECEntityTypes.ROTTEN.get(),"Rotten", ECItems.ROTTEN_SPAWN_EGG, "Generar Podrido");
         addMobSubtitles("rotten", "Podrido gruñendo", "Podrido caminando", "Podrido lastimado", "Podrido muriendo");
 
         addZombieType(ECEntityTypes.ILLAPISTA.get(), "Adorador de Illapa", ECItems.ILLAPISTA_SPAWN_EGG, "Generar Adorador de Illapa");
@@ -41,5 +45,14 @@ public class SpanishLangProvider extends AbstractLangProvider {
         addSkeletonType(ECEntityTypes.TLALOCQUIAN.get(), "Seguidor de Tláloc", ECItems.TLALOCQUIAN_SPAWN_EGG, "Generar Seguidor de Tláloc");
         addMobSubtitles("tlalocquian", "Seguidor de Tláloc gruñendo", "Seguidor de Tláloc caminando",
                 "Seguidor de Tláloc lastimado", "Seguidor de Tláloc muriendo");
+
+        addSkeletonType(ECEntityTypes.SUNKEN.get(), "Húndido", ECItems.SUNKEN_SPAWN_EGG, "Generar Húndido");
+        addMobSubtitles("sunken", "Húndido gruñendo", "Húndido caminando", "Húndido lastimado", "Húndido muriendo");
+
+        addSkeletonType(ECEntityTypes.DRIED.get(), "Resecado", ECItems.DRIED_SPAWN_EGG, "Generar Resecado");
+        addMobSubtitles("dried", "Resecado gruñendo", "Resecado caminando", "Resecado lastimado", "Resecado muriendo");
+
+        addSkeletonType(ECEntityTypes.PUTRID.get(), "Pútrido", ECItems.PUTRID_SPAWN_EGG, "Generar Pútrido");
+        addMobSubtitles("putrid", "Pútrido gruñendo", "Pútrido caminando", "Pútrido lastimado", "Pútrido muriendo");
     }
 }

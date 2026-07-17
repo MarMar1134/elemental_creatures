@@ -6,6 +6,8 @@ import net.marmar.elemental_creatures.model.ECModelLayers;
 import net.marmar.elemental_creatures.model.projectile.LightningArrowRenderer;
 import net.marmar.elemental_creatures.model.projectile.PrismarineArrowRenderer;
 import net.marmar.elemental_creatures.model.projectile.SoulArrowRenderer;
+import net.marmar.elemental_creatures.model.skeleton.dried.DriedRenderer;
+import net.marmar.elemental_creatures.model.skeleton.putrid.PutridRenderer;
 import net.marmar.elemental_creatures.model.skeleton.soulreaper.SoulReaperRenderer;
 import net.marmar.elemental_creatures.model.skeleton.sunken.SunkenRenderer;
 import net.marmar.elemental_creatures.model.skeleton.tlalocquian.TlalocquianRenderer;
@@ -13,6 +15,7 @@ import net.marmar.elemental_creatures.model.zombie.illapista.IllapistaRenderer;
 import net.marmar.elemental_creatures.model.zombie.lost.LostRenderer;
 import net.marmar.elemental_creatures.model.zombie.rotten.RottenRenderer;
 import net.marmar.elemental_creatures.model.zombie.scorched.ScorchedRenderer;
+import net.marmar.elemental_creatures.model.zombie.scorched.soul.SoulScorchedRenderer;
 import net.minecraft.client.model.HumanoidArmorModel;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.SkeletonModel;
@@ -39,6 +42,7 @@ public class ECModClientEvents {
 
         //Zombies
         EntityRenderers.register(ECEntityTypes.SCORCHED.get(), ScorchedRenderer::new);
+        EntityRenderers.register(ECEntityTypes.SOUL_SCORCHED.get(), SoulScorchedRenderer::new);
         EntityRenderers.register(ECEntityTypes.LOST.get(), LostRenderer::new);
         EntityRenderers.register(ECEntityTypes.ROTTEN.get(), RottenRenderer::new);
         EntityRenderers.register(ECEntityTypes.ILLAPISTA.get(), IllapistaRenderer::new);
@@ -47,6 +51,8 @@ public class ECModClientEvents {
         EntityRenderers.register(ECEntityTypes.SOUL_REAPER.get(), SoulReaperRenderer::new);
         EntityRenderers.register(ECEntityTypes.TLALOCQUIAN.get(), TlalocquianRenderer::new);
         EntityRenderers.register(ECEntityTypes.SUNKEN.get(), SunkenRenderer::new);
+        EntityRenderers.register(ECEntityTypes.DRIED.get(), DriedRenderer::new);
+        EntityRenderers.register(ECEntityTypes.PUTRID.get(), PutridRenderer::new);
     }
 
     @SubscribeEvent
@@ -59,6 +65,16 @@ public class ECModClientEvents {
         event.registerLayerDefinition(ECModelLayers.SCORCHED_OUTER_ARMOR, () ->
                 LayerDefinition.create(HumanoidArmorModel.createBodyLayer(OUTER_ARMOR_DEFORMATION), 64, 32));
         event.registerLayerDefinition(ECModelLayers.SCORCHED_OUTER, () ->
+                LayerDefinition.create(HumanoidModel.createMesh(new CubeDeformation(0.25f), 0.0f), 64, 64));
+
+        //Soul scorched
+        event.registerLayerDefinition(ECModelLayers.SOUL_SCORCHED, () ->
+                LayerDefinition.create(HumanoidModel.createMesh(CubeDeformation.NONE, 0.0f), 64, 64));
+        event.registerLayerDefinition(ECModelLayers.SOUL_SCORCHED_INNER_ARMOR, () ->
+                LayerDefinition.create(HumanoidArmorModel.createBodyLayer(INNER_ARMOR_DEFORMATION), 64, 32));
+        event.registerLayerDefinition(ECModelLayers.SOUL_SCORCHED_OUTER_ARMOR, () ->
+                LayerDefinition.create(HumanoidArmorModel.createBodyLayer(OUTER_ARMOR_DEFORMATION), 64, 32));
+        event.registerLayerDefinition(ECModelLayers.SOUL_SCORCHED_OUTER, () ->
                 LayerDefinition.create(HumanoidModel.createMesh(new CubeDeformation(0.25f), 0.0f), 64, 64));
 
         //Lost
@@ -107,12 +123,31 @@ public class ECModClientEvents {
         event.registerLayerDefinition(ECModelLayers.TLALOCQUIAN_OUTER, () ->
                 LayerDefinition.create(HumanoidModel.createMesh(new CubeDeformation(0.2f), 0.0f), 64, 32));
 
+        //Sunken
         event.registerLayerDefinition(ECModelLayers.SUNKEN, SkeletonModel::createBodyLayer);
         event.registerLayerDefinition(ECModelLayers.SUNKEN_INNER_ARMOR, () ->
                 LayerDefinition.create(HumanoidArmorModel.createBodyLayer(INNER_ARMOR_DEFORMATION), 64, 32));
         event.registerLayerDefinition(ECModelLayers.SUNKEN_OUTER_ARMOR, () ->
                 LayerDefinition.create(HumanoidArmorModel.createBodyLayer(OUTER_ARMOR_DEFORMATION), 64, 32));
         event.registerLayerDefinition(ECModelLayers.SUNKEN_OUTER, () ->
+                LayerDefinition.create(HumanoidModel.createMesh(new CubeDeformation(0.2f), 0.0f), 64, 32));
+
+        //Dried
+        event.registerLayerDefinition(ECModelLayers.DRIED, SkeletonModel::createBodyLayer);
+        event.registerLayerDefinition(ECModelLayers.DRIED_INNER_ARMOR, () ->
+                LayerDefinition.create(HumanoidArmorModel.createBodyLayer(INNER_ARMOR_DEFORMATION), 64, 32));
+        event.registerLayerDefinition(ECModelLayers.DRIED_OUTER_ARMOR, () ->
+                LayerDefinition.create(HumanoidArmorModel.createBodyLayer(OUTER_ARMOR_DEFORMATION), 64, 32));
+        event.registerLayerDefinition(ECModelLayers.DRIED_OUTER, () ->
+                LayerDefinition.create(HumanoidModel.createMesh(new CubeDeformation(0.2f), 0.0f), 64, 32));
+
+        //Putrid
+        event.registerLayerDefinition(ECModelLayers.PUTRID, SkeletonModel::createBodyLayer);
+        event.registerLayerDefinition(ECModelLayers.PUTRID_INNER_ARMOR, () ->
+                LayerDefinition.create(HumanoidArmorModel.createBodyLayer(INNER_ARMOR_DEFORMATION), 64, 32));
+        event.registerLayerDefinition(ECModelLayers.PUTRID_OUTER_ARMOR, () ->
+                LayerDefinition.create(HumanoidArmorModel.createBodyLayer(OUTER_ARMOR_DEFORMATION), 64, 32));
+        event.registerLayerDefinition(ECModelLayers.PUTRID_OUTER, () ->
                 LayerDefinition.create(HumanoidModel.createMesh(new CubeDeformation(0.2f), 0.0f), 64, 32));
     }
 }
