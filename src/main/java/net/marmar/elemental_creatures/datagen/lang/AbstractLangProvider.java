@@ -1,6 +1,7 @@
 package net.marmar.elemental_creatures.datagen.lang;
 
 import net.marmar.elemental_creatures.ElementalCreatures;
+import net.marmar.elemental_creatures.entity.slime.AbstractSlime;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.monster.AbstractSkeleton;
@@ -32,6 +33,11 @@ public abstract class AbstractLangProvider extends LanguageProvider {
 
     protected void addSkeletonType(EntityType<? extends AbstractSkeleton> pSkeleton, String pName, RegistryObject<Item> pEgg, String pEggName){
         this.add(pSkeleton, pName);
+        this.addItem(pEgg, pEggName);
+    }
+
+    protected void addSlimeType(EntityType<? extends AbstractSlime> pSlime, String pName, RegistryObject<Item> pEgg, String pEggName){
+        this.add(pSlime, pName);
         this.addItem(pEgg, pEggName);
     }
 

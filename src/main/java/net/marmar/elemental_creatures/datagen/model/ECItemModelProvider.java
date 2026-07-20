@@ -33,6 +33,11 @@ public class ECItemModelProvider extends ItemModelProvider {
         spawnEggItem(ECItems.SUNKEN_SPAWN_EGG);
         spawnEggItem(ECItems.DRIED_SPAWN_EGG);
         spawnEggItem(ECItems.PUTRID_SPAWN_EGG);
+
+        //Slime spawn eggs
+        spawnEggItem(ECItems.ICE_CUBE_SPAWN_EGG);
+        spawnEggItem(ECItems.SAND_CUBE_SPAWN_EGG);
+        spawnEggItem(ECItems.RED_SAND_CUBE_SPAWN_EGG);
     }
 
     private void addItem(RegistryObject<Item> pItem){

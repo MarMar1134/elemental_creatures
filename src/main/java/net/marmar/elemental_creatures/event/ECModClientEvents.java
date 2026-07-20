@@ -2,6 +2,7 @@ package net.marmar.elemental_creatures.event;
 
 import net.marmar.elemental_creatures.ElementalCreatures;
 import net.marmar.elemental_creatures.entity.ECEntityTypes;
+import net.marmar.elemental_creatures.entity.slime.IceCube;
 import net.marmar.elemental_creatures.model.ECModelLayers;
 import net.marmar.elemental_creatures.model.projectile.LightningArrowRenderer;
 import net.marmar.elemental_creatures.model.projectile.PrismarineArrowRenderer;
@@ -11,6 +12,9 @@ import net.marmar.elemental_creatures.model.skeleton.putrid.PutridRenderer;
 import net.marmar.elemental_creatures.model.skeleton.soulreaper.SoulReaperRenderer;
 import net.marmar.elemental_creatures.model.skeleton.sunken.SunkenRenderer;
 import net.marmar.elemental_creatures.model.skeleton.tlalocquian.TlalocquianRenderer;
+import net.marmar.elemental_creatures.model.slime.icecube.IceCubeRenderer;
+import net.marmar.elemental_creatures.model.slime.redsandcube.RedSandCubeRenderer;
+import net.marmar.elemental_creatures.model.slime.sandcube.SandCubeRenderer;
 import net.marmar.elemental_creatures.model.zombie.illapista.IllapistaRenderer;
 import net.marmar.elemental_creatures.model.zombie.lost.LostRenderer;
 import net.marmar.elemental_creatures.model.zombie.rotten.RottenRenderer;
@@ -19,6 +23,7 @@ import net.marmar.elemental_creatures.model.zombie.scorched.soul.SoulScorchedRen
 import net.minecraft.client.model.HumanoidArmorModel;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.SkeletonModel;
+import net.minecraft.client.model.SlimeModel;
 import net.minecraft.client.model.geom.builders.CubeDeformation;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.renderer.entity.EntityRenderers;
@@ -53,6 +58,11 @@ public class ECModClientEvents {
         EntityRenderers.register(ECEntityTypes.SUNKEN.get(), SunkenRenderer::new);
         EntityRenderers.register(ECEntityTypes.DRIED.get(), DriedRenderer::new);
         EntityRenderers.register(ECEntityTypes.PUTRID.get(), PutridRenderer::new);
+
+        //Slimes
+        EntityRenderers.register(ECEntityTypes.ICE_CUBE.get(), IceCubeRenderer::new);
+        EntityRenderers.register(ECEntityTypes.SAND_CUBE.get(), SandCubeRenderer::new);
+        EntityRenderers.register(ECEntityTypes.RED_SAND_CUBE.get(), RedSandCubeRenderer::new);
     }
 
     @SubscribeEvent
@@ -149,5 +159,17 @@ public class ECModClientEvents {
                 LayerDefinition.create(HumanoidArmorModel.createBodyLayer(OUTER_ARMOR_DEFORMATION), 64, 32));
         event.registerLayerDefinition(ECModelLayers.PUTRID_OUTER, () ->
                 LayerDefinition.create(HumanoidModel.createMesh(new CubeDeformation(0.2f), 0.0f), 64, 32));
+
+        //Ice cube
+        event.registerLayerDefinition(ECModelLayers.ICE_CUBE, SlimeModel::createInnerBodyLayer);
+        event.registerLayerDefinition(ECModelLayers.ICE_CUBE_OUTER, SlimeModel::createOuterBodyLayer);
+
+        //Sand cube
+        event.registerLayerDefinition(ECModelLayers.SAND_CUBE, SlimeModel::createInnerBodyLayer);
+        event.registerLayerDefinition(ECModelLayers.SAND_CUBE_OUTER, SlimeModel::createOuterBodyLayer);
+
+        //Red Sand Cube
+        event.registerLayerDefinition(ECModelLayers.RED_SAND_CUBE, SlimeModel::createInnerBodyLayer);
+        event.registerLayerDefinition(ECModelLayers.RED_SAND_CUBE_OUTER, SlimeModel::createOuterBodyLayer);
     }
 }

@@ -58,6 +58,19 @@ public class ECItems {
             "putrid_spawn_egg", () -> new ForgeSpawnEggItem(ECEntityTypes.PUTRID, 0xcbccbb,
                     0x212c06, new Item.Properties()));
 
+    //Slime spawn eggs
+    public static final RegistryObject<Item> ICE_CUBE_SPAWN_EGG = ITEMS.register(
+            "ice_cube_spawn_egg", () -> new ForgeSpawnEggItem(ECEntityTypes.ICE_CUBE, 0x70a4e5,
+                    0x314b6c, new Item.Properties()));
+
+    public static final RegistryObject<Item> SAND_CUBE_SPAWN_EGG = ITEMS.register(
+            "sand_cube_spawn_egg", () -> new ForgeSpawnEggItem(ECEntityTypes.SAND_CUBE, 0xd1ba8a,
+                    0xa3a279, new Item.Properties()));
+
+    public static final RegistryObject<Item> RED_SAND_CUBE_SPAWN_EGG = ITEMS.register(
+            "red_sand_cube_spawn_egg", () -> new ForgeSpawnEggItem(ECEntityTypes.RED_SAND_CUBE, 0xc06822,
+                    0xc2955e, new Item.Properties()));
+
     public static void register(IEventBus eventBus){
         ElementalCreatures.LOGGER.info("Registering Elemental Creatures items...");
         ITEMS.register(eventBus);

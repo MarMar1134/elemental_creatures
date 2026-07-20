@@ -38,6 +38,16 @@ public class ECConfig {
     public static final ForgeConfigSpec.BooleanValue SPAWN_PUTRID;
     public static final ForgeConfigSpec.DoubleValue PUTRID_SPAWN_RATE;
 
+    //Slimes
+    public static final ForgeConfigSpec.BooleanValue SPAWN_ICE_CUBE;
+    public static final ForgeConfigSpec.DoubleValue ICE_CUBE_SPAWN_RATE;
+
+    public static final ForgeConfigSpec.BooleanValue SPAWN_SAND_CUBE;
+    public static final ForgeConfigSpec.DoubleValue SAND_CUBE_SPAWN_RATE;
+
+    public static final ForgeConfigSpec.BooleanValue SPAWN_RED_SAND_CUBE;
+    public static final ForgeConfigSpec.DoubleValue RED_SAND_CUBE_SPAWN_RATE;
+
     static {
         BUILDER.push("Elemental Creatures spawn configuration");
 
@@ -92,6 +102,22 @@ public class ECConfig {
                 .define("spawn_putrid", true);
         PUTRID_SPAWN_RATE = BUILDER.comment("Determines the probability of a Putrid to be placed.")
                 .defineInRange("putrid_spawn_rate", 0.8d, 0.01d, 1d);
+
+        //Slimes
+        SPAWN_ICE_CUBE = BUILDER.comment("defines if the Ice Cubes can spawn on Slime chunks.")
+                .define("spawn_ice_cube", true);
+        ICE_CUBE_SPAWN_RATE = BUILDER.comment("Determines the probability of a Ice Cube replacing a Slime.")
+                .defineInRange("ice_cube_spawn_rate", 1d, 0.01d, 1d);
+
+        SPAWN_SAND_CUBE = BUILDER.comment("defines if the Sand Cubes can spawn on Slime chunks.")
+                .define("spawn_sand_cube", true);
+        SAND_CUBE_SPAWN_RATE = BUILDER.comment("Determines the probability of a Sand Cube replacing a Slime.")
+                .defineInRange("sand_cube_spawn_rate", 1d, 0.01d, 1d);
+
+        SPAWN_RED_SAND_CUBE = BUILDER.comment("defines if the Red Sand Cubes can spawn on Slime chunks.")
+                .define("spawn_red_sand_cube", true);
+        RED_SAND_CUBE_SPAWN_RATE = BUILDER.comment("Determines the probability of a Red Sand Cube replacing a Slime.")
+                .defineInRange("red_sand_cube_spawn_rate", 1d, 0.01d, 1d);
 
         BUILDER.pop();
         SPEC = BUILDER.build();

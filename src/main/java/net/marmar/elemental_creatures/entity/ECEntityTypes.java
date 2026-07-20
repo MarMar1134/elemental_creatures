@@ -5,9 +5,13 @@ import net.marmar.elemental_creatures.entity.projectile.LightningArrowEntity;
 import net.marmar.elemental_creatures.entity.projectile.PrismarineArrowEntity;
 import net.marmar.elemental_creatures.entity.projectile.SoulArrowEntity;
 import net.marmar.elemental_creatures.entity.skeleton.*;
+import net.marmar.elemental_creatures.entity.slime.IceCube;
+import net.marmar.elemental_creatures.entity.slime.RedSandCube;
+import net.marmar.elemental_creatures.entity.slime.SandCube;
 import net.marmar.elemental_creatures.entity.zombie.*;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.entity.monster.Slime;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -74,6 +78,19 @@ public class ECEntityTypes {
     public static final RegistryObject<EntityType<Putrid>> PUTRID =
             ENTITY_TYPES.register("putrid", () -> EntityType.Builder.of(Putrid::new, MobCategory.MONSTER)
                     .sized(0.6F, 1.99F).build("putrid"));
+
+    //Slimes
+    public static final RegistryObject<EntityType<IceCube>> ICE_CUBE =
+            ENTITY_TYPES.register("ice_cube", () -> EntityType.Builder.of(IceCube::new, MobCategory.MONSTER)
+                    .sized(2.04F, 2.04F).build("ice_cube"));
+
+    public static final RegistryObject<EntityType<SandCube>> SAND_CUBE =
+            ENTITY_TYPES.register("sand_cube", () -> EntityType.Builder.of(SandCube::new, MobCategory.MONSTER)
+                    .sized(2.04F, 2.04F).build("sand_cube"));
+
+    public static final RegistryObject<EntityType<RedSandCube>> RED_SAND_CUBE =
+            ENTITY_TYPES.register("red_sand_cube", () -> EntityType.Builder.of(RedSandCube::new, MobCategory.MONSTER)
+                    .sized(2.04F, 2.04F).build("red_sand_cube"));
 
     public static void register(IEventBus eventBus){
         ElementalCreatures.LOGGER.info("Registering Elemental Creatures entities...");

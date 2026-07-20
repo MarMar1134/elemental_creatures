@@ -53,5 +53,15 @@ public class EnglishLangProvider extends AbstractLangProvider {
 
         addSkeletonType(ECEntityTypes.PUTRID.get(), "Putrid", ECItems.PUTRID_SPAWN_EGG, "Putrid spawn egg");
         addMobSubtitles("putrid", "Putrid growling", "Putrid walking", "Hurt Putrid", "Dying Putrid");
+
+        //Slimes
+        addSlimeType(ECEntityTypes.ICE_CUBE.get(), "Ice Cube", ECItems.ICE_CUBE_SPAWN_EGG, "Ice Cube spawn egg");
+        addMobSubtitles("ice_cube", "Ice Cube squishing", "Ice Cube jumping", "Hurt Ice Cube", "Dying Ice Cube");
+
+        addSlimeType(ECEntityTypes.SAND_CUBE.get(), "Sand Cube", ECItems.SAND_CUBE_SPAWN_EGG, "Sand Cube spawn egg");
+        addMobSubtitles("sand_cube", "Sand Cube squishing", "Sand Cube jumping", "Hurt Sand Cube", "Dying Sand Cube");
+
+        addSlimeType(ECEntityTypes.RED_SAND_CUBE.get(), "Red Sand Cube", ECItems.RED_SAND_CUBE_SPAWN_EGG, "Red Sand Cube spawn egg");
+        addMobSubtitles("red_sand_cube", "Red Sand Cube squishing", "Red Sand Cube jumping", "Hurt Red Sand Cube", "Dying Red Sand Cube");
     }
 }

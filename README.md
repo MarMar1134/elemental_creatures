@@ -36,6 +36,16 @@ There are five new skeleton variants.
   The Putrid is a backport of vanilla's Bogged. Spawns naturally on swamps, mangrove swamps and lush caves, with an 80% chance of replace a Skeleton. Shoots poisonous arrows.
 ---
 
+## Slimes
+There are three new slime variants.
+- ### Ice Cube
+  Ice Cubes replaces regular Slimes on snowy biomes. In addition to slime balls, they can drop snowballs.
+- ### Sand Cube
+  Sand Cubes replaces regular Slimes on deserts and beaches, and deal additional damage. In addition to slime balls, they can drop sand.
+- ### Red Sand Cube
+  Red Sand Cubes replaces regular Slimes on badlands biomes and its variants, and deal additional damage. In addition to slime balls, they can drop red sand.
+---
+
 ## Compatibility
 - If you're developing a Biomes mod, and you want the Elementals to be able to spawn on certain biomes, add them under the `elemental_creatures:can_spawn_<mob_type>` biomeTag.
   - For example, if you are developing a _Volcano_ biome, and you want the _Scorched_ to spawn there, add _Volcano_ to `elemental_creatures:can_spawn_scorched` biome tag and the mod will handle the spawn replacement.

@@ -17,6 +17,7 @@ public class ECBiomeTagGenerator extends BiomeTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider pProvider) {
+        //Zombie biomes
         this.tag(ECTags.Biomes.CAN_SPAWN_LOST).add(
                 Biomes.ICE_SPIKES,
                 Biomes.SNOWY_PLAINS,
@@ -34,6 +35,7 @@ public class ECBiomeTagGenerator extends BiomeTagsProvider {
                 Biomes.LUSH_CAVES
         );
 
+        //Skeleton biomes
         this.tag(ECTags.Biomes.CAN_SPAWN_SOUL_REAPER).add(
                 Biomes.SOUL_SAND_VALLEY
         );
@@ -60,6 +62,27 @@ public class ECBiomeTagGenerator extends BiomeTagsProvider {
                 Biomes.SWAMP,
                 Biomes.MANGROVE_SWAMP,
                 Biomes.LUSH_CAVES
+        );
+
+        //Slime biomes
+        this.tag(ECTags.Biomes.CAN_SPAWN_ICE_CUBE).add(
+                Biomes.ICE_SPIKES,
+                Biomes.SNOWY_PLAINS,
+                Biomes.SNOWY_SLOPES,
+                Biomes.SNOWY_TAIGA,
+                Biomes.SNOWY_BEACH,
+                Biomes.FROZEN_PEAKS
+        );
+
+        this.tag(ECTags.Biomes.CAN_SPAWN_SAND_CUBE).add(
+                Biomes.DESERT,
+                Biomes.BEACH
+        );
+
+        this.tag(ECTags.Biomes.CAN_SPAWN_RED_SAND_CUBE).add(
+                Biomes.BADLANDS,
+                Biomes.ERODED_BADLANDS,
+                Biomes.WOODED_BADLANDS
         );
     }
 }

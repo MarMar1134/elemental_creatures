@@ -54,5 +54,15 @@ public class SpanishLangProvider extends AbstractLangProvider {
 
         addSkeletonType(ECEntityTypes.PUTRID.get(), "Pútrido", ECItems.PUTRID_SPAWN_EGG, "Generar Pútrido");
         addMobSubtitles("putrid", "Pútrido gruñendo", "Pútrido caminando", "Pútrido lastimado", "Pútrido muriendo");
+
+        //Slimes
+        addSlimeType(ECEntityTypes.ICE_CUBE.get(), "Cubo Helado", ECItems.ICE_CUBE_SPAWN_EGG, "Generar Cubo Helado");
+        addMobSubtitles("ice_cube", "Cubo Helado tranquilo", "Cubo Helado saltando", "Cubo Helado lastimado", "Cubo Helado muriendo");
+
+        addSlimeType(ECEntityTypes.SAND_CUBE.get(), "Cubo de Arena", ECItems.SAND_CUBE_SPAWN_EGG, "Generar Cubo de Arena");
+        addMobSubtitles("sand_cube", "Cubo de Arena tranquilo", "Cubo de Arena saltando", "Cubo de Arena lastimado", "Cubo de Arena muriendo");
+
+        addSlimeType(ECEntityTypes.RED_SAND_CUBE.get(), "Cubo de Arena Rojiza", ECItems.RED_SAND_CUBE_SPAWN_EGG, "Generar Cubo de Arena Rojiza");
+        addMobSubtitles("red_sand_cube", "Cubo de Arena Rojiza tranquilo", "Cubo de Arena Rojiza saltando", "Cubo de Arena Rojiza lastimado", "Cubo de Arena Rojiza muriendo");
     }
 }

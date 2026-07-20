@@ -13,6 +13,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.monster.Skeleton;
+import net.minecraft.world.entity.monster.Slime;
 import net.minecraft.world.entity.monster.Zombie;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.biome.Biome;
@@ -102,6 +103,32 @@ public class ECForgeEvents {
 
         if (ECConfig.SPAWN_PUTRID.get() && biome.is(ECTags.Biomes.CAN_SPAWN_PUTRID) && random.nextDouble() < ECConfig.PUTRID_SPAWN_RATE.get()){
             spawnReplacement(ECEntityTypes.PUTRID.get(), event, level, pos);
+        }
+    }
+
+    @SubscribeEvent
+    public static void onSlimeSpawn(MobSpawnEvent.FinalizeSpawn event){
+        if (!(event.getEntity() instanceof Slime slime) || slime.getClass() != Slime.class)
+            return;
+
+        if (slime.getSpawnType() == MobSpawnType.SPAWN_EGG)
+            return;
+
+        ServerLevelAccessor level = event.getLevel();
+        BlockPos pos = slime.blockPosition();
+        Holder<Biome> biome = level.getBiome(pos);
+        RandomSource random = slime.getRandom();
+
+        if (ECConfig.SPAWN_ICE_CUBE.get() && biome.is(ECTags.Biomes.CAN_SPAWN_ICE_CUBE) && random.nextDouble() < ECConfig.ICE_CUBE_SPAWN_RATE.get()){
+            spawnReplacement(ECEntityTypes.ICE_CUBE.get(), event, level, pos);
+        }
+
+        if (ECConfig.SPAWN_SAND_CUBE.get() && biome.is(ECTags.Biomes.CAN_SPAWN_SAND_CUBE) && random.nextDouble() < ECConfig.SAND_CUBE_SPAWN_RATE.get()){
+            spawnReplacement(ECEntityTypes.SAND_CUBE.get(), event, level, pos);
+        }
+
+        if (ECConfig.SPAWN_RED_SAND_CUBE.get() && biome.is(ECTags.Biomes.CAN_SPAWN_RED_SAND_CUBE) && random.nextDouble() < ECConfig.RED_SAND_CUBE_SPAWN_RATE.get()){
+            spawnReplacement(ECEntityTypes.RED_SAND_CUBE.get(), event, level, pos);
         }
     }
 
