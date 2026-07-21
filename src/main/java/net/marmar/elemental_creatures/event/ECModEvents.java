@@ -3,10 +3,7 @@ package net.marmar.elemental_creatures.event;
 import net.marmar.elemental_creatures.ElementalCreatures;
 import net.marmar.elemental_creatures.entity.ECEntityTypes;
 import net.marmar.elemental_creatures.entity.skeleton.*;
-import net.marmar.elemental_creatures.entity.slime.AbstractSlime;
-import net.marmar.elemental_creatures.entity.slime.IceCube;
-import net.marmar.elemental_creatures.entity.slime.RedSandCube;
-import net.marmar.elemental_creatures.entity.slime.SandCube;
+import net.marmar.elemental_creatures.entity.slime.*;
 import net.marmar.elemental_creatures.entity.zombie.*;
 import net.marmar.elemental_creatures.network.ECNetwork;
 import net.minecraft.world.entity.SpawnPlacements;
@@ -40,6 +37,7 @@ public class ECModEvents {
         event.put(ECEntityTypes.ICE_CUBE.get(), IceCube.createIceCubeAttributes().build());
         event.put(ECEntityTypes.SAND_CUBE.get(), SandCube.createSandCubeAttributes().build());
         event.put(ECEntityTypes.RED_SAND_CUBE.get(), RedSandCube.createRedSandCubeAttributes().build());
+        event.put(ECEntityTypes.PHRANQUE.get(), Phranque.createPhranqueAttributes().build());
     }
 
     @SubscribeEvent
@@ -74,6 +72,8 @@ public class ECModEvents {
         event.register(ECEntityTypes.SAND_CUBE.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 AbstractSlime::checkSlimeLikeSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
         event.register(ECEntityTypes.RED_SAND_CUBE.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                AbstractSlime::checkSlimeLikeSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
+        event.register(ECEntityTypes.PHRANQUE.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 AbstractSlime::checkSlimeLikeSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
     }
 

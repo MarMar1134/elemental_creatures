@@ -6,6 +6,7 @@ import net.marmar.elemental_creatures.entity.projectile.PrismarineArrowEntity;
 import net.marmar.elemental_creatures.entity.projectile.SoulArrowEntity;
 import net.marmar.elemental_creatures.entity.skeleton.*;
 import net.marmar.elemental_creatures.entity.slime.IceCube;
+import net.marmar.elemental_creatures.entity.slime.Phranque;
 import net.marmar.elemental_creatures.entity.slime.RedSandCube;
 import net.marmar.elemental_creatures.entity.slime.SandCube;
 import net.marmar.elemental_creatures.entity.zombie.*;
@@ -91,6 +92,10 @@ public class ECEntityTypes {
     public static final RegistryObject<EntityType<RedSandCube>> RED_SAND_CUBE =
             ENTITY_TYPES.register("red_sand_cube", () -> EntityType.Builder.of(RedSandCube::new, MobCategory.MONSTER)
                     .sized(2.04F, 2.04F).build("red_sand_cube"));
+
+    public static final RegistryObject<EntityType<Phranque>> PHRANQUE =
+            ENTITY_TYPES.register("phranque", () -> EntityType.Builder.of(Phranque::new, MobCategory.MONSTER)
+                    .sized(2.04F, 2.04F).build("phranque"));
 
     public static void register(IEventBus eventBus){
         ElementalCreatures.LOGGER.info("Registering Elemental Creatures entities...");

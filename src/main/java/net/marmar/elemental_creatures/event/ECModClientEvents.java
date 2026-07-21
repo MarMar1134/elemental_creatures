@@ -13,6 +13,7 @@ import net.marmar.elemental_creatures.model.skeleton.soulreaper.SoulReaperRender
 import net.marmar.elemental_creatures.model.skeleton.sunken.SunkenRenderer;
 import net.marmar.elemental_creatures.model.skeleton.tlalocquian.TlalocquianRenderer;
 import net.marmar.elemental_creatures.model.slime.icecube.IceCubeRenderer;
+import net.marmar.elemental_creatures.model.slime.phranque.PhranqueRenderer;
 import net.marmar.elemental_creatures.model.slime.redsandcube.RedSandCubeRenderer;
 import net.marmar.elemental_creatures.model.slime.sandcube.SandCubeRenderer;
 import net.marmar.elemental_creatures.model.zombie.illapista.IllapistaRenderer;
@@ -63,6 +64,7 @@ public class ECModClientEvents {
         EntityRenderers.register(ECEntityTypes.ICE_CUBE.get(), IceCubeRenderer::new);
         EntityRenderers.register(ECEntityTypes.SAND_CUBE.get(), SandCubeRenderer::new);
         EntityRenderers.register(ECEntityTypes.RED_SAND_CUBE.get(), RedSandCubeRenderer::new);
+        EntityRenderers.register(ECEntityTypes.PHRANQUE.get(), PhranqueRenderer::new);
     }
 
     @SubscribeEvent
@@ -171,5 +173,9 @@ public class ECModClientEvents {
         //Red Sand Cube
         event.registerLayerDefinition(ECModelLayers.RED_SAND_CUBE, SlimeModel::createInnerBodyLayer);
         event.registerLayerDefinition(ECModelLayers.RED_SAND_CUBE_OUTER, SlimeModel::createOuterBodyLayer);
+
+        //Phranque
+        event.registerLayerDefinition(ECModelLayers.PHRANQUE, SlimeModel::createInnerBodyLayer);
+        event.registerLayerDefinition(ECModelLayers.PHRANQUE_OUTER, SlimeModel::createOuterBodyLayer);
     }
 }

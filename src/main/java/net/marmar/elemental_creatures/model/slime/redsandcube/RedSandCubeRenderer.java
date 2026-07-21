@@ -16,7 +16,12 @@ public class RedSandCubeRenderer extends AbstractSlimeRenderer<RedSandCube> {
             "textures/entity/slime/red_sand_cube.png");
 
     public RedSandCubeRenderer(EntityRendererProvider.Context pContext) {
-        super(pContext, ECModelLayers.RED_SAND_CUBE, RED_SAND_CUBE_LOCATION);
+        super(pContext, ECModelLayers.RED_SAND_CUBE);
         this.addLayer(new RedSandCubeOuterLayer(this, pContext.getModelSet()));
+    }
+
+    @Override
+    public ResourceLocation getTextureLocation(RedSandCube pEntity) {
+        return RED_SAND_CUBE_LOCATION;
     }
 }

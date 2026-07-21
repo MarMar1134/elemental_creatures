@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "A": {
+      "item": "minecraft:arrow"
+    },
+    "L": {
+      "item": "elemental_creatures:lightning_essence"
+    }
+  },
+  "pattern": [
+    "AAA",
+    "ALA",
+    "AAA"
+  ],
+  "result": {
+    "count": 8,
+    "item": "elemental_creatures:lightning_essence"
+  },
+  "show_notification": true
+}

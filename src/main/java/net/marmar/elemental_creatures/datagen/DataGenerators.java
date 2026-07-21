@@ -5,6 +5,7 @@ import net.marmar.elemental_creatures.datagen.lang.EnglishLangProvider;
 import net.marmar.elemental_creatures.datagen.lang.SpanishLangProvider;
 import net.marmar.elemental_creatures.datagen.loot.ECLootTableProviders;
 import net.marmar.elemental_creatures.datagen.model.ECItemModelProvider;
+import net.marmar.elemental_creatures.datagen.recipe.ECRecipeProvider;
 import net.marmar.elemental_creatures.datagen.tag.*;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
@@ -28,6 +29,9 @@ public class DataGenerators {
         //Datapack generator
         ECDataPackProvider dataPackProvider = new ECDataPackProvider(packOutput, lookupProvider);
         generator.addProvider(event.includeServer(), dataPackProvider);
+
+        //Recipes
+        generator.addProvider(event.includeServer(), new ECRecipeProvider(packOutput));
 
         //Tag providers
         generator.addProvider(event.includeServer(), new ECEntityTagProvider(packOutput, lookupProvider, existingFileHelper));

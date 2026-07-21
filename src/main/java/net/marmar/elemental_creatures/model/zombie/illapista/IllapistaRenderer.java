@@ -22,6 +22,6 @@ public class IllapistaRenderer extends AbstractZombieRenderer<Illapista, ZombieM
     @Override
     @SuppressWarnings("removal")
     public ResourceLocation getTextureLocation(Zombie pEntity) {
-        return new ResourceLocation(ElementalCreatures.MOD_ID, "textures/entity/zombie/illapsita/illapista.png");
+        return new ResourceLocation(ElementalCreatures.MOD_ID, "textures/entity/zombie/illapista/illapista.png");
     }
 }

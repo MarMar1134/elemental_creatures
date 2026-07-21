@@ -25,19 +25,19 @@ public abstract class AbstractSlimeOuterLayer<T extends AbstractSlime> extends R
 
     public void render(PoseStack pPoseStack, MultiBufferSource pBuffer, int pPackedLight, T pLivingEntity, float pLimbSwing, float pLimbSwingAmount, float pPartialTicks, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
         Minecraft minecraft = Minecraft.getInstance();
-        boolean flag = minecraft.shouldEntityAppearGlowing(pLivingEntity) && pLivingEntity.isInvisible();
-        if (!pLivingEntity.isInvisible() || flag) {
-            VertexConsumer vertexconsumer;
-            if (flag) {
-                vertexconsumer = pBuffer.getBuffer(RenderType.outline(this.getTextureLocation(pLivingEntity)));
+        boolean shouldGlow = minecraft.shouldEntityAppearGlowing(pLivingEntity) && pLivingEntity.isInvisible();
+        if (!pLivingEntity.isInvisible() || shouldGlow) {
+            VertexConsumer vertexConsumer;
+            if (shouldGlow) {
+                vertexConsumer = pBuffer.getBuffer(RenderType.outline(this.getTextureLocation(pLivingEntity)));
             } else {
-                vertexconsumer = pBuffer.getBuffer(RenderType.entityTranslucent(this.getTextureLocation(pLivingEntity)));
+                vertexConsumer = pBuffer.getBuffer(RenderType.entityTranslucent(this.getTextureLocation(pLivingEntity)));
             }
 
             this.getParentModel().copyPropertiesTo(this.model);
             this.model.prepareMobModel(pLivingEntity, pLimbSwing, pLimbSwingAmount, pPartialTicks);
             this.model.setupAnim(pLivingEntity, pLimbSwing, pLimbSwingAmount, pAgeInTicks, pNetHeadYaw, pHeadPitch);
-            this.model.renderToBuffer(pPoseStack, vertexconsumer, pPackedLight, LivingEntityRenderer.getOverlayCoords(pLivingEntity, 0.0F), 1.0F, 1.0F, 1.0F, 1.0F);
+            this.model.renderToBuffer(pPoseStack, vertexConsumer, pPackedLight, LivingEntityRenderer.getOverlayCoords(pLivingEntity, 0.0F), 1.0F, 1.0F, 1.0F, 1.0F);
         }
     }
 }

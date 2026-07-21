@@ -16,6 +16,8 @@ public class EnglishLangProvider extends AbstractLangProvider {
 
         addLightingDamage("has been punished by the gods", "has been punished by the gods trying to scape");
 
+        addItem(ECItems.LIGHTNING_ESSENCE, "Lightning essence");
+        
         addItem(ECItems.LIGHTNING_ARROW, "Lightning arrow");
         addItem(ECItems.SOUL_ARROW, "Soul arrow");
         addItem(ECItems.PRISMARINE_ARROW, "Prismarine arrow");
@@ -63,5 +65,8 @@ public class EnglishLangProvider extends AbstractLangProvider {
 
         addSlimeType(ECEntityTypes.RED_SAND_CUBE.get(), "Red Sand Cube", ECItems.RED_SAND_CUBE_SPAWN_EGG, "Red Sand Cube spawn egg");
         addMobSubtitles("red_sand_cube", "Red Sand Cube squishing", "Red Sand Cube jumping", "Hurt Red Sand Cube", "Dying Red Sand Cube");
+
+        addSlimeType(ECEntityTypes.PHRANQUE.get(), "Phranque", ECItems.PHRANQUE_SPAWN_EGG, "Phranque spawn egg");
+        addMobSubtitles("phranque", "Phranque squishing", "Phranque jumping", "Hurt Phranque", "Dying Phranque");
     }
 }

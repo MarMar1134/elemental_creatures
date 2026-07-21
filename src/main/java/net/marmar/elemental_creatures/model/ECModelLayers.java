@@ -79,6 +79,10 @@ public class ECModelLayers {
         public static final ModelLayerLocation RED_SAND_CUBE = registerMainLayer("red_sand_cube");
         public static final ModelLayerLocation RED_SAND_CUBE_OUTER = registerOuterLayer("red_sand_cube_outer");
 
+        //Phranque
+        public static final ModelLayerLocation PHRANQUE = registerMainLayer("phranque");
+        public static final ModelLayerLocation PHRANQUE_OUTER = registerOuterLayer("phranque_outer");
+
     //Helpers
     @SuppressWarnings("removal")
     private static ResourceLocation modLoc(String pPath){

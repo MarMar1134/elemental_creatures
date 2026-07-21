@@ -11,11 +11,8 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 
 public abstract class AbstractSlimeRenderer<T extends AbstractSlime> extends MobRenderer<T, SlimeModel<T>> {
-    private static ResourceLocation INNER_TEXTURE_LOCATION;
-
-    public AbstractSlimeRenderer(EntityRendererProvider.Context pContext, ModelLayerLocation pInnerLayer, ResourceLocation pTexture) {
+    public AbstractSlimeRenderer(EntityRendererProvider.Context pContext, ModelLayerLocation pInnerLayer) {
         super(pContext, new SlimeModel<>(pContext.bakeLayer(pInnerLayer)), 0.25f);
-        INNER_TEXTURE_LOCATION = pTexture;
     }
 
     @Override
@@ -26,17 +23,11 @@ public abstract class AbstractSlimeRenderer<T extends AbstractSlime> extends Mob
 
     @Override
     protected void scale(T pLivingEntity, PoseStack pPoseStack, float pPartialTickTime) {
-        float f = 0.999F;
         pPoseStack.scale(0.999F, 0.999F, 0.999F);
         pPoseStack.translate(0.0F, 0.001F, 0.0F);
-        float f1 = (float)pLivingEntity.getSize();
-        float f2 = Mth.lerp(pPartialTickTime, pLivingEntity.oSquish, pLivingEntity.squish) / (f1 * 0.5F + 1.0F);
-        float f3 = 1.0F / (f2 + 1.0F);
-        pPoseStack.scale(f3 * f1, 1.0F / f3 * f1, f3 * f1);
-    }
-
-    @Override
-    public ResourceLocation getTextureLocation(T pEntity) {
-        return INNER_TEXTURE_LOCATION;
+        float size = (float)pLivingEntity.getSize();
+        float partialTick = Mth.lerp(pPartialTickTime, pLivingEntity.oSquish, pLivingEntity.squish) / (size * 0.5F + 1.0F);
+        float scale = 1.0F / (partialTick + 1.0F);
+        pPoseStack.scale(scale * size, 1.0F / scale * size, scale * size);
     }
 }

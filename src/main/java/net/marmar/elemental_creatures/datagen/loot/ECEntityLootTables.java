@@ -38,11 +38,13 @@ public class ECEntityLootTables implements LootTableSubProvider {
     public static final ResourceLocation SUNKEN = register("sunken");
     public static final ResourceLocation DRIED = register("dried");
     public static final ResourceLocation PUTRID = register("putrid");
+    public static final ResourceLocation TLALOQUIAN = register("tlalocquian");
 
     //Slimes
     public static final ResourceLocation ICE_CUBE = register("ice_cube");
     public static final ResourceLocation SAND_CUBE = register("sand_cube");
     public static final ResourceLocation RED_SAND_CUBE = register("red_sand_cube");
+    public static final ResourceLocation PHRANQUE = register("phranque");
 
     @Override
     public void generate(BiConsumer<ResourceLocation, LootTable.Builder> pOutput) {
@@ -51,17 +53,20 @@ public class ECEntityLootTables implements LootTableSubProvider {
         pOutput.accept(SOUL_SCORCHED, generateScorchedLootTable());
         pOutput.accept(LOST, generateLostLootTable());
         pOutput.accept(ROTTEN, generateRottenLootTable());
+        pOutput.accept(ILLAPISTA, generateIllapistaLootTable());
 
         //Skeletons
         pOutput.accept(SOUL_REAPER, generateSoulReaperLootTable());
         pOutput.accept(SUNKEN, generateSunkenLootTable());
         pOutput.accept(DRIED, generateDriedLootTable());
         pOutput.accept(PUTRID, generatePutridLootTable());
+        pOutput.accept(TLALOQUIAN, generateTlaloquianLootTable());
 
         //Slimes
         pOutput.accept(ICE_CUBE, generateSlimeLootTable(Items.SNOWBALL));
         pOutput.accept(SAND_CUBE, generateSlimeLootTable(Items.SAND));
         pOutput.accept(RED_SAND_CUBE, generateSlimeLootTable(Items.RED_SAND));
+        pOutput.accept(PHRANQUE, generateSlimeLootTable(ECItems.LIGHTNING_ESSENCE.get()));
     }
 
     //Zombies
@@ -125,6 +130,20 @@ public class ECEntityLootTables implements LootTableSubProvider {
                         .add(LootItem.lootTableItem(Items.STICK)
                                 .when(LootItemRandomChanceWithLootingCondition.randomChanceAndLootingBoost(0.115f, 0.1f))
                                 .apply(SetItemCountFunction.setCount(UniformGenerator.between(0,2))))
+                );
+    }
+
+    private LootTable.Builder generateIllapistaLootTable(){
+        return LootTable.lootTable()
+                .withPool(LootPool.lootPool().setBonusRolls(ConstantValue.exactly(1))
+                        .add(LootItem.lootTableItem(Items.ROTTEN_FLESH)
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1, 4)))
+                                .apply(LootingEnchantFunction.lootingMultiplier(ConstantValue.exactly(1))))
+                )
+                .withPool(LootPool.lootPool().setBonusRolls(ConstantValue.exactly(1))
+                        .add(LootItem.lootTableItem(ECItems.LIGHTNING_ESSENCE.get())
+                                .when(LootItemRandomChanceWithLootingCondition.randomChanceAndLootingBoost(0.083f, 0.1f))
+                                .apply(SetItemCountFunction.setCount(ConstantValue.exactly(1))))
                 );
     }
 
@@ -206,6 +225,23 @@ public class ECEntityLootTables implements LootTableSubProvider {
                                 .when(LootItemRandomChanceWithLootingCondition.randomChanceAndLootingBoost(0.083f, 0.1f))
                                 .apply(SetItemCountFunction.setCount(ConstantValue.exactly(1))))
                         .add(LootItem.lootTableItem(Items.STICK)
+                                .when(LootItemRandomChanceWithLootingCondition.randomChanceAndLootingBoost(0.66f, 0.1f))
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(0, 2))))
+                );
+    }
+
+    private LootTable.Builder generateTlaloquianLootTable(){
+        return LootTable.lootTable()
+                .withPool(LootPool.lootPool().setBonusRolls(ConstantValue.exactly(1))
+                        .add(LootItem.lootTableItem(ECItems.LIGHTNING_ARROW.get())
+                                .when(LootItemRandomChanceWithLootingCondition.randomChanceAndLootingBoost(0.66f, 0.1f))
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(0, 2))))
+                        .add(LootItem.lootTableItem(Items.BONE)
+                                .when(LootItemRandomChanceWithLootingCondition.randomChanceAndLootingBoost(0.66f, 0.1f))
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(0,2))))
+                )
+                .withPool(LootPool.lootPool().setBonusRolls(ConstantValue.exactly(1))
+                        .add(LootItem.lootTableItem(ECItems.LIGHTNING_ESSENCE.get())
                                 .when(LootItemRandomChanceWithLootingCondition.randomChanceAndLootingBoost(0.66f, 0.1f))
                                 .apply(SetItemCountFunction.setCount(UniformGenerator.between(0, 2))))
                 );

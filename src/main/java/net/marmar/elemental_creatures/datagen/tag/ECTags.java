@@ -36,6 +36,8 @@ public class ECTags {
         public static final TagKey<Biome> CAN_SPAWN_ICE_CUBE = biomeTag("can_spawn_ice_cube");
         public static final TagKey<Biome> CAN_SPAWN_SAND_CUBE = biomeTag("can_spawn_sand_cube");
         public static final TagKey<Biome> CAN_SPAWN_RED_SAND_CUBE = biomeTag("can_spawn_red_sand_cube");
+        public static final TagKey<Biome> CAN_SPAWN_PHRANQUE = biomeTag("can_spawn_phranque");
+
 
         private static TagKey<Biome> biomeTag(String name){
             return TagKey.create(Registries.BIOME, new ResourceLocation(ElementalCreatures.MOD_ID,name));

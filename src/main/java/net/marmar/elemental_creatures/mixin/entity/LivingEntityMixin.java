@@ -1,12 +1,14 @@
 package net.marmar.elemental_creatures.mixin.entity;
 
 import net.marmar.elemental_creatures.entity.ECEntityTypes;
+import net.marmar.elemental_creatures.entity.slime.AbstractSlime;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.monster.Skeleton;
+import net.minecraft.world.entity.monster.Slime;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -23,12 +25,19 @@ public class LivingEntityMixin {
     public void onHurt(DamageSource pSource, float pAmount, CallbackInfoReturnable<Boolean> cir) {
         LivingEntity self = (LivingEntity) (Object) this;
 
-        if (!(self instanceof Skeleton skeleton) || self.level().isClientSide())
+        if (self.level().isClientSide())
             return;
 
         if (pSource.is(DamageTypes.LIGHTNING_BOLT)) {
-            skeleton.convertTo(ECEntityTypes.TLALOCQUIAN.get(), true);
-            cir.setReturnValue(false);
+            if (self instanceof Skeleton skeleton){
+                skeleton.convertTo(ECEntityTypes.TLALOCQUIAN.get(), true);
+                cir.setReturnValue(false);
+
+            //Only regular slimes can convert to phranques
+            } else if (self instanceof Slime slime && !(slime instanceof AbstractSlime)){
+                slime.convertTo(ECEntityTypes.PHRANQUE.get(), true);
+                cir.setReturnValue(false);
+            }
         }
     }
 

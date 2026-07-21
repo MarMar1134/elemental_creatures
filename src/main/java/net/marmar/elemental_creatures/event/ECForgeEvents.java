@@ -130,6 +130,10 @@ public class ECForgeEvents {
         if (ECConfig.SPAWN_RED_SAND_CUBE.get() && biome.is(ECTags.Biomes.CAN_SPAWN_RED_SAND_CUBE) && random.nextDouble() < ECConfig.RED_SAND_CUBE_SPAWN_RATE.get()){
             spawnReplacement(ECEntityTypes.RED_SAND_CUBE.get(), event, level, pos);
         }
+
+        if (ECConfig.SPAWN_PHRANQUE.get() && biome.is(ECTags.Biomes.CAN_SPAWN_PHRANQUE) && random.nextDouble() < ECConfig.PHRANQUE_SPAWN_RATE.get()){
+            spawnReplacement(ECEntityTypes.PHRANQUE.get(), event, level, pos);
+        }
     }
 
     private static <T extends Mob> void spawnReplacement(EntityType<T> pReplacement, MobSpawnEvent.FinalizeSpawn event, ServerLevelAccessor pLevel, BlockPos pPos) {

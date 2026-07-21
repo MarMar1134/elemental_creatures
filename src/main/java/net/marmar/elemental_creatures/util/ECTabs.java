@@ -38,17 +38,21 @@ public class ECTabs {
                         pOutput.accept(ECItems.ICE_CUBE_SPAWN_EGG.get());
                         pOutput.accept(ECItems.SAND_CUBE_SPAWN_EGG.get());
                         pOutput.accept(ECItems.RED_SAND_CUBE_SPAWN_EGG.get());
+                        pOutput.accept(ECItems.PHRANQUE_SPAWN_EGG.get());
                     }))
                     .build());
 
     public static final RegistryObject<CreativeModeTab> ELEMENTAL_ITEMS = TABS.register(
             "elemental_items", () -> CreativeModeTab.builder()
-                    .icon(() -> new ItemStack(ECItems.SOUL_ARROW.get()))
+                    .icon(() -> new ItemStack(ECItems.LIGHTNING_ESSENCE.get()))
                     .title(Component.translatable("tab." + ElementalCreatures.MOD_ID + ".elemental_items"))
                     .withTabsBefore(ECTabs.ELEMENTALS_SPAWN_EGGS.getId())
                     .displayItems(((pParameters, pOutput) -> {
+                        pOutput.accept(ECItems.LIGHTNING_ESSENCE.get());
+
                         pOutput.accept(ECItems.LIGHTNING_ARROW.get());
                         pOutput.accept(ECItems.SOUL_ARROW.get());
+                        pOutput.accept(ECItems.PRISMARINE_ARROW.get());
                     }))
                     .build());
 

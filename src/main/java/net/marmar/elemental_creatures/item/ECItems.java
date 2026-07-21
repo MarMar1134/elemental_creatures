@@ -6,6 +6,7 @@ import net.marmar.elemental_creatures.item.arrow.LightningArrowItem;
 import net.marmar.elemental_creatures.item.arrow.PrismarineArrowItem;
 import net.marmar.elemental_creatures.item.arrow.SoulArrowItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Rarity;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -15,6 +16,10 @@ import net.minecraftforge.registries.RegistryObject;
 public class ECItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(
             ForgeRegistries.ITEMS, ElementalCreatures.MOD_ID);
+
+    //Others
+    public static final RegistryObject<Item> LIGHTNING_ESSENCE = ITEMS.register(
+            "lightning_essence", () -> new Item(new Item.Properties().stacksTo(16).rarity(Rarity.EPIC)));
 
     //Projectiles
     public static final RegistryObject<Item> LIGHTNING_ARROW = ITEMS.register(
@@ -70,6 +75,10 @@ public class ECItems {
     public static final RegistryObject<Item> RED_SAND_CUBE_SPAWN_EGG = ITEMS.register(
             "red_sand_cube_spawn_egg", () -> new ForgeSpawnEggItem(ECEntityTypes.RED_SAND_CUBE, 0xc06822,
                     0xc2955e, new Item.Properties()));
+
+    public static final RegistryObject<Item> PHRANQUE_SPAWN_EGG = ITEMS.register(
+            "phranque_spawn_egg", () -> new ForgeSpawnEggItem(ECEntityTypes.PHRANQUE, 0x00e0e0,
+                    0x9da9a8, new Item.Properties()));
 
     public static void register(IEventBus eventBus){
         ElementalCreatures.LOGGER.info("Registering Elemental Creatures items...");

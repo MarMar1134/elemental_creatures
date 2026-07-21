@@ -16,7 +16,12 @@ public class IceCubeRenderer extends AbstractSlimeRenderer<IceCube> {
             "textures/entity/slime/ice_cube.png");
 
     public IceCubeRenderer(EntityRendererProvider.Context pContext) {
-        super(pContext, ECModelLayers.ICE_CUBE, ICE_CUBE_LOCATION);
+        super(pContext, ECModelLayers.ICE_CUBE);
         this.addLayer(new IceCubeOuterLayer(this, pContext.getModelSet()));
+    }
+
+    @Override
+    public ResourceLocation getTextureLocation(IceCube pEntity) {
+        return ICE_CUBE_LOCATION;
     }
 }

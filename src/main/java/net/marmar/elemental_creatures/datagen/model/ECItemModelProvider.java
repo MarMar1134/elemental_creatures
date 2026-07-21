@@ -15,6 +15,9 @@ public class ECItemModelProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
+        //Others
+        addItem(ECItems.LIGHTNING_ESSENCE);
+
         //Projectiles
         addItem(ECItems.LIGHTNING_ARROW);
         addItem(ECItems.SOUL_ARROW);
@@ -38,6 +41,7 @@ public class ECItemModelProvider extends ItemModelProvider {
         spawnEggItem(ECItems.ICE_CUBE_SPAWN_EGG);
         spawnEggItem(ECItems.SAND_CUBE_SPAWN_EGG);
         spawnEggItem(ECItems.RED_SAND_CUBE_SPAWN_EGG);
+        spawnEggItem(ECItems.PHRANQUE_SPAWN_EGG);
     }
 
     private void addItem(RegistryObject<Item> pItem){

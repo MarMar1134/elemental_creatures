@@ -48,6 +48,9 @@ public class ECConfig {
     public static final ForgeConfigSpec.BooleanValue SPAWN_RED_SAND_CUBE;
     public static final ForgeConfigSpec.DoubleValue RED_SAND_CUBE_SPAWN_RATE;
 
+    public static final ForgeConfigSpec.BooleanValue SPAWN_PHRANQUE;
+    public static final ForgeConfigSpec.DoubleValue PHRANQUE_SPAWN_RATE;
+
     static {
         BUILDER.push("Elemental Creatures spawn configuration");
 
@@ -118,6 +121,11 @@ public class ECConfig {
                 .define("spawn_red_sand_cube", true);
         RED_SAND_CUBE_SPAWN_RATE = BUILDER.comment("Determines the probability of a Red Sand Cube replacing a Slime.")
                 .defineInRange("red_sand_cube_spawn_rate", 1d, 0.01d, 1d);
+
+        SPAWN_PHRANQUE = BUILDER.comment("defines if a Phranque can spawn on Slime chunks.")
+                .define("spawn_phranque", false);
+        PHRANQUE_SPAWN_RATE = BUILDER.comment("Determines the probability of a Phranque replacing a Slime.")
+                .defineInRange("phranque_spawn_rate", 0d, 0d, 1d);
 
         BUILDER.pop();
         SPEC = BUILDER.build();

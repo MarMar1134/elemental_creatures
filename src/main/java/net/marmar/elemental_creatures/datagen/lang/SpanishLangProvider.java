@@ -16,6 +16,8 @@ public class SpanishLangProvider extends AbstractLangProvider {
 
         addLightingDamage("fue castigado por los dioses", "fue castigado por los dioses mientras luchaba con");
 
+        addItem(ECItems.LIGHTNING_ESSENCE, "Esencia de relámpago");
+
         addItem(ECItems.LIGHTNING_ARROW, "Flecha eléctrica");
         addItem(ECItems.SOUL_ARROW, "Flecha de alma");
         addItem(ECItems.PRISMARINE_ARROW, "Flecha de prismarina");
@@ -64,5 +66,8 @@ public class SpanishLangProvider extends AbstractLangProvider {
 
         addSlimeType(ECEntityTypes.RED_SAND_CUBE.get(), "Cubo de Arena Rojiza", ECItems.RED_SAND_CUBE_SPAWN_EGG, "Generar Cubo de Arena Rojiza");
         addMobSubtitles("red_sand_cube", "Cubo de Arena Rojiza tranquilo", "Cubo de Arena Rojiza saltando", "Cubo de Arena Rojiza lastimado", "Cubo de Arena Rojiza muriendo");
+
+        addSlimeType(ECEntityTypes.PHRANQUE.get(), "Phranque", ECItems.PHRANQUE_SPAWN_EGG, "Generar Phranque");
+        addMobSubtitles("phranque", "Phranque tranquilo", "Phranque saltando", "Phranque lastimado", "Phranque muriendo");
     }
 }
