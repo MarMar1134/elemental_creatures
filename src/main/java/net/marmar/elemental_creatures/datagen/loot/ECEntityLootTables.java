@@ -306,7 +306,8 @@ public class ECEntityLootTables implements LootTableSubProvider {
                 );
     }
 
+    @SuppressWarnings("removal")
     private static ResourceLocation register(String pName){
-        return ResourceLocation.fromNamespaceAndPath(ElementalCreatures.MOD_ID, "entities/" + pName);
+        return new ResourceLocation(ElementalCreatures.MOD_ID, "entities/" + pName);
     }
 }

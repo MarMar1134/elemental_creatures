@@ -8,8 +8,9 @@ import net.minecraft.client.renderer.entity.layers.EyesLayer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 
+@SuppressWarnings("removal")
 public class DesertSpiderEyesLayer<T extends Entity, M extends SpiderModel<T>> extends EyesLayer<T, M> {
-    private static final RenderType DESERT_SPIDER_EYES = RenderType.eyes(ResourceLocation.fromNamespaceAndPath(ElementalCreatures.MOD_ID,
+    private static final RenderType DESERT_SPIDER_EYES = RenderType.eyes(new ResourceLocation(ElementalCreatures.MOD_ID,
             "textures/entity/spider/desert_spider/desert_spider_eyes.png"));
 
     public DesertSpiderEyesLayer(RenderLayerParent<T, M> pRenderer) {

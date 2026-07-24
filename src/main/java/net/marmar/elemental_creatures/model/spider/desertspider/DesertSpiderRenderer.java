@@ -10,8 +10,9 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 @OnlyIn(Dist.CLIENT)
+@SuppressWarnings("removal")
 public class DesertSpiderRenderer extends AbstractSpiderRenderer<DesertSpider> {
-    private static final ResourceLocation DESERT_SPIDER_LOCATION = ResourceLocation.fromNamespaceAndPath(ElementalCreatures.MOD_ID,
+    private static final ResourceLocation DESERT_SPIDER_LOCATION = new ResourceLocation(ElementalCreatures.MOD_ID,
             "textures/entity/spider/desert_spider/desert_spider.png");
 
     public DesertSpiderRenderer(EntityRendererProvider.Context pContext) {

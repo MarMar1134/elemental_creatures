@@ -7,8 +7,9 @@ import net.marmar.elemental_creatures.model.spider.AbstractSpiderRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
 
+@SuppressWarnings("removal")
 public class AracnianRenderer extends AbstractSpiderRenderer<Aracnian> {
-    private static final ResourceLocation ARACNIAN_LOCATION = ResourceLocation.fromNamespaceAndPath(ElementalCreatures.MOD_ID,
+    private static final ResourceLocation ARACNIAN_LOCATION = new ResourceLocation(ElementalCreatures.MOD_ID,
             "textures/entity/spider/aracnian/aracnian.png");
 
     public AracnianRenderer(EntityRendererProvider.Context pContext) {

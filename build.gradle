@@ -151,8 +151,11 @@ dependencies {
 }
 
 mixin {
-    add sourceSets.main, 'elemental_creatures.refmap.json'
+    add sourceSets.main, 'elemental_creatures.mixins.refmap.json'
     config 'elemental_creatures.mixins.json'
+
+    debug.verbose = true
+    debug.export = true
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.
@@ -172,6 +175,12 @@ tasks.named('processResources', ProcessResources).configure {
     filesMatching(['META-INF/mods.toml', 'pack.mcmeta']) {
         expand replaceProperties + [project: project]
     }
+
+    from(layout.buildDirectory.dir('tmp/compileJava')) {
+        include 'elemental_creatures.mixins.refmap.json'
+    }
+
+    dependsOn 'compileJava'
 }
 
 // Example for how to get properties into the manifest for reading at runtime.
@@ -187,6 +196,8 @@ tasks.named('jar', Jar).configure {
                 'Implementation-Timestamp': new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
     }
+
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 
     // This is the preferred method to reobfuscate your jar file
     finalizedBy 'reobfJar'

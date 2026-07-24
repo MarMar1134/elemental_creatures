@@ -7,8 +7,9 @@ import net.marmar.elemental_creatures.model.spider.AbstractSpiderRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
 
+@SuppressWarnings("removal")
 public class SnowySpiderRenderer extends AbstractSpiderRenderer<SnowySpider> {
-    private static final ResourceLocation SNOWY_SPIDER_LOCATION = ResourceLocation.fromNamespaceAndPath(ElementalCreatures.MOD_ID,
+    private static final ResourceLocation SNOWY_SPIDER_LOCATION = new ResourceLocation(ElementalCreatures.MOD_ID,
             "textures/entity/spider/snowy_spider/snowy_spider.png");
 
     public SnowySpiderRenderer(EntityRendererProvider.Context pContext) {

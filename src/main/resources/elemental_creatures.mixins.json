@@ -3,6 +3,7 @@
   "minVersion": "0.8",
   "package": "net.marmar.elemental_creatures.mixin",
   "compatibilityLevel": "JAVA_17",
+  "refmap": "elemental_creatures.mixins.refmap.json",
   "mixins": [
     "block.BaseFireBlockMixin",
     "entity.EntityMixin",

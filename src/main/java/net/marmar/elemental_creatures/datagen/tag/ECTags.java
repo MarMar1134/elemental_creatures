@@ -11,8 +11,9 @@ public class ECTags {
     public static class Entities {
         public static final TagKey<EntityType<?>> ZOMBIE = entityTag("zombie");
 
+        @SuppressWarnings("removal")
         private static TagKey<EntityType<?>> entityTag(String name){
-            return TagKey.create(Registries.ENTITY_TYPE, ResourceLocation.fromNamespaceAndPath(ElementalCreatures.MOD_ID, name));
+            return TagKey.create(Registries.ENTITY_TYPE, new ResourceLocation(ElementalCreatures.MOD_ID, name));
         }
     }
 
@@ -42,8 +43,9 @@ public class ECTags {
         public static final TagKey<Biome> CAN_SPAWN_SNOWY_SPIDER = biomeTag("can_spawn_snowy_spider");
         public static final TagKey<Biome> CAN_SPAWN_ARACNIAN = biomeTag("can_spawn_aracnian");
 
+        @SuppressWarnings("removal")
         private static TagKey<Biome> biomeTag(String name){
-            return TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(ElementalCreatures.MOD_ID,name));
+            return TagKey.create(Registries.BIOME, new ResourceLocation(ElementalCreatures.MOD_ID,name));
         }
     }
 }
