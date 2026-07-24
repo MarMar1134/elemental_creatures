@@ -7,13 +7,12 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.biome.Biome;
 
-@SuppressWarnings("removal")
 public class ECTags {
     public static class Entities {
         public static final TagKey<EntityType<?>> ZOMBIE = entityTag("zombie");
 
         private static TagKey<EntityType<?>> entityTag(String name){
-            return TagKey.create(Registries.ENTITY_TYPE, new ResourceLocation(ElementalCreatures.MOD_ID, name));
+            return TagKey.create(Registries.ENTITY_TYPE, ResourceLocation.fromNamespaceAndPath(ElementalCreatures.MOD_ID, name));
         }
     }
 
@@ -38,9 +37,13 @@ public class ECTags {
         public static final TagKey<Biome> CAN_SPAWN_RED_SAND_CUBE = biomeTag("can_spawn_red_sand_cube");
         public static final TagKey<Biome> CAN_SPAWN_PHRANQUE = biomeTag("can_spawn_phranque");
 
+        //Spiders
+        public static final TagKey<Biome> CAN_SPAWN_DESERT_SPIDER = biomeTag("can_spawn_desert_spider");
+        public static final TagKey<Biome> CAN_SPAWN_SNOWY_SPIDER = biomeTag("can_spawn_snowy_spider");
+        public static final TagKey<Biome> CAN_SPAWN_ARACNIAN = biomeTag("can_spawn_aracnian");
 
         private static TagKey<Biome> biomeTag(String name){
-            return TagKey.create(Registries.BIOME, new ResourceLocation(ElementalCreatures.MOD_ID,name));
+            return TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(ElementalCreatures.MOD_ID,name));
         }
     }
 }

@@ -80,6 +80,19 @@ public class ECItems {
             "phranque_spawn_egg", () -> new ForgeSpawnEggItem(ECEntityTypes.PHRANQUE, 0x00e0e0,
                     0x9da9a8, new Item.Properties()));
 
+    //Spider spawn eggs
+    public static final RegistryObject<Item> DESERT_SPIDER_SPAWN_EGG = ITEMS.register(
+            "desert_spider_spawn_egg", () -> new ForgeSpawnEggItem(ECEntityTypes.DESERT_SPIDER, 0x473f31,
+                    0x02303c, new Item.Properties()));
+
+    public static final RegistryObject<Item> SNOWY_SPIDER_SPAWN_EGG = ITEMS.register(
+            "snowy_spider_spawn_egg", () -> new ForgeSpawnEggItem(ECEntityTypes.SNOWY_SPIDER, 0x717170,
+                    0x213c02, new Item.Properties()));
+
+    public static final RegistryObject<Item> ARACNIAN_SPAWN_EGG = ITEMS.register(
+            "aracnian_spawn_egg", () -> new ForgeSpawnEggItem(ECEntityTypes.ARACNIAN, 0x376260,
+                    0xa8710e, new Item.Properties()));
+
     public static void register(IEventBus eventBus){
         ElementalCreatures.LOGGER.info("Registering Elemental Creatures items...");
         ITEMS.register(eventBus);

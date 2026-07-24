@@ -5,6 +5,7 @@ import net.marmar.elemental_creatures.entity.ECEntityTypes;
 import net.marmar.elemental_creatures.item.ECItems;
 import net.marmar.elemental_creatures.util.ECSounds;
 import net.marmar.elemental_creatures.util.ECTabs;
+import net.marmar.elemental_creatures.util.enchantment.ECEnchantments;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
@@ -23,6 +24,7 @@ public class ElementalCreatures {
         ECItems.register(modEventBus);
         ECSounds.register(modEventBus);
         ECEntityTypes.register(modEventBus);
+        ECEnchantments.register(modEventBus);
         ECTabs.register(modEventBus);
 
         context.registerConfig(ModConfig.Type.COMMON, ECConfig.SPEC, "elemental_creatures-common.toml");

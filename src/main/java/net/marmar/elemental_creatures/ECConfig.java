@@ -51,6 +51,16 @@ public class ECConfig {
     public static final ForgeConfigSpec.BooleanValue SPAWN_PHRANQUE;
     public static final ForgeConfigSpec.DoubleValue PHRANQUE_SPAWN_RATE;
 
+    //Spiders
+    public static final ForgeConfigSpec.BooleanValue SPAWN_DESERT_SPIDER;
+    public static final ForgeConfigSpec.DoubleValue DESERT_SPIDER_SPAWN_RATE;
+
+    public static final ForgeConfigSpec.BooleanValue SPAWN_SNOWY_SPIDER;
+    public static final ForgeConfigSpec.DoubleValue SNOWY_SPIDER_SPAWN_RATE;
+
+    public static final ForgeConfigSpec.BooleanValue SPAWN_ARACNIAN;
+    public static final ForgeConfigSpec.DoubleValue ARACNIAN_SPAWN_RATE;
+
     static {
         BUILDER.push("Elemental Creatures spawn configuration");
 
@@ -125,7 +135,23 @@ public class ECConfig {
         SPAWN_PHRANQUE = BUILDER.comment("defines if a Phranque can spawn on Slime chunks.")
                 .define("spawn_phranque", false);
         PHRANQUE_SPAWN_RATE = BUILDER.comment("Determines the probability of a Phranque replacing a Slime.")
-                .defineInRange("phranque_spawn_rate", 0d, 0d, 1d);
+                .defineInRange("phranque_spawn_rate", 0.8d, 0.1d, 1d);
+
+        //Spiders
+        SPAWN_DESERT_SPIDER = BUILDER.comment("defines if a Desert Spider can spawn naturally on the Overworld.")
+                .define("spawn_desert_spider", true);
+        DESERT_SPIDER_SPAWN_RATE = BUILDER.comment("Determines the probability of a Desert Spider replacing a Spider.")
+                .defineInRange("desert_spider_spawn_rate", 1d, 0.1d, 1d);
+
+        SPAWN_SNOWY_SPIDER = BUILDER.comment("defines if a Snowy Spider can spawn naturally on the Overworld.")
+                .define("spawn_desert_spider", true);
+        SNOWY_SPIDER_SPAWN_RATE = BUILDER.comment("Determines the probability of a Snowy Spider replacing a Spider.")
+                .defineInRange("desert_spider_spawn_rate", 1d, 0.1d, 1d);
+
+        SPAWN_ARACNIAN = BUILDER.comment("defines if a Child of Aracne can spawn naturally on the Overworld.")
+                .define("spawn_child_of_aracne", false);
+        ARACNIAN_SPAWN_RATE = BUILDER.comment("Determines the probability of a Child of Aracne replacing a Spider.")
+                .defineInRange("child_of_aracne_spawn_rate", 0.8d, 0.1d, 1d);
 
         BUILDER.pop();
         SPEC = BUILDER.build();

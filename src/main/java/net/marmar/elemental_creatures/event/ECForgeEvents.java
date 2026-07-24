@@ -14,6 +14,7 @@ import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.monster.Skeleton;
 import net.minecraft.world.entity.monster.Slime;
+import net.minecraft.world.entity.monster.Spider;
 import net.minecraft.world.entity.monster.Zombie;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.biome.Biome;
@@ -133,6 +134,32 @@ public class ECForgeEvents {
 
         if (ECConfig.SPAWN_PHRANQUE.get() && biome.is(ECTags.Biomes.CAN_SPAWN_PHRANQUE) && random.nextDouble() < ECConfig.PHRANQUE_SPAWN_RATE.get()){
             spawnReplacement(ECEntityTypes.PHRANQUE.get(), event, level, pos);
+        }
+    }
+
+    @SubscribeEvent
+    public static void onSpiderSpawn(MobSpawnEvent.FinalizeSpawn event){
+        if (!(event.getEntity() instanceof Spider spider) || spider.getClass() != Spider.class)
+            return;
+
+        if (spider.getSpawnType() == MobSpawnType.SPAWN_EGG)
+            return;
+
+        ServerLevelAccessor level = event.getLevel();
+        BlockPos pos = spider.blockPosition();
+        Holder<Biome> biome = level.getBiome(pos);
+        RandomSource random = spider.getRandom();
+
+        if (ECConfig.SPAWN_DESERT_SPIDER.get() && biome.is(ECTags.Biomes.CAN_SPAWN_DESERT_SPIDER) && random.nextDouble() < ECConfig.DESERT_SPIDER_SPAWN_RATE.get()){
+            spawnReplacement(ECEntityTypes.DESERT_SPIDER.get(), event, level, pos);
+        }
+
+        if (ECConfig.SPAWN_SNOWY_SPIDER.get() && biome.is(ECTags.Biomes.CAN_SPAWN_SNOWY_SPIDER) && random.nextDouble() < ECConfig.SNOWY_SPIDER_SPAWN_RATE.get()){
+            spawnReplacement(ECEntityTypes.SNOWY_SPIDER.get(), event, level, pos);
+        }
+
+        if (ECConfig.SPAWN_ARACNIAN.get() && biome.is(ECTags.Biomes.CAN_SPAWN_ARACNIAN) && random.nextDouble() < ECConfig.ARACNIAN_SPAWN_RATE.get()){
+            spawnReplacement(ECEntityTypes.ARACNIAN.get(), event, level, pos);
         }
     }
 

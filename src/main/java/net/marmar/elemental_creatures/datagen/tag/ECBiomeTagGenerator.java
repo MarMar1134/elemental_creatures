@@ -84,5 +84,21 @@ public class ECBiomeTagGenerator extends BiomeTagsProvider {
                 Biomes.ERODED_BADLANDS,
                 Biomes.WOODED_BADLANDS
         );
+
+        //Spider biomes
+        this.tag(ECTags.Biomes.CAN_SPAWN_DESERT_SPIDER).add(
+                Biomes.DESERT,
+                Biomes.BADLANDS,
+                Biomes.ERODED_BADLANDS
+        );
+
+        this.tag(ECTags.Biomes.CAN_SPAWN_SNOWY_SPIDER).add(
+                Biomes.ICE_SPIKES,
+                Biomes.SNOWY_PLAINS,
+                Biomes.SNOWY_SLOPES,
+                Biomes.SNOWY_TAIGA,
+                Biomes.SNOWY_BEACH,
+                Biomes.FROZEN_PEAKS
+        );
     }
 }

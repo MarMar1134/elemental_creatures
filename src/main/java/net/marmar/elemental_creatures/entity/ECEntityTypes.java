@@ -9,10 +9,14 @@ import net.marmar.elemental_creatures.entity.slime.IceCube;
 import net.marmar.elemental_creatures.entity.slime.Phranque;
 import net.marmar.elemental_creatures.entity.slime.RedSandCube;
 import net.marmar.elemental_creatures.entity.slime.SandCube;
+import net.marmar.elemental_creatures.entity.spider.Aracnian;
+import net.marmar.elemental_creatures.entity.spider.DesertSpider;
+import net.marmar.elemental_creatures.entity.spider.SnowySpider;
 import net.marmar.elemental_creatures.entity.zombie.*;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.entity.monster.Slime;
+import net.minecraft.world.entity.monster.Spider;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -96,6 +100,19 @@ public class ECEntityTypes {
     public static final RegistryObject<EntityType<Phranque>> PHRANQUE =
             ENTITY_TYPES.register("phranque", () -> EntityType.Builder.of(Phranque::new, MobCategory.MONSTER)
                     .sized(2.04F, 2.04F).build("phranque"));
+
+    //Spiders
+    public static final RegistryObject<EntityType<DesertSpider>> DESERT_SPIDER =
+            ENTITY_TYPES.register("desert_spider", () -> EntityType.Builder.of(DesertSpider::new, MobCategory.MONSTER)
+                    .sized(1.4F, 0.9F).build("desert_spider"));
+
+    public static final RegistryObject<EntityType<SnowySpider>> SNOWY_SPIDER =
+            ENTITY_TYPES.register("snowy_spider", () -> EntityType.Builder.of(SnowySpider::new, MobCategory.MONSTER)
+                    .sized(1.0F, 0.7F).build("snowy_spider"));
+
+    public static final RegistryObject<EntityType<Aracnian>> ARACNIAN =
+            ENTITY_TYPES.register("aracnian", () -> EntityType.Builder.of(Aracnian::new, MobCategory.MONSTER)
+                    .sized(1.6F, 1F).build("aracnian"));
 
     public static void register(IEventBus eventBus){
         ElementalCreatures.LOGGER.info("Registering Elemental Creatures entities...");

@@ -4,10 +4,13 @@ import net.marmar.elemental_creatures.ElementalCreatures;
 import net.marmar.elemental_creatures.entity.ECEntityTypes;
 import net.marmar.elemental_creatures.entity.skeleton.*;
 import net.marmar.elemental_creatures.entity.slime.*;
+import net.marmar.elemental_creatures.entity.spider.Aracnian;
+import net.marmar.elemental_creatures.entity.spider.DesertSpider;
+import net.marmar.elemental_creatures.entity.spider.SnowySpider;
 import net.marmar.elemental_creatures.entity.zombie.*;
 import net.marmar.elemental_creatures.network.ECNetwork;
 import net.minecraft.world.entity.SpawnPlacements;
-import net.minecraft.world.entity.monster.Slime;
+import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.event.entity.SpawnPlacementRegisterEvent;
@@ -38,6 +41,11 @@ public class ECModEvents {
         event.put(ECEntityTypes.SAND_CUBE.get(), SandCube.createSandCubeAttributes().build());
         event.put(ECEntityTypes.RED_SAND_CUBE.get(), RedSandCube.createRedSandCubeAttributes().build());
         event.put(ECEntityTypes.PHRANQUE.get(), Phranque.createPhranqueAttributes().build());
+
+        //Spider attributes
+        event.put(ECEntityTypes.DESERT_SPIDER.get(), DesertSpider.createDesertSpiderAttributes().build());
+        event.put(ECEntityTypes.SNOWY_SPIDER.get(), SnowySpider.createSnowySpiderAttributes().build());
+        event.put(ECEntityTypes.ARACNIAN.get(), Aracnian.createAracnianAttributes().build());
     }
 
     @SubscribeEvent
@@ -75,6 +83,14 @@ public class ECModEvents {
                 AbstractSlime::checkSlimeLikeSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
         event.register(ECEntityTypes.PHRANQUE.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 AbstractSlime::checkSlimeLikeSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
+
+        //Spiders
+        event.register(ECEntityTypes.DESERT_SPIDER.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                Monster::checkMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
+        event.register(ECEntityTypes.SNOWY_SPIDER.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                Monster::checkMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
+        event.register(ECEntityTypes.ARACNIAN.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                Monster::checkMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
     }
 
     @SubscribeEvent

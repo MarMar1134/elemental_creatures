@@ -1,4 +1,6 @@
-// 1.20.1	2026-07-21T13:25:08.859188	Loot Tables
+// 1.20.1	2026-07-21T23:05:45.6151811	Loot Tables
+592c2959ab0420751e2439c4c95aa5267818ac3b data/elemental_creatures/loot_tables/entities/aracnian.json
+55a6c4ddc9cacdd0f99a302626cc1c4f1e5cf326 data/elemental_creatures/loot_tables/entities/desert_spider.json
 0ac0533a26c66ba68ae3998cdf46718d154e1f68 data/elemental_creatures/loot_tables/entities/dried.json
 fe96f5ccb72b972414be9a4429c7228b0606e2aa data/elemental_creatures/loot_tables/entities/ice_cube.json
 b9d93637539e6363b514d45116a5d74849026014 data/elemental_creatures/loot_tables/entities/illapista.json
@@ -9,6 +11,7 @@ b9d93637539e6363b514d45116a5d74849026014 data/elemental_creatures/loot_tables/en
 c8ebe2eba3e065e8e16d290dee1603c2d981a528 data/elemental_creatures/loot_tables/entities/rotten.json
 4aa5580a8bae3fe40fa8fd79bbb6bb1b5d1db70c data/elemental_creatures/loot_tables/entities/sand_cube.json
 06a37423fbe1b96b1e79598c8c95923e53b043a5 data/elemental_creatures/loot_tables/entities/scorched.json
+5354f20e4de01c6a2fa0a6e8737c43da8c4c127f data/elemental_creatures/loot_tables/entities/snowy_spider.json
 ce6e06c29f5123594dfd9ad2d9f2f12363b56fb1 data/elemental_creatures/loot_tables/entities/soul_reaper.json
 4389ee0a743bfd011887ea5ab95a74dbc0537c1b data/elemental_creatures/loot_tables/entities/soul_scorched.json
 b55484a081b5a3440101d2945fad6618169e0a0a data/elemental_creatures/loot_tables/entities/sunken.json

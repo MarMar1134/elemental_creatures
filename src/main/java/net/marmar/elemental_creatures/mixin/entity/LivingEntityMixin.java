@@ -2,13 +2,13 @@ package net.marmar.elemental_creatures.mixin.entity;
 
 import net.marmar.elemental_creatures.entity.ECEntityTypes;
 import net.marmar.elemental_creatures.entity.slime.AbstractSlime;
+import net.marmar.elemental_creatures.entity.spider.AbstractSpider;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.monster.Skeleton;
-import net.minecraft.world.entity.monster.Slime;
+import net.minecraft.world.entity.monster.*;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -33,9 +33,14 @@ public class LivingEntityMixin {
                 skeleton.convertTo(ECEntityTypes.TLALOCQUIAN.get(), true);
                 cir.setReturnValue(false);
 
-            //Only regular slimes can convert to phranques
-            } else if (self instanceof Slime slime && !(slime instanceof AbstractSlime)){
+            //Only regular Slimes can convert to Phranques
+            } else if (self instanceof Slime slime && !(slime instanceof AbstractSlime) && !(slime instanceof MagmaCube)){
                 slime.convertTo(ECEntityTypes.PHRANQUE.get(), true);
+                cir.setReturnValue(false);
+
+            //Only regular Spiders can convert to Children of Aracne
+            } else if (self instanceof Spider spider && !(spider instanceof AbstractSpider) && !(spider instanceof CaveSpider)) {
+                spider.convertTo(ECEntityTypes.ARACNIAN.get(), true);
                 cir.setReturnValue(false);
             }
         }

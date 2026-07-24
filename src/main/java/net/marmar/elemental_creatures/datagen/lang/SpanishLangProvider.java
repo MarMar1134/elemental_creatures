@@ -2,6 +2,7 @@ package net.marmar.elemental_creatures.datagen.lang;
 
 import net.marmar.elemental_creatures.entity.ECEntityTypes;
 import net.marmar.elemental_creatures.item.ECItems;
+import net.marmar.elemental_creatures.util.enchantment.ECEnchantments;
 import net.minecraft.data.PackOutput;
 
 public class SpanishLangProvider extends AbstractLangProvider {
@@ -16,11 +17,21 @@ public class SpanishLangProvider extends AbstractLangProvider {
 
         addLightingDamage("fue castigado por los dioses", "fue castigado por los dioses mientras luchaba con");
 
+        //Items
         addItem(ECItems.LIGHTNING_ESSENCE, "Esencia de relámpago");
 
         addItem(ECItems.LIGHTNING_ARROW, "Flecha eléctrica");
+        addItemDesc("lightning_arrow", "Causa daño eléctrico que penetra la armadura. Chance de generar relámpagos cuando se usa con Bendición de Zeus.");
+
         addItem(ECItems.SOUL_ARROW, "Flecha de alma");
+        addItemDesc("soul_arrow", "Quema al objetivo con fuego de almas, causando daño adicional.");
+
         addItem(ECItems.PRISMARINE_ARROW, "Flecha de prismarina");
+        addItemDesc("prismarine_arrow", "Recorre el agua como si fuése aire.");
+
+        //Enchantments
+        addEnchantment(ECEnchantments.ZEUS_BLESSING, "Bendición de Zeus");
+        addEnchantmentDesc("zeus_blessing", "Genera un relámpago al impactar un objetivo con flechas eléctricas.");
 
         //Zombies
         addZombieType(ECEntityTypes.SCORCHED.get(),"Scorched", ECItems.SCORCHED_SPAWN_EGG, "Generar Quemado");
@@ -69,5 +80,15 @@ public class SpanishLangProvider extends AbstractLangProvider {
 
         addSlimeType(ECEntityTypes.PHRANQUE.get(), "Phranque", ECItems.PHRANQUE_SPAWN_EGG, "Generar Phranque");
         addMobSubtitles("phranque", "Phranque tranquilo", "Phranque saltando", "Phranque lastimado", "Phranque muriendo");
+
+        //Spiders
+        addSpiderType(ECEntityTypes.DESERT_SPIDER.get(), "Araña del desierto", ECItems.DESERT_SPIDER_SPAWN_EGG, "Generar Araña del desierto");
+        addMobSubtitles("desert_spider", "Araña del desierto hablando", "Araña del desierto caminando", "Araña del desierto lastimada", "Araña del desierto muriendo");
+
+        addSpiderType(ECEntityTypes.SNOWY_SPIDER.get(), "Araña de las Nieves", ECItems.SNOWY_SPIDER_SPAWN_EGG, "Generar Araña de las Nieves");
+        addMobSubtitles("snowy_spider", "Araña de las Nieves hablando", "Araña de las Nieves caminando", "Araña de las Nieves lastimada", "Araña de las Nieves muriendo");
+
+        addSpiderType(ECEntityTypes.ARACNIAN.get(), "Hija de Aracne", ECItems.ARACNIAN_SPAWN_EGG, "Generar Hija de Aracne");
+        addMobSubtitles("aracnian", "Hija de Aracne hablando", "Hija de Aracne caminando", "Hija de Aracne lastimada", "Hija de Aracne muriendo");
     }
 }

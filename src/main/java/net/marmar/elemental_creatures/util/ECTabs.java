@@ -39,6 +39,11 @@ public class ECTabs {
                         pOutput.accept(ECItems.SAND_CUBE_SPAWN_EGG.get());
                         pOutput.accept(ECItems.RED_SAND_CUBE_SPAWN_EGG.get());
                         pOutput.accept(ECItems.PHRANQUE_SPAWN_EGG.get());
+
+                        //Spiders
+                        pOutput.accept(ECItems.DESERT_SPIDER_SPAWN_EGG.get());
+                        pOutput.accept(ECItems.SNOWY_SPIDER_SPAWN_EGG.get());
+                        pOutput.accept(ECItems.ARACNIAN_SPAWN_EGG.get());
                     }))
                     .build());
 

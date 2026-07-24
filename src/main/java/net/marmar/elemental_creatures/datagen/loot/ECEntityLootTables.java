@@ -18,6 +18,7 @@ import net.minecraft.world.level.storage.loot.functions.LootingEnchantFunction;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.functions.SetPotionFunction;
 import net.minecraft.world.level.storage.loot.predicates.LootItemEntityPropertyCondition;
+import net.minecraft.world.level.storage.loot.predicates.LootItemKilledByPlayerCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceWithLootingCondition;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
@@ -46,6 +47,11 @@ public class ECEntityLootTables implements LootTableSubProvider {
     public static final ResourceLocation RED_SAND_CUBE = register("red_sand_cube");
     public static final ResourceLocation PHRANQUE = register("phranque");
 
+    //Spiders
+    public static final ResourceLocation DESERT_SPIDER = register("desert_spider");
+    public static final ResourceLocation SNOWY_SPIDER = register("snowy_spider");
+    public static final ResourceLocation ARACNIAN = register("aracnian");
+
     @Override
     public void generate(BiConsumer<ResourceLocation, LootTable.Builder> pOutput) {
         //Zombies
@@ -67,6 +73,12 @@ public class ECEntityLootTables implements LootTableSubProvider {
         pOutput.accept(SAND_CUBE, generateSlimeLootTable(Items.SAND));
         pOutput.accept(RED_SAND_CUBE, generateSlimeLootTable(Items.RED_SAND));
         pOutput.accept(PHRANQUE, generateSlimeLootTable(ECItems.LIGHTNING_ESSENCE.get()));
+
+        //Spiders
+        pOutput.accept(DESERT_SPIDER, generateSpiderLootTable());
+        pOutput.accept(SNOWY_SPIDER, generateSpiderLootTable());
+        pOutput.accept(ARACNIAN, generateAracnianLootTable());
+
     }
 
     //Zombies
@@ -259,6 +271,38 @@ public class ECEntityLootTables implements LootTableSubProvider {
                                 .apply(LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0, 1))))
                         .when(LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.THIS,
                                 EntityPredicate.Builder.entity().subPredicate(SlimePredicate.sized(MinMaxBounds.Ints.exactly(1)))))
+                );
+    }
+
+    //Spiders
+    private LootTable.Builder generateSpiderLootTable(){
+        return LootTable.lootTable()
+                .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1))
+                        .add(LootItem.lootTableItem(Items.STRING)
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(0, 2)))
+                                .apply(LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0, 1)))))
+                .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1))
+                        .add(LootItem.lootTableItem(Items.SPIDER_EYE)
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(-1, 1)))
+                                .apply(LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0, 1))))
+                        .when(LootItemKilledByPlayerCondition.killedByPlayer())
+                );
+    }
+
+    private LootTable.Builder generateAracnianLootTable(){
+        return LootTable.lootTable()
+                .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1))
+                        .add(LootItem.lootTableItem(Items.STRING)
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(0, 2)))
+                                .apply(LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0, 1)))))
+                .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1))
+                        .add(LootItem.lootTableItem(Items.SPIDER_EYE)
+                                .when(LootItemKilledByPlayerCondition.killedByPlayer())
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(-1, 1)))
+                                .apply(LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0, 1))))
+                        .add(LootItem.lootTableItem(ECItems.LIGHTNING_ESSENCE.get())
+                                .when(LootItemRandomChanceWithLootingCondition.randomChanceAndLootingBoost(0.66f, 0.1f))
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(0, 1))))
                 );
     }
 

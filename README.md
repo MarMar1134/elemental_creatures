@@ -3,6 +3,8 @@ Discover the Elementals! This new creatures generates all around of the Minecraf
 
 ---
 
+# Mobs
+
 ## Zombies
 There are five new zombie variants awarding for you. Most of then even spawn naturally on the Overworld.
 - ### The Rotten
@@ -52,7 +54,22 @@ There are four new slime variants.
 
 ---
 
-## New Items
+## Spiders
+There are three new spider variants
+- ### Desert Spider
+  Deserts spiders are generated on, well, deserts and badlands. They have 1 additional heart and inflicts weakness when they attack.
+- ### Snowy Spider
+  Snowy spiders are generated on snowy biomes. They are smaller than regular spiders, but bigger than cave ones. Snowy spiders inflicts slowness when they attack.
+- ### Child of Aracne
+  These spiders are generated when a Spider is struck with a lightning bolt. They deal additional lightning damage, have more health and additional points of armor.
+  Children of Aracne can drop Lightning Essence.
+---
+
+# Other additions
+
+## Items
+- ### Lightning essence
+  Lightning essence is a mythological item dropped by charged mobs. It can be used to craft Lightning arrows.
 - ### Lightning arrow
   Lightning arrows are shot by Followers of Tláloc. They inflict additional lightning damage that penetrates armor.
   The player can craft Lightning arrows combining 8 regular arrows with Lightning essence.
@@ -62,10 +79,17 @@ There are four new slime variants.
 - ### Soul arrow
   Soul arrows are shot by Soul Reapers. They ignite the target with soul fire, which inflicts additional fire damage.
   Soul arrows can't be crafted.
-- ### Lightning essence
-  Lightning essence is a mythological item dropped by charged mobs. It can be used to craft Lightning arrows.
 
 ---
+
+## Enchantments
+- ### Zeus Blessing
+  Zeus Blessing is a new enchantment that can be applied to bows and crossbows. When your weapon has Zeus Blessing and shoots a Lightning arrow, it will summon a lightning bolt when it hits the enemy.
+  (Caution, this enchantment may be dangerous to utilize near forests and wooden buildings).
+
+---
+
+# Technical information
 
 ## Compatibility
 - If you're developing a Biomes mod, and you want the Elementals to be able to spawn on certain biomes, add them under the `elemental_creatures:can_spawn_<mob_type>` biomeTag.

@@ -83,6 +83,16 @@ public class ECModelLayers {
         public static final ModelLayerLocation PHRANQUE = registerMainLayer("phranque");
         public static final ModelLayerLocation PHRANQUE_OUTER = registerOuterLayer("phranque_outer");
 
+    //Spiders
+        //Desert Spider
+        public static final ModelLayerLocation DESERT_SPIDER = registerMainLayer("desert_spider");
+
+        //Snowy Spider
+        public static final ModelLayerLocation SNOWY_SPIDER = registerMainLayer("snowy_spider");
+
+        //Aracnian
+        public static final ModelLayerLocation ARACNIAN = registerMainLayer("aracnian");
+
     //Helpers
     @SuppressWarnings("removal")
     private static ResourceLocation modLoc(String pPath){

@@ -2,7 +2,6 @@ package net.marmar.elemental_creatures.event;
 
 import net.marmar.elemental_creatures.ElementalCreatures;
 import net.marmar.elemental_creatures.entity.ECEntityTypes;
-import net.marmar.elemental_creatures.entity.slime.IceCube;
 import net.marmar.elemental_creatures.model.ECModelLayers;
 import net.marmar.elemental_creatures.model.projectile.LightningArrowRenderer;
 import net.marmar.elemental_creatures.model.projectile.PrismarineArrowRenderer;
@@ -16,15 +15,15 @@ import net.marmar.elemental_creatures.model.slime.icecube.IceCubeRenderer;
 import net.marmar.elemental_creatures.model.slime.phranque.PhranqueRenderer;
 import net.marmar.elemental_creatures.model.slime.redsandcube.RedSandCubeRenderer;
 import net.marmar.elemental_creatures.model.slime.sandcube.SandCubeRenderer;
+import net.marmar.elemental_creatures.model.spider.aracnian.AracnianRenderer;
+import net.marmar.elemental_creatures.model.spider.desertspider.DesertSpiderRenderer;
+import net.marmar.elemental_creatures.model.spider.snowyspider.SnowySpiderRenderer;
 import net.marmar.elemental_creatures.model.zombie.illapista.IllapistaRenderer;
 import net.marmar.elemental_creatures.model.zombie.lost.LostRenderer;
 import net.marmar.elemental_creatures.model.zombie.rotten.RottenRenderer;
 import net.marmar.elemental_creatures.model.zombie.scorched.ScorchedRenderer;
 import net.marmar.elemental_creatures.model.zombie.scorched.soul.SoulScorchedRenderer;
-import net.minecraft.client.model.HumanoidArmorModel;
-import net.minecraft.client.model.HumanoidModel;
-import net.minecraft.client.model.SkeletonModel;
-import net.minecraft.client.model.SlimeModel;
+import net.minecraft.client.model.*;
 import net.minecraft.client.model.geom.builders.CubeDeformation;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.renderer.entity.EntityRenderers;
@@ -65,117 +64,135 @@ public class ECModClientEvents {
         EntityRenderers.register(ECEntityTypes.SAND_CUBE.get(), SandCubeRenderer::new);
         EntityRenderers.register(ECEntityTypes.RED_SAND_CUBE.get(), RedSandCubeRenderer::new);
         EntityRenderers.register(ECEntityTypes.PHRANQUE.get(), PhranqueRenderer::new);
+
+        //Spiders
+        EntityRenderers.register(ECEntityTypes.DESERT_SPIDER.get(), DesertSpiderRenderer::new);
+        EntityRenderers.register(ECEntityTypes.SNOWY_SPIDER.get(), SnowySpiderRenderer::new);
+        EntityRenderers.register(ECEntityTypes.ARACNIAN.get(), AracnianRenderer::new);
     }
 
     @SubscribeEvent
     public static void registerEntityLayerRenderers(EntityRenderersEvent.RegisterLayerDefinitions event){
-        //Scorched
-        event.registerLayerDefinition(ECModelLayers.SCORCHED, () ->
-                LayerDefinition.create(HumanoidModel.createMesh(CubeDeformation.NONE, 0.0f), 64, 64));
-        event.registerLayerDefinition(ECModelLayers.SCORCHED_INNER_ARMOR, () ->
-                LayerDefinition.create(HumanoidArmorModel.createBodyLayer(INNER_ARMOR_DEFORMATION), 64, 32));
-        event.registerLayerDefinition(ECModelLayers.SCORCHED_OUTER_ARMOR, () ->
-                LayerDefinition.create(HumanoidArmorModel.createBodyLayer(OUTER_ARMOR_DEFORMATION), 64, 32));
-        event.registerLayerDefinition(ECModelLayers.SCORCHED_OUTER, () ->
-                LayerDefinition.create(HumanoidModel.createMesh(new CubeDeformation(0.25f), 0.0f), 64, 64));
+        //Zombies
+            //Scorched
+            event.registerLayerDefinition(ECModelLayers.SCORCHED, () ->
+                    LayerDefinition.create(HumanoidModel.createMesh(CubeDeformation.NONE, 0.0f), 64, 64));
+            event.registerLayerDefinition(ECModelLayers.SCORCHED_INNER_ARMOR, () ->
+                    LayerDefinition.create(HumanoidArmorModel.createBodyLayer(INNER_ARMOR_DEFORMATION), 64, 32));
+            event.registerLayerDefinition(ECModelLayers.SCORCHED_OUTER_ARMOR, () ->
+                    LayerDefinition.create(HumanoidArmorModel.createBodyLayer(OUTER_ARMOR_DEFORMATION), 64, 32));
+            event.registerLayerDefinition(ECModelLayers.SCORCHED_OUTER, () ->
+                    LayerDefinition.create(HumanoidModel.createMesh(new CubeDeformation(0.25f), 0.0f), 64, 64));
 
-        //Soul scorched
-        event.registerLayerDefinition(ECModelLayers.SOUL_SCORCHED, () ->
-                LayerDefinition.create(HumanoidModel.createMesh(CubeDeformation.NONE, 0.0f), 64, 64));
-        event.registerLayerDefinition(ECModelLayers.SOUL_SCORCHED_INNER_ARMOR, () ->
-                LayerDefinition.create(HumanoidArmorModel.createBodyLayer(INNER_ARMOR_DEFORMATION), 64, 32));
-        event.registerLayerDefinition(ECModelLayers.SOUL_SCORCHED_OUTER_ARMOR, () ->
-                LayerDefinition.create(HumanoidArmorModel.createBodyLayer(OUTER_ARMOR_DEFORMATION), 64, 32));
-        event.registerLayerDefinition(ECModelLayers.SOUL_SCORCHED_OUTER, () ->
-                LayerDefinition.create(HumanoidModel.createMesh(new CubeDeformation(0.25f), 0.0f), 64, 64));
+            //Soul scorched
+            event.registerLayerDefinition(ECModelLayers.SOUL_SCORCHED, () ->
+                    LayerDefinition.create(HumanoidModel.createMesh(CubeDeformation.NONE, 0.0f), 64, 64));
+            event.registerLayerDefinition(ECModelLayers.SOUL_SCORCHED_INNER_ARMOR, () ->
+                    LayerDefinition.create(HumanoidArmorModel.createBodyLayer(INNER_ARMOR_DEFORMATION), 64, 32));
+            event.registerLayerDefinition(ECModelLayers.SOUL_SCORCHED_OUTER_ARMOR, () ->
+                    LayerDefinition.create(HumanoidArmorModel.createBodyLayer(OUTER_ARMOR_DEFORMATION), 64, 32));
+            event.registerLayerDefinition(ECModelLayers.SOUL_SCORCHED_OUTER, () ->
+                    LayerDefinition.create(HumanoidModel.createMesh(new CubeDeformation(0.25f), 0.0f), 64, 64));
 
-        //Lost
-        event.registerLayerDefinition(ECModelLayers.LOST, () ->
-                LayerDefinition.create(HumanoidModel.createMesh(CubeDeformation.NONE, 0.0f), 64, 64));
-        event.registerLayerDefinition(ECModelLayers.LOST_INNER_ARMOR, () ->
-                LayerDefinition.create(HumanoidArmorModel.createBodyLayer(INNER_ARMOR_DEFORMATION), 64, 32));
-        event.registerLayerDefinition(ECModelLayers.LOST_OUTER_ARMOR, () ->
-                LayerDefinition.create(HumanoidArmorModel.createBodyLayer(OUTER_ARMOR_DEFORMATION), 64, 32));
-        event.registerLayerDefinition(ECModelLayers.LOST_OUTER, () ->
-                LayerDefinition.create(HumanoidModel.createMesh(new CubeDeformation(0.25f), 0.0f), 64, 64));
+            //Lost
+            event.registerLayerDefinition(ECModelLayers.LOST, () ->
+                    LayerDefinition.create(HumanoidModel.createMesh(CubeDeformation.NONE, 0.0f), 64, 64));
+            event.registerLayerDefinition(ECModelLayers.LOST_INNER_ARMOR, () ->
+                    LayerDefinition.create(HumanoidArmorModel.createBodyLayer(INNER_ARMOR_DEFORMATION), 64, 32));
+            event.registerLayerDefinition(ECModelLayers.LOST_OUTER_ARMOR, () ->
+                    LayerDefinition.create(HumanoidArmorModel.createBodyLayer(OUTER_ARMOR_DEFORMATION), 64, 32));
+            event.registerLayerDefinition(ECModelLayers.LOST_OUTER, () ->
+                    LayerDefinition.create(HumanoidModel.createMesh(new CubeDeformation(0.25f), 0.0f), 64, 64));
 
-        //Rotten
-        event.registerLayerDefinition(ECModelLayers.ROTTEN, () ->
-                LayerDefinition.create(HumanoidModel.createMesh(CubeDeformation.NONE, 0.0f), 64, 64));
-        event.registerLayerDefinition(ECModelLayers.ROTTEN_INNER_ARMOR, () ->
-                LayerDefinition.create(HumanoidArmorModel.createBodyLayer(INNER_ARMOR_DEFORMATION), 64, 32));
-        event.registerLayerDefinition(ECModelLayers.ROTTEN_OUTER_ARMOR, () ->
-                LayerDefinition.create(HumanoidArmorModel.createBodyLayer(OUTER_ARMOR_DEFORMATION), 64, 32));
-        event.registerLayerDefinition(ECModelLayers.ROTTEN_OUTER, () ->
-                LayerDefinition.create(HumanoidModel.createMesh(new CubeDeformation(0.25f), 0.0f), 64, 64));
+            //Rotten
+            event.registerLayerDefinition(ECModelLayers.ROTTEN, () ->
+                    LayerDefinition.create(HumanoidModel.createMesh(CubeDeformation.NONE, 0.0f), 64, 64));
+            event.registerLayerDefinition(ECModelLayers.ROTTEN_INNER_ARMOR, () ->
+                    LayerDefinition.create(HumanoidArmorModel.createBodyLayer(INNER_ARMOR_DEFORMATION), 64, 32));
+            event.registerLayerDefinition(ECModelLayers.ROTTEN_OUTER_ARMOR, () ->
+                    LayerDefinition.create(HumanoidArmorModel.createBodyLayer(OUTER_ARMOR_DEFORMATION), 64, 32));
+            event.registerLayerDefinition(ECModelLayers.ROTTEN_OUTER, () ->
+                    LayerDefinition.create(HumanoidModel.createMesh(new CubeDeformation(0.25f), 0.0f), 64, 64));
 
-        //Illapista
-        event.registerLayerDefinition(ECModelLayers.ILLAPISTA, () ->
-                LayerDefinition.create(HumanoidModel.createMesh(CubeDeformation.NONE, 0.0f), 64, 64));
-        event.registerLayerDefinition(ECModelLayers.ILLAPISTA_INNER_ARMOR, () ->
-                LayerDefinition.create(HumanoidArmorModel.createBodyLayer(INNER_ARMOR_DEFORMATION), 64, 32));
-        event.registerLayerDefinition(ECModelLayers.ILLAPISTA_OUTER_ARMOR, () ->
-                LayerDefinition.create(HumanoidArmorModel.createBodyLayer(OUTER_ARMOR_DEFORMATION), 64, 32));
-        
-        //Soul Reaper
-        event.registerLayerDefinition(ECModelLayers.SOUL_REAPER, SkeletonModel::createBodyLayer);
-        event.registerLayerDefinition(ECModelLayers.SOUL_REAPER_INNER_ARMOR, () ->
-                LayerDefinition.create(HumanoidArmorModel.createBodyLayer(INNER_ARMOR_DEFORMATION), 64, 32));
-        event.registerLayerDefinition(ECModelLayers.SOUL_REAPER_OUTER_ARMOR, () ->
-                LayerDefinition.create(HumanoidArmorModel.createBodyLayer(OUTER_ARMOR_DEFORMATION), 64, 32));
-        event.registerLayerDefinition(ECModelLayers.SOUL_REAPER_OUTER, () ->
-                LayerDefinition.create(HumanoidModel.createMesh(new CubeDeformation(0.2f), 0.0f), 64, 32));
+            //Illapista
+            event.registerLayerDefinition(ECModelLayers.ILLAPISTA, () ->
+                    LayerDefinition.create(HumanoidModel.createMesh(CubeDeformation.NONE, 0.0f), 64, 64));
+            event.registerLayerDefinition(ECModelLayers.ILLAPISTA_INNER_ARMOR, () ->
+                    LayerDefinition.create(HumanoidArmorModel.createBodyLayer(INNER_ARMOR_DEFORMATION), 64, 32));
+            event.registerLayerDefinition(ECModelLayers.ILLAPISTA_OUTER_ARMOR, () ->
+                    LayerDefinition.create(HumanoidArmorModel.createBodyLayer(OUTER_ARMOR_DEFORMATION), 64, 32));
 
-        //Tlalocquian
-        event.registerLayerDefinition(ECModelLayers.TLALOCQUIAN, SkeletonModel::createBodyLayer);
-        event.registerLayerDefinition(ECModelLayers.TLALOCQUIAN_INNER_ARMOR, () ->
-                LayerDefinition.create(HumanoidArmorModel.createBodyLayer(INNER_ARMOR_DEFORMATION), 64, 32));
-        event.registerLayerDefinition(ECModelLayers.TLALOCQUIAN_OUTER_ARMOR, () ->
-                LayerDefinition.create(HumanoidArmorModel.createBodyLayer(OUTER_ARMOR_DEFORMATION), 64, 32));
-        event.registerLayerDefinition(ECModelLayers.TLALOCQUIAN_OUTER, () ->
-                LayerDefinition.create(HumanoidModel.createMesh(new CubeDeformation(0.2f), 0.0f), 64, 32));
+        //Skeletons
+            //Soul Reaper
+            event.registerLayerDefinition(ECModelLayers.SOUL_REAPER, SkeletonModel::createBodyLayer);
+            event.registerLayerDefinition(ECModelLayers.SOUL_REAPER_INNER_ARMOR, () ->
+                    LayerDefinition.create(HumanoidArmorModel.createBodyLayer(INNER_ARMOR_DEFORMATION), 64, 32));
+            event.registerLayerDefinition(ECModelLayers.SOUL_REAPER_OUTER_ARMOR, () ->
+                    LayerDefinition.create(HumanoidArmorModel.createBodyLayer(OUTER_ARMOR_DEFORMATION), 64, 32));
+            event.registerLayerDefinition(ECModelLayers.SOUL_REAPER_OUTER, () ->
+                    LayerDefinition.create(HumanoidModel.createMesh(new CubeDeformation(0.2f), 0.0f), 64, 32));
 
-        //Sunken
-        event.registerLayerDefinition(ECModelLayers.SUNKEN, SkeletonModel::createBodyLayer);
-        event.registerLayerDefinition(ECModelLayers.SUNKEN_INNER_ARMOR, () ->
-                LayerDefinition.create(HumanoidArmorModel.createBodyLayer(INNER_ARMOR_DEFORMATION), 64, 32));
-        event.registerLayerDefinition(ECModelLayers.SUNKEN_OUTER_ARMOR, () ->
-                LayerDefinition.create(HumanoidArmorModel.createBodyLayer(OUTER_ARMOR_DEFORMATION), 64, 32));
-        event.registerLayerDefinition(ECModelLayers.SUNKEN_OUTER, () ->
-                LayerDefinition.create(HumanoidModel.createMesh(new CubeDeformation(0.2f), 0.0f), 64, 32));
+            //Tlalocquian
+            event.registerLayerDefinition(ECModelLayers.TLALOCQUIAN, SkeletonModel::createBodyLayer);
+            event.registerLayerDefinition(ECModelLayers.TLALOCQUIAN_INNER_ARMOR, () ->
+                    LayerDefinition.create(HumanoidArmorModel.createBodyLayer(INNER_ARMOR_DEFORMATION), 64, 32));
+            event.registerLayerDefinition(ECModelLayers.TLALOCQUIAN_OUTER_ARMOR, () ->
+                    LayerDefinition.create(HumanoidArmorModel.createBodyLayer(OUTER_ARMOR_DEFORMATION), 64, 32));
+            event.registerLayerDefinition(ECModelLayers.TLALOCQUIAN_OUTER, () ->
+                    LayerDefinition.create(HumanoidModel.createMesh(new CubeDeformation(0.2f), 0.0f), 64, 32));
 
-        //Dried
-        event.registerLayerDefinition(ECModelLayers.DRIED, SkeletonModel::createBodyLayer);
-        event.registerLayerDefinition(ECModelLayers.DRIED_INNER_ARMOR, () ->
-                LayerDefinition.create(HumanoidArmorModel.createBodyLayer(INNER_ARMOR_DEFORMATION), 64, 32));
-        event.registerLayerDefinition(ECModelLayers.DRIED_OUTER_ARMOR, () ->
-                LayerDefinition.create(HumanoidArmorModel.createBodyLayer(OUTER_ARMOR_DEFORMATION), 64, 32));
-        event.registerLayerDefinition(ECModelLayers.DRIED_OUTER, () ->
-                LayerDefinition.create(HumanoidModel.createMesh(new CubeDeformation(0.2f), 0.0f), 64, 32));
+            //Sunken
+            event.registerLayerDefinition(ECModelLayers.SUNKEN, SkeletonModel::createBodyLayer);
+            event.registerLayerDefinition(ECModelLayers.SUNKEN_INNER_ARMOR, () ->
+                    LayerDefinition.create(HumanoidArmorModel.createBodyLayer(INNER_ARMOR_DEFORMATION), 64, 32));
+            event.registerLayerDefinition(ECModelLayers.SUNKEN_OUTER_ARMOR, () ->
+                    LayerDefinition.create(HumanoidArmorModel.createBodyLayer(OUTER_ARMOR_DEFORMATION), 64, 32));
+            event.registerLayerDefinition(ECModelLayers.SUNKEN_OUTER, () ->
+                    LayerDefinition.create(HumanoidModel.createMesh(new CubeDeformation(0.2f), 0.0f), 64, 32));
 
-        //Putrid
-        event.registerLayerDefinition(ECModelLayers.PUTRID, SkeletonModel::createBodyLayer);
-        event.registerLayerDefinition(ECModelLayers.PUTRID_INNER_ARMOR, () ->
-                LayerDefinition.create(HumanoidArmorModel.createBodyLayer(INNER_ARMOR_DEFORMATION), 64, 32));
-        event.registerLayerDefinition(ECModelLayers.PUTRID_OUTER_ARMOR, () ->
-                LayerDefinition.create(HumanoidArmorModel.createBodyLayer(OUTER_ARMOR_DEFORMATION), 64, 32));
-        event.registerLayerDefinition(ECModelLayers.PUTRID_OUTER, () ->
-                LayerDefinition.create(HumanoidModel.createMesh(new CubeDeformation(0.2f), 0.0f), 64, 32));
+            //Dried
+            event.registerLayerDefinition(ECModelLayers.DRIED, SkeletonModel::createBodyLayer);
+            event.registerLayerDefinition(ECModelLayers.DRIED_INNER_ARMOR, () ->
+                    LayerDefinition.create(HumanoidArmorModel.createBodyLayer(INNER_ARMOR_DEFORMATION), 64, 32));
+            event.registerLayerDefinition(ECModelLayers.DRIED_OUTER_ARMOR, () ->
+                    LayerDefinition.create(HumanoidArmorModel.createBodyLayer(OUTER_ARMOR_DEFORMATION), 64, 32));
+            event.registerLayerDefinition(ECModelLayers.DRIED_OUTER, () ->
+                    LayerDefinition.create(HumanoidModel.createMesh(new CubeDeformation(0.2f), 0.0f), 64, 32));
 
-        //Ice cube
-        event.registerLayerDefinition(ECModelLayers.ICE_CUBE, SlimeModel::createInnerBodyLayer);
-        event.registerLayerDefinition(ECModelLayers.ICE_CUBE_OUTER, SlimeModel::createOuterBodyLayer);
+            //Putrid
+            event.registerLayerDefinition(ECModelLayers.PUTRID, SkeletonModel::createBodyLayer);
+            event.registerLayerDefinition(ECModelLayers.PUTRID_INNER_ARMOR, () ->
+                    LayerDefinition.create(HumanoidArmorModel.createBodyLayer(INNER_ARMOR_DEFORMATION), 64, 32));
+            event.registerLayerDefinition(ECModelLayers.PUTRID_OUTER_ARMOR, () ->
+                    LayerDefinition.create(HumanoidArmorModel.createBodyLayer(OUTER_ARMOR_DEFORMATION), 64, 32));
+            event.registerLayerDefinition(ECModelLayers.PUTRID_OUTER, () ->
+                    LayerDefinition.create(HumanoidModel.createMesh(new CubeDeformation(0.2f), 0.0f), 64, 32));
 
-        //Sand cube
-        event.registerLayerDefinition(ECModelLayers.SAND_CUBE, SlimeModel::createInnerBodyLayer);
-        event.registerLayerDefinition(ECModelLayers.SAND_CUBE_OUTER, SlimeModel::createOuterBodyLayer);
+        //Slimes
+            //Ice cube
+            event.registerLayerDefinition(ECModelLayers.ICE_CUBE, SlimeModel::createInnerBodyLayer);
+            event.registerLayerDefinition(ECModelLayers.ICE_CUBE_OUTER, SlimeModel::createOuterBodyLayer);
 
-        //Red Sand Cube
-        event.registerLayerDefinition(ECModelLayers.RED_SAND_CUBE, SlimeModel::createInnerBodyLayer);
-        event.registerLayerDefinition(ECModelLayers.RED_SAND_CUBE_OUTER, SlimeModel::createOuterBodyLayer);
+            //Sand cube
+            event.registerLayerDefinition(ECModelLayers.SAND_CUBE, SlimeModel::createInnerBodyLayer);
+            event.registerLayerDefinition(ECModelLayers.SAND_CUBE_OUTER, SlimeModel::createOuterBodyLayer);
 
-        //Phranque
-        event.registerLayerDefinition(ECModelLayers.PHRANQUE, SlimeModel::createInnerBodyLayer);
-        event.registerLayerDefinition(ECModelLayers.PHRANQUE_OUTER, SlimeModel::createOuterBodyLayer);
+            //Red Sand Cube
+            event.registerLayerDefinition(ECModelLayers.RED_SAND_CUBE, SlimeModel::createInnerBodyLayer);
+            event.registerLayerDefinition(ECModelLayers.RED_SAND_CUBE_OUTER, SlimeModel::createOuterBodyLayer);
+
+            //Phranque
+            event.registerLayerDefinition(ECModelLayers.PHRANQUE, SlimeModel::createInnerBodyLayer);
+            event.registerLayerDefinition(ECModelLayers.PHRANQUE_OUTER, SlimeModel::createOuterBodyLayer);
+
+        //Spiders
+            //Desert Spider
+            event.registerLayerDefinition(ECModelLayers.DESERT_SPIDER, SpiderModel::createSpiderBodyLayer);
+
+            //Snowy Spider
+            event.registerLayerDefinition(ECModelLayers.SNOWY_SPIDER, SpiderModel::createSpiderBodyLayer);
+
+            //Aracnian
+            event.registerLayerDefinition(ECModelLayers.ARACNIAN, SpiderModel::createSpiderBodyLayer);
     }
 }

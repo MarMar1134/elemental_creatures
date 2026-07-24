@@ -1,4 +1,6 @@
-// 1.20.1	2026-07-21T13:25:08.8581884	Item Models: elemental_creatures
+// 1.20.1	2026-07-21T22:49:39.5320556	Item Models: elemental_creatures
+63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/elemental_creatures/models/item/aracnian_spawn_egg.json
+63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/elemental_creatures/models/item/desert_spider_spawn_egg.json
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/elemental_creatures/models/item/dried_spawn_egg.json
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/elemental_creatures/models/item/ice_cube_spawn_egg.json
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/elemental_creatures/models/item/illapista_spawn_egg.json
@@ -12,6 +14,7 @@ d776206eb2f3d3674bf2a55638a50fa08f9d3ae2 assets/elemental_creatures/models/item/
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/elemental_creatures/models/item/rotten_spawn_egg.json
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/elemental_creatures/models/item/sand_cube_spawn_egg.json
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/elemental_creatures/models/item/scorched_spawn_egg.json
+63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/elemental_creatures/models/item/snowy_spider_spawn_egg.json
 11bca2058f855d5bbb232a5e97e7a1d41ef1650c assets/elemental_creatures/models/item/soul_arrow.json
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/elemental_creatures/models/item/soul_reaper_spawn_egg.json
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/elemental_creatures/models/item/soul_scorched_spawn_egg.json
