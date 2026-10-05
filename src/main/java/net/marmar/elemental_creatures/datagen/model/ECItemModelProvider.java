@@ -15,8 +15,15 @@ public class ECItemModelProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
-        //Others
+        //Special drops
         addItem(ECItems.LIGHTNING_ESSENCE);
+        addItem(ECItems.SOUL_FRAGMENT);
+
+        //Flesh
+        addItem(ECItems.SCORCHED_FLESH);
+        addItem(ECItems.SOUL_SCORCHED_FLESH);
+        addItem(ECItems.FROZEN_FLESH);
+        addItem(ECItems.POISONOUS_FLESH);
 
         //Projectiles
         addItem(ECItems.LIGHTNING_ARROW);

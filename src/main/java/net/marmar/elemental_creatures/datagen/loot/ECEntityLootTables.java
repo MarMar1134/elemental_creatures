@@ -55,8 +55,8 @@ public class ECEntityLootTables implements LootTableSubProvider {
     @Override
     public void generate(BiConsumer<ResourceLocation, LootTable.Builder> pOutput) {
         //Zombies
-        pOutput.accept(SCORCHED, generateScorchedLootTable());
-        pOutput.accept(SOUL_SCORCHED, generateScorchedLootTable());
+        pOutput.accept(SCORCHED, generateScorchedLootTable(ECItems.SCORCHED_FLESH.get()));
+        pOutput.accept(SOUL_SCORCHED, generateScorchedLootTable(ECItems.SOUL_SCORCHED_FLESH.get()));
         pOutput.accept(LOST, generateLostLootTable());
         pOutput.accept(ROTTEN, generateRottenLootTable());
         pOutput.accept(ILLAPISTA, generateIllapistaLootTable());
@@ -78,14 +78,13 @@ public class ECEntityLootTables implements LootTableSubProvider {
         pOutput.accept(DESERT_SPIDER, generateSpiderLootTable());
         pOutput.accept(SNOWY_SPIDER, generateSpiderLootTable());
         pOutput.accept(ARACNIAN, generateAracnianLootTable());
-
     }
 
     //Zombies
-    private LootTable.Builder generateScorchedLootTable(){
+    private LootTable.Builder generateScorchedLootTable(ItemLike pFlesh){
         return LootTable.lootTable()
                 .withPool(LootPool.lootPool().setBonusRolls(ConstantValue.exactly(1))
-                        .add(LootItem.lootTableItem(Items.ROTTEN_FLESH)
+                        .add(LootItem.lootTableItem(pFlesh)
                                 .apply(SetItemCountFunction.setCount(UniformGenerator.between(0, 3)))
                                 .apply(LootingEnchantFunction.lootingMultiplier(ConstantValue.exactly(1))))
                         .add(LootItem.lootTableItem(Items.CHARCOAL)
@@ -111,7 +110,7 @@ public class ECEntityLootTables implements LootTableSubProvider {
     private LootTable.Builder generateLostLootTable(){
         return LootTable.lootTable()
                 .withPool(LootPool.lootPool().setBonusRolls(ConstantValue.exactly(1))
-                        .add(LootItem.lootTableItem(Items.ROTTEN_FLESH)
+                        .add(LootItem.lootTableItem(ECItems.FROZEN_FLESH.get())
                                 .apply(SetItemCountFunction.setCount(UniformGenerator.between(0, 2)))
                                 .apply(LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0, 1))))
                 )
@@ -131,7 +130,7 @@ public class ECEntityLootTables implements LootTableSubProvider {
     private LootTable.Builder generateRottenLootTable(){
         return LootTable.lootTable()
                 .withPool(LootPool.lootPool().setBonusRolls(ConstantValue.exactly(1))
-                        .add(LootItem.lootTableItem(Items.ROTTEN_FLESH)
+                        .add(LootItem.lootTableItem(ECItems.POISONOUS_FLESH.get())
                                 .apply(SetItemCountFunction.setCount(UniformGenerator.between(1, 4)))
                                 .apply(LootingEnchantFunction.lootingMultiplier(ConstantValue.exactly(1))))
                 )
@@ -174,9 +173,9 @@ public class ECEntityLootTables implements LootTableSubProvider {
                         .add(LootItem.lootTableItem(Items.SOUL_TORCH)
                                 .when(LootItemRandomChanceWithLootingCondition.randomChanceAndLootingBoost(0.083f, 0.1f))
                                 .apply(SetItemCountFunction.setCount(UniformGenerator.between(0, 3))))
-//                        .add(LootItem.lootTableItem(Items.BOW)
-//                                .when(LootItemRandomChanceWithLootingCondition.randomChanceAndLootingBoost(0.085f, 0.1f))
-//                                .apply(SetItemDamageFunction.setDamage(UniformGenerator.between(50, 340))))
+                        .add(LootItem.lootTableItem(ECItems.SOUL_FRAGMENT.get())
+                                .when(LootItemRandomChanceWithLootingCondition.randomChanceAndLootingBoost(0.083f, 0.1f))
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(0, 2))))
                 );
     }
 

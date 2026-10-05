@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "soul_sand",
+  "key": {
+    "F": {
+      "item": "elemental_creatures:soul_fragment"
+    },
+    "S": {
+      "tag": "forge:sand"
+    }
+  },
+  "pattern": [
+    "SF",
+    "FS"
+  ],
+  "result": {
+    "count": 4,
+    "item": "minecraft:soul_sand"
+  },
+  "show_notification": true
+}

@@ -5,6 +5,9 @@ import net.marmar.elemental_creatures.entity.ECEntityTypes;
 import net.marmar.elemental_creatures.item.arrow.LightningArrowItem;
 import net.marmar.elemental_creatures.item.arrow.PrismarineArrowItem;
 import net.marmar.elemental_creatures.item.arrow.SoulArrowItem;
+import net.marmar.elemental_creatures.item.custom.SoulFragmentItem;
+import net.marmar.elemental_creatures.item.custom.food.BurningFleshItem;
+import net.marmar.elemental_creatures.item.custom.food.ECFoods;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
 import net.minecraftforge.common.ForgeSpawnEggItem;
@@ -17,9 +20,21 @@ public class ECItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(
             ForgeRegistries.ITEMS, ElementalCreatures.MOD_ID);
 
-    //Others
+    //Special drops
     public static final RegistryObject<Item> LIGHTNING_ESSENCE = ITEMS.register(
             "lightning_essence", () -> new Item(new Item.Properties().stacksTo(16).rarity(Rarity.EPIC)));
+    public  static final RegistryObject<Item> SOUL_FRAGMENT = ITEMS.register(
+            "soul_fragment", () -> new SoulFragmentItem(new Item.Properties()));
+
+    //Flesh
+    public static final RegistryObject<Item> SCORCHED_FLESH = ITEMS.register(
+            "scorched_flesh", () -> new BurningFleshItem(new Item.Properties().food(ECFoods.BURNT_FLESH), false));
+    public static final RegistryObject<Item> SOUL_SCORCHED_FLESH = ITEMS.register(
+            "soul_scorched_flesh", () -> new BurningFleshItem(new Item.Properties().food(ECFoods.BURNT_FLESH), true));
+    public static final RegistryObject<Item> FROZEN_FLESH = ITEMS.register(
+            "frozen_flesh", () -> new Item(new Item.Properties().food(ECFoods.FROZEN_FLESH)));
+    public static final RegistryObject<Item> POISONOUS_FLESH = ITEMS.register(
+            "poisonous_flesh", () -> new Item(new Item.Properties().food(ECFoods.POISONOUS_FLESH)));
 
     //Projectiles
     public static final RegistryObject<Item> LIGHTNING_ARROW = ITEMS.register(
@@ -67,15 +82,12 @@ public class ECItems {
     public static final RegistryObject<Item> ICE_CUBE_SPAWN_EGG = ITEMS.register(
             "ice_cube_spawn_egg", () -> new ForgeSpawnEggItem(ECEntityTypes.ICE_CUBE, 0x70a4e5,
                     0x314b6c, new Item.Properties()));
-
     public static final RegistryObject<Item> SAND_CUBE_SPAWN_EGG = ITEMS.register(
             "sand_cube_spawn_egg", () -> new ForgeSpawnEggItem(ECEntityTypes.SAND_CUBE, 0xd1ba8a,
                     0xa3a279, new Item.Properties()));
-
     public static final RegistryObject<Item> RED_SAND_CUBE_SPAWN_EGG = ITEMS.register(
             "red_sand_cube_spawn_egg", () -> new ForgeSpawnEggItem(ECEntityTypes.RED_SAND_CUBE, 0xc06822,
                     0xc2955e, new Item.Properties()));
-
     public static final RegistryObject<Item> PHRANQUE_SPAWN_EGG = ITEMS.register(
             "phranque_spawn_egg", () -> new ForgeSpawnEggItem(ECEntityTypes.PHRANQUE, 0x00e0e0,
                     0x9da9a8, new Item.Properties()));
@@ -84,11 +96,9 @@ public class ECItems {
     public static final RegistryObject<Item> DESERT_SPIDER_SPAWN_EGG = ITEMS.register(
             "desert_spider_spawn_egg", () -> new ForgeSpawnEggItem(ECEntityTypes.DESERT_SPIDER, 0x473f31,
                     0x02303c, new Item.Properties()));
-
     public static final RegistryObject<Item> SNOWY_SPIDER_SPAWN_EGG = ITEMS.register(
             "snowy_spider_spawn_egg", () -> new ForgeSpawnEggItem(ECEntityTypes.SNOWY_SPIDER, 0x717170,
                     0x213c02, new Item.Properties()));
-
     public static final RegistryObject<Item> ARACNIAN_SPAWN_EGG = ITEMS.register(
             "aracnian_spawn_egg", () -> new ForgeSpawnEggItem(ECEntityTypes.ARACNIAN, 0x376260,
                     0xa8710e, new Item.Properties()));

@@ -14,6 +14,8 @@ public class ECEnchantments {
 
     public static final RegistryObject<Enchantment> ZEUS_BLESSING = ENCHANTMENTS.register(
             "zeus_blessing", () -> new ZeusBlessingEnchantment(Enchantment.Rarity.RARE, EquipmentSlot.MAINHAND));
+    public static final RegistryObject<Enchantment> WILL_O_THE_WISP = ENCHANTMENTS.register(
+      "will_o_the_wisp", () -> new WillOTheWispEnchantment(Enchantment.Rarity.RARE, EquipmentSlot.MAINHAND));
 
     public static void register(IEventBus eventBus){
         ElementalCreatures.LOGGER.info("Registering Elemental Creatures enchantments...");

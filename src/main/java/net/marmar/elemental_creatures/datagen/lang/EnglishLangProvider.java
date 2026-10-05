@@ -17,9 +17,17 @@ public class EnglishLangProvider extends AbstractLangProvider {
 
         addLightingDamage("has been punished by the gods", "has been punished by the gods trying to scape");
 
-        //Items
+        //Special drops
         addItem(ECItems.LIGHTNING_ESSENCE, "Lightning essence");
-        
+        addItem(ECItems.SOUL_FRAGMENT, "Soul fragment");
+
+        //Flesh
+        addItem(ECItems.SCORCHED_FLESH, "Burnt flesh");
+        addItem(ECItems.SOUL_SCORCHED_FLESH, "Pneumatic flesh");
+        addItem(ECItems.FROZEN_FLESH, "Frozen flesh");
+        addItem(ECItems.POISONOUS_FLESH, "Poisonous flesh");
+
+        //Arrows
         addItem(ECItems.LIGHTNING_ARROW, "Lightning arrow");
         addItemDesc("lightning_arrow", "Deals lightning damage. Can summon lightning bolts when used with Zeus Blessing.");
 
@@ -32,6 +40,9 @@ public class EnglishLangProvider extends AbstractLangProvider {
         //Enchantments
         addEnchantment(ECEnchantments.ZEUS_BLESSING, "Zeus Blessing");
         addEnchantmentDesc("zeus_blessing", "When shooting a Lightning arrow, spawns a lightning bolt on hit.");
+
+        addEnchantment(ECEnchantments.WILL_O_THE_WISP, "Will o' the Wisp");
+        addEnchantmentDesc("will_o_the_wisp", "Ignites the target on soul fire. The time on fire is 5 * enchantmentLevel.");
 
         //Zombies
         addZombieType(ECEntityTypes.SCORCHED.get(),"Scorched", ECItems.SCORCHED_SPAWN_EGG, "Scorched spawn egg");

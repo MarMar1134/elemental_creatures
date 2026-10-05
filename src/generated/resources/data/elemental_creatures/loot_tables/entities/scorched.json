@@ -21,7 +21,7 @@
               "function": "minecraft:looting_enchant"
             }
           ],
-          "name": "minecraft:rotten_flesh"
+          "name": "elemental_creatures:scorched_flesh"
         },
         {
           "type": "minecraft:item",

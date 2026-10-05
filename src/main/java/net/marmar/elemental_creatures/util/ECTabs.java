@@ -53,8 +53,17 @@ public class ECTabs {
                     .title(Component.translatable("tab." + ElementalCreatures.MOD_ID + ".elemental_items"))
                     .withTabsBefore(ECTabs.ELEMENTALS_SPAWN_EGGS.getId())
                     .displayItems(((pParameters, pOutput) -> {
+                        //Special items
                         pOutput.accept(ECItems.LIGHTNING_ESSENCE.get());
+                        pOutput.accept(ECItems.SOUL_FRAGMENT.get());
 
+                        //Flesh
+                        pOutput.accept(ECItems.SCORCHED_FLESH.get());
+                        pOutput.accept(ECItems.SOUL_SCORCHED_FLESH.get());
+                        pOutput.accept(ECItems.FROZEN_FLESH.get());
+                        pOutput.accept(ECItems.POISONOUS_FLESH.get());
+
+                        //Arrows
                         pOutput.accept(ECItems.LIGHTNING_ARROW.get());
                         pOutput.accept(ECItems.SOUL_ARROW.get());
                         pOutput.accept(ECItems.PRISMARINE_ARROW.get());

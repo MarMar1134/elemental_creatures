@@ -75,6 +75,28 @@
             }
           ],
           "name": "minecraft:soul_torch"
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "chance": 0.083,
+              "condition": "minecraft:random_chance_with_looting",
+              "looting_multiplier": 0.1
+            }
+          ],
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 2.0,
+                "min": 0.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "elemental_creatures:soul_fragment"
         }
       ],
       "rolls": 1.0

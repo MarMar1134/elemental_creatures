@@ -63,13 +63,29 @@ There are three new spider variants
 - ### Child of Aracne
   These spiders are generated when a Spider is struck with a lightning bolt. They deal additional lightning damage, have more health and additional points of armor.
   Children of Aracne can drop Lightning Essence.
+
 ---
 
 # Other additions
 
-## Items
+## Special mob drops
 - ### Lightning essence
   Lightning essence is a mythological item dropped by charged mobs. It can be used to craft Lightning arrows.
+- ### Soul Fragment
+  Soul fragments are dropped by Soul Reapers. These fragments ignite the enemy on soul fire when used as a weapon, can be used as a _fire charge_ and can be used
+  to craft _soul arrows_, _soul sand_ and _soul soil_.
+
+## New types of flesh
+- ### Burnt flesh
+  This flesh is dropped by the Scorched, ignites the player with regular fire for 5 seconds when consumed.
+- ### Pneumatic flesh
+  This flesh is dropped by the Soul Scorched, ignites the player with soul fire for 5 seconds when consumed.
+- ### Frozen flesh
+  This flesh is dropped by the Lost, and applies _slowness_ for 30 seconds when consumed.
+- ### Poisonous flesh
+  This flesh is dropped by the Rotten, and applies _poison_ for 15 seconds when consumed.
+
+## New arrows
 - ### Lightning arrow
   Lightning arrows are shot by Followers of Tláloc. They inflict additional lightning damage that penetrates armor.
   The player can craft Lightning arrows combining 8 regular arrows with Lightning essence.
@@ -86,6 +102,8 @@ There are three new spider variants
 - ### Zeus Blessing
   Zeus Blessing is a new enchantment that can be applied to bows and crossbows. When your weapon has Zeus Blessing and shoots a Lightning arrow, it will summon a lightning bolt when it hits the enemy.
   (Caution, this enchantment may be dangerous to utilize near forests and wooden buildings).
+- ### Will o' the Wisp
+  Will o' the Wisp is a new enchantment that can be applied to swords (and derivatives added for other mods). Works like vanilla's _Fire Aspect_, but ignites the target on soul fire instead of regular fire.
 
 ---
 

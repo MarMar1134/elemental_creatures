@@ -17,9 +17,17 @@ public class SpanishLangProvider extends AbstractLangProvider {
 
         addLightingDamage("fue castigado por los dioses", "fue castigado por los dioses mientras luchaba con");
 
-        //Items
+        //Special drops
         addItem(ECItems.LIGHTNING_ESSENCE, "Esencia de relámpago");
+        addItem(ECItems.SOUL_FRAGMENT, "Fragmento de alma");
 
+        //Flesh
+        addItem(ECItems.SCORCHED_FLESH, "Carne chamuscada");
+        addItem(ECItems.SOUL_SCORCHED_FLESH, "Carne pneumática");
+        addItem(ECItems.FROZEN_FLESH, "Carne congelada");
+        addItem(ECItems.POISONOUS_FLESH, "Carne venenosa");
+
+        //Arrows
         addItem(ECItems.LIGHTNING_ARROW, "Flecha eléctrica");
         addItemDesc("lightning_arrow", "Causa daño eléctrico que penetra la armadura. Chance de generar relámpagos cuando se usa con Bendición de Zeus.");
 
@@ -32,6 +40,9 @@ public class SpanishLangProvider extends AbstractLangProvider {
         //Enchantments
         addEnchantment(ECEnchantments.ZEUS_BLESSING, "Bendición de Zeus");
         addEnchantmentDesc("zeus_blessing", "Genera un relámpago al impactar un objetivo con flechas eléctricas.");
+
+        addEnchantment(ECEnchantments.WILL_O_THE_WISP, "Fuego fátuo");
+        addEnchantmentDesc("will_o_the_wisp", "Incendia al objetivo con fuego de alma. El tiempo base es 5 segundos, y se multiplica por el nivel del encantamiento.");
 
         //Zombies
         addZombieType(ECEntityTypes.SCORCHED.get(),"Scorched", ECItems.SCORCHED_SPAWN_EGG, "Generar Quemado");

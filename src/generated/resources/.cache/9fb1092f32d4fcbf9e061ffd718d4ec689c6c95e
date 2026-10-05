@@ -1,3 +1,9 @@
-// 1.20.1	2026-07-21T13:25:08.8621887	Recipes
-76c9e4b66ad1b251ed921d99a9de7b39d6ab1c64 data/elemental_creatures/advancements/recipes/combat/lightning_essence.json
-1e6396cb6fd2a56e0f1857bd47a5cc0771e042fa data/elemental_creatures/recipes/lightning_essence.json
+// 1.20.1	2026-10-05T13:35:57.0653602	Recipes
+965129bb065349da6bc4dc0a43de6bfaacb19c91 data/elemental_creatures/advancements/recipes/combat/lightning_arrow.json
+0065b16a795a167b72bb872a92e7e9c86f683ac0 data/elemental_creatures/advancements/recipes/combat/soul_arrow.json
+0197d94ac8be35eed292e0b30dbadb4829630f45 data/elemental_creatures/recipes/lightning_arrow.json
+769172c38871f896db510c3a570ed8d4183a6ec4 data/elemental_creatures/recipes/soul_arrow.json
+65b57e1f6c878273e7d0d7743e02cfebe9846605 data/minecraft/advancements/recipes/building_blocks/soul_sand.json
+ac1d456f2cf1b52c87af891bfe932adea4e965e0 data/minecraft/advancements/recipes/building_blocks/soul_soil.json
+ba07139085e5bc48a23349545071eb17373b85d6 data/minecraft/recipes/soul_sand.json
+0b581ff347c80253d115ed47ea241a7666858e99 data/minecraft/recipes/soul_soil.json

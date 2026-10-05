@@ -25,7 +25,7 @@
               "function": "minecraft:looting_enchant"
             }
           ],
-          "name": "minecraft:rotten_flesh"
+          "name": "elemental_creatures:frozen_flesh"
         }
       ],
       "rolls": 1.0
