@@ -14,6 +14,7 @@ public class SnowySpiderRenderer extends AbstractSpiderRenderer<SnowySpider> {
 
     public SnowySpiderRenderer(EntityRendererProvider.Context pContext) {
         super(pContext, ECModelLayers.SNOWY_SPIDER, 0.8f);
+        this.addLayer(new SnowySpiderEyesLayer<>(this));
     }
 
     @Override

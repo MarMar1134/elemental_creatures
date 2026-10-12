@@ -1,4 +1,4 @@
-package net.marmar.elemental_creatures.item.arrow;
+package net.marmar.elemental_creatures.item.custom.arrow;
 
 import net.marmar.elemental_creatures.entity.projectile.SoulArrowEntity;
 import net.minecraft.ChatFormatting;

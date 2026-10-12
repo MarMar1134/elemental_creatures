@@ -1,7 +1,7 @@
 package net.marmar.elemental_creatures.entity.skeleton;
 
 import net.marmar.elemental_creatures.item.ECItems;
-import net.marmar.elemental_creatures.item.arrow.SoulArrowItem;
+import net.marmar.elemental_creatures.item.custom.arrow.SoulArrowItem;
 import net.marmar.elemental_creatures.util.ECSounds;
 import net.marmar.elemental_creatures.util.SoulFireUtils;
 import net.minecraft.sounds.SoundEvent;

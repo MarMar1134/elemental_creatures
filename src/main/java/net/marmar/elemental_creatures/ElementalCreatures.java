@@ -3,6 +3,7 @@ package net.marmar.elemental_creatures;
 import com.mojang.logging.LogUtils;
 import net.marmar.elemental_creatures.entity.ECEntityTypes;
 import net.marmar.elemental_creatures.item.ECItems;
+import net.marmar.elemental_creatures.util.ECPotions;
 import net.marmar.elemental_creatures.util.ECSounds;
 import net.marmar.elemental_creatures.util.ECTabs;
 import net.marmar.elemental_creatures.util.enchantment.ECEnchantments;
@@ -26,6 +27,7 @@ public class ElementalCreatures {
         ECEntityTypes.register(modEventBus);
         ECEnchantments.register(modEventBus);
         ECTabs.register(modEventBus);
+        ECPotions.register(modEventBus);
 
         context.registerConfig(ModConfig.Type.COMMON, ECConfig.SPEC, "elemental_creatures-common.toml");
 

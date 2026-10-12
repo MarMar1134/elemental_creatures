@@ -1,2 +1,4 @@
-// 1.20.1	2026-06-12T16:10:14.8280327	Tags for minecraft:entity_type mod id elemental_creatures
+// 1.20.1	2026-10-08T22:55:36.0102818	Tags for minecraft:entity_type mod id elemental_creatures
 83e34cbd17e4b90546960a46e5e48ee5af034232 data/elemental_creatures/tags/entity_types/zombie.json
+f0fbcec28368e1c982634ec7599aeb4b18fd034f data/minecraft/tags/entity_types/arrows.json
+022b3bf6789bed61bc3c4346f70270f39fd93c73 data/minecraft/tags/entity_types/skeletons.json

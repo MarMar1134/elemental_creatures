@@ -16,6 +16,7 @@ public class ECBiomeTagGenerator extends BiomeTagsProvider {
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     protected void addTags(HolderLookup.Provider pProvider) {
         //Zombie biomes
         this.tag(ECTags.Biomes.CAN_SPAWN_LOST).add(
@@ -33,6 +34,29 @@ public class ECBiomeTagGenerator extends BiomeTagsProvider {
                 Biomes.SWAMP,
                 Biomes.MANGROVE_SWAMP,
                 Biomes.LUSH_CAVES
+        );
+
+        this.tag(ECTags.Biomes.CAN_SPAWN_RED_FUNGUS).add(
+                Biomes.MUSHROOM_FIELDS
+        );
+
+        this.tag(ECTags.Biomes.CAN_SPAWN_BROWN_FUNGUS).add(
+                Biomes.MUSHROOM_FIELDS
+        );
+
+        this.tag(ECTags.Biomes.CAN_SPAWN_CRIMSON_FUNGUS).add(
+                Biomes.CRIMSON_FOREST
+        );
+
+        this.tag(ECTags.Biomes.CAN_SPAWN_WARPED_FUNGUS).add(
+                Biomes.WARPED_FOREST
+        );
+
+        this.tag(ECTags.Biomes.CAN_SPAWN_FUNGUS).addTags(
+                ECTags.Biomes.CAN_SPAWN_BROWN_FUNGUS,
+                ECTags.Biomes.CAN_SPAWN_RED_FUNGUS,
+                ECTags.Biomes.CAN_SPAWN_CRIMSON_FUNGUS,
+                ECTags.Biomes.CAN_SPAWN_WARPED_FUNGUS
         );
 
         //Skeleton biomes
@@ -62,6 +86,29 @@ public class ECBiomeTagGenerator extends BiomeTagsProvider {
                 Biomes.SWAMP,
                 Biomes.MANGROVE_SWAMP,
                 Biomes.LUSH_CAVES
+        );
+
+        this.tag(ECTags.Biomes.CAN_SPAWN_RED_BLIGHT).add(
+                Biomes.MUSHROOM_FIELDS
+        );
+
+        this.tag(ECTags.Biomes.CAN_SPAWN_BROWN_BLIGHT).add(
+                Biomes.MUSHROOM_FIELDS
+        );
+
+        this.tag(ECTags.Biomes.CAN_SPAWN_CRIMSON_BLIGHT).add(
+                Biomes.CRIMSON_FOREST
+        );
+
+        this.tag(ECTags.Biomes.CAN_SPAWN_WARPED_BLIGHT).add(
+                Biomes.WARPED_FOREST
+        );
+
+        this.tag(ECTags.Biomes.CAN_SPAWN_BLIGHT).addTags(
+                ECTags.Biomes.CAN_SPAWN_BROWN_BLIGHT,
+                ECTags.Biomes.CAN_SPAWN_RED_BLIGHT,
+                ECTags.Biomes.CAN_SPAWN_CRIMSON_BLIGHT,
+                ECTags.Biomes.CAN_SPAWN_WARPED_BLIGHT
         );
 
         //Slime biomes

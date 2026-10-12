@@ -7,14 +7,20 @@
   "mixins": [
     "block.BaseFireBlockMixin",
     "entity.EntityMixin",
-    "entity.LivingEntityMixin",
-    "entity.ZombieMixin"
+    "entity.livingentity.LivingEntityMixin",
+    "entity.skeleton.SkeletonMixin",
+    "entity.skeleton.WitherSkeletonMixin",
+    "entity.spider.SpiderMixin",
+    "entity.zombie.ZombieMixin"
   ],
   "injectors": {
     "defaultRequire": 1
   },
   "client": [
     "client.EntityRenderDispatcherMixin",
-    "client.ScreenEffectRendererMixin"
+    "client.ScreenEffectRendererMixin",
+    "entity.livingentity.LivingEntityRendererMixin",
+    "entity.skeleton.SkeletonRendererMixin",
+    "entity.zombie.AbstractZombieRendererMixin"
   ]
 }

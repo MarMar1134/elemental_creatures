@@ -63,4 +63,15 @@ public abstract class AbstractLangProvider extends LanguageProvider {
         this.add("death.attack.lightning_damage", "%1$s " + message);
         this.add("death.attack.lightning_damage.player", "%1$s " + killByPlayer + " %2$s");
     }
+
+    private void addPotionByType(String potionName, String potionType, String translation){
+        this.add("item.minecraft." + potionType + ".effect." + potionName, translation);
+    }
+
+    protected void addPotion(String pId, String pName, String pSplashName, String pLingeringName, String pArrowName){
+        addPotionByType(pId, "potion", pName);
+        addPotionByType(pId, "splash_potion", pSplashName);
+        addPotionByType(pId, "lingering_potion", pLingeringName);
+        this.add("item.minecraft.tipped_arrow.effect." + pId, pArrowName);
+    }
 }

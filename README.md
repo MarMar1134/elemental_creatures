@@ -3,10 +3,15 @@ Discover the Elementals! This new creatures generates all around of the Minecraf
 
 ---
 
-# Mobs
+# The mobs change over time
+Mob behaviour is not static anymore. If a vanilla monster stays under a certain effect or on a specific biome for to long, it will convert to an elemental variant! Be careful by letting monsters alive to much time.
+
+---
+
+# List of mobs
 
 ## Zombies
-There are five new zombie variants awarding for you. Most of then even spawn naturally on the Overworld.
+There are seven new zombie variants awarding for you. Most of then even spawn naturally on the Overworld.
 - ### The Rotten
   The Rotten inflicts Poison when attacking the player, and can be found on Swamps and Mangrove Swamps.
 - ### The Lost
@@ -19,11 +24,16 @@ There are five new zombie variants awarding for you. Most of then even spawn nat
 - ### Worshipper of Illapa
     This loyal follower of the Gods inflicts lightning damage, which penetrates armor, and has double damage points than a
     regular Zombie. Is generated when a Zombie is struck by a Lightning Bolt. They have a chance of dropping Lightning essence.
+- ### Decadent
+  The Decadent inflicts Wither when attacking another mob, and spawn when a Zombie stays withered for 5 seconds or more.
+- ### Fungal
+  The Fungal inflicts Blindness when attacking another mob. Fungals have 4 variants (brown, red, crimson, warped) and spawn when a Zombie stays on a Mushroom Fields biome
+  (brown and red), a Crimson Forest (crimson) or a Warped Forest (warped) for a full Minecraft day.
 
 ---
 
 ## Skeletons
-There are five new skeleton variants.
+There are seven new skeleton variants.
 - ### The Sunken
   The Sunken is an underwater mob similar to the Drowned. It shoots the new Prismarine Arrows, which travels the water like if it was air.
   Sunkens are generated when a Skeleton stays underwater for 30 or more seconds.
@@ -37,6 +47,11 @@ There are five new skeleton variants.
 - ### Follower of Tláloc
   This loyal follower of the Gods shoots a new type of arrow, Lightning arrows, which inflict lightning damage. Followers of Tláloc can't spawn naturally, but are
   generated when a Skeleton is struck with a Lightning Bolt. They have a chance of dropping Lightning essence.
+- ### Ashen
+  The Ashen shoots fire arrows and acts like a Scorched, spawning when a Skeleton stays on fire for 15 seconds.
+- ### Blight
+  The Blight shoots blindness arrows to their targets. They have 4 variants (brown, red, crimson, warped) and spawn naturally when a Skeleton stays on a Mushroom Fields
+  (brown and red), Crimson Forest (crimson) or Warped Forest (warped) for a full Minecraft day.
 
 ---
 
@@ -55,7 +70,7 @@ There are four new slime variants.
 ---
 
 ## Spiders
-There are three new spider variants
+There are four new spider variants
 - ### Desert Spider
   Deserts spiders are generated on, well, deserts and badlands. They have 1 additional heart and inflicts weakness when they attack.
 - ### Snowy Spider
@@ -63,10 +78,12 @@ There are three new spider variants
 - ### Child of Aracne
   These spiders are generated when a Spider is struck with a lightning bolt. They deal additional lightning damage, have more health and additional points of armor.
   Children of Aracne can drop Lightning Essence.
+- ### Wither spider
+  Wither spiders spawn when a Spider stays withered for 7.5 seconds, and inflicts Wither on touch. They have higher health and deal more damage.
 
 ---
 
-# Other additions
+# New Items
 
 ## Special mob drops
 - ### Lightning essence
@@ -75,7 +92,7 @@ There are three new spider variants
   Soul fragments are dropped by Soul Reapers. These fragments ignite the enemy on soul fire when used as a weapon, can be used as a _fire charge_ and can be used
   to craft _soul arrows_, _soul sand_ and _soul soil_.
 
-## New types of flesh
+## Types of flesh
 - ### Burnt flesh
   This flesh is dropped by the Scorched, ignites the player with regular fire for 5 seconds when consumed.
 - ### Pneumatic flesh
@@ -84,19 +101,39 @@ There are three new spider variants
   This flesh is dropped by the Lost, and applies _slowness_ for 30 seconds when consumed.
 - ### Poisonous flesh
   This flesh is dropped by the Rotten, and applies _poison_ for 15 seconds when consumed.
+- ### Decaying flesh
+  This type of flesh inflicts Wither for 10 seconds when consumed. Is dropped by Decadents.
+- ### Fungal flesh
+  This type of flesh inflicts Blindness for 30 seconds when consumed. Is dropped by Fungals (all variants).
 
-## New arrows
+## Foods
+- ## Iðunn apple
+  This mythical fruit can be given to mobs to prevent its convertion to an Elemental. If the player consumes an Iðunn apple, it will give him Regeneration for 10 seconds
+  and heal its health bar. Iðunn apples are crafted with an Apple and 8 Emeralds.
+
+## Arrows
 - ### Lightning arrow
   Lightning arrows are shot by Followers of Tláloc. They inflict additional lightning damage that penetrates armor.
   The player can craft Lightning arrows combining 8 regular arrows with Lightning essence.
 - ### Prismarine arrow
-  Prismarine arows are shot by Sunkens. They travel the water like it was air, allowing the player to use the bow underwater.
+  Prismarine arrows are shot by Sunkens. They travel the water like it was air, allowing the player to use the bow underwater.
   Prismarine arrows can't be crafted.
 - ### Soul arrow
   Soul arrows are shot by Soul Reapers. They ignite the target with soul fire, which inflicts additional fire damage.
   Soul arrows can't be crafted.
 
 ---
+
+# Magic additions
+
+## Potions
+Note: potions added by Elemental Creatures can't be brewed or obtained on survival mode. These potions are required to add its respective tipped arrows.
+If you make a mod/modpack that depends on Elemental Creatures, you'll have to manually add the brewing recipes for these potions.
+
+- ### Potion of Decay
+  Potions of Decay apply Wither when consumed.
+- ### Potion of Blindness
+  Potions of Blindness apply Blindness when consumed.
 
 ## Enchantments
 - ### Zeus Blessing

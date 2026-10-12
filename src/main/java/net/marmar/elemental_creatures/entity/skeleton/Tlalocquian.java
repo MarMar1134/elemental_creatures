@@ -1,7 +1,7 @@
 package net.marmar.elemental_creatures.entity.skeleton;
 
 import net.marmar.elemental_creatures.item.ECItems;
-import net.marmar.elemental_creatures.item.arrow.LightningArrowItem;
+import net.marmar.elemental_creatures.item.custom.arrow.LightningArrowItem;
 import net.marmar.elemental_creatures.util.damage.ECDamageSources;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;

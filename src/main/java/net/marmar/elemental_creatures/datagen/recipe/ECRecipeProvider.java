@@ -19,6 +19,17 @@ public class ECRecipeProvider extends RecipeProvider {
 
     @Override
     protected void buildRecipes(Consumer<FinishedRecipe> pWriter) {
+        //Food
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, ECItems.IDUNN_APPLE.get())
+                .pattern("EEE")
+                .pattern("EAE")
+                .pattern("EEE")
+                .define('E', Items.EMERALD)
+                .define('A', Items.APPLE)
+                .unlockedBy(getHasName(Items.EMERALD), has(Items.EMERALD))
+                .unlockedBy(getHasName(ECItems.IDUNN_APPLE.get()), has(ECItems.IDUNN_APPLE.get()))
+                .save(pWriter);
+
         //Arrows
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ECItems.LIGHTNING_ARROW.get(), 8)
                 .pattern("AAA")

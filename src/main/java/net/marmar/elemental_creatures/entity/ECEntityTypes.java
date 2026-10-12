@@ -5,6 +5,7 @@ import net.marmar.elemental_creatures.entity.projectile.LightningArrowEntity;
 import net.marmar.elemental_creatures.entity.projectile.PrismarineArrowEntity;
 import net.marmar.elemental_creatures.entity.projectile.SoulArrowEntity;
 import net.marmar.elemental_creatures.entity.skeleton.*;
+import net.marmar.elemental_creatures.entity.skeleton.blight.Blight;
 import net.marmar.elemental_creatures.entity.slime.IceCube;
 import net.marmar.elemental_creatures.entity.slime.Phranque;
 import net.marmar.elemental_creatures.entity.slime.RedSandCube;
@@ -12,11 +13,11 @@ import net.marmar.elemental_creatures.entity.slime.SandCube;
 import net.marmar.elemental_creatures.entity.spider.Aracnian;
 import net.marmar.elemental_creatures.entity.spider.DesertSpider;
 import net.marmar.elemental_creatures.entity.spider.SnowySpider;
+import net.marmar.elemental_creatures.entity.spider.WitherSpider;
 import net.marmar.elemental_creatures.entity.zombie.*;
+import net.marmar.elemental_creatures.entity.zombie.fungus.Fungus;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
-import net.minecraft.world.entity.monster.Slime;
-import net.minecraft.world.entity.monster.Spider;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -31,12 +32,10 @@ public class ECEntityTypes {
             ENTITY_TYPES.register("lightning_arrow", () -> EntityType.Builder.<LightningArrowEntity>of(LightningArrowEntity::new, MobCategory.MISC)
                     .sized(0.5F, 0.5F).clientTrackingRange(4).updateInterval(20)
                     .build("lightning_arrow"));
-
     public static final RegistryObject<EntityType<SoulArrowEntity>> SOUL_ARROW =
             ENTITY_TYPES.register("soul_arrow", () -> EntityType.Builder.<SoulArrowEntity>of(SoulArrowEntity::new, MobCategory.MISC)
                     .sized(0.5F, 0.5F).clientTrackingRange(4).updateInterval(20)
                     .build("soul_arrow"));
-
     public static final RegistryObject<EntityType<PrismarineArrowEntity>> PRISMARINE_ARROW =
             ENTITY_TYPES.register("prismarine_arrow", () -> EntityType.Builder.<PrismarineArrowEntity>of(PrismarineArrowEntity::new, MobCategory.MISC)
                     .sized(0.5F, 0.5F).clientTrackingRange(4).updateInterval(20)
@@ -46,57 +45,58 @@ public class ECEntityTypes {
     public static final RegistryObject<EntityType<Scorched>> SCORCHED =
             ENTITY_TYPES.register("scorched", () -> EntityType.Builder.of(Scorched::new, MobCategory.MONSTER)
                     .sized(0.6F, 1.95F).build("scorched"));
-
     public static final RegistryObject<EntityType<SoulScorched>> SOUL_SCORCHED =
             ENTITY_TYPES.register("soul_scorched", () -> EntityType.Builder.of(SoulScorched::new, MobCategory.MONSTER)
                     .sized(0.6F, 1.95F).build("soul_scorched"));
-
     public static final RegistryObject<EntityType<Lost>> LOST =
             ENTITY_TYPES.register("lost", () -> EntityType.Builder.of(Lost::new, MobCategory.MONSTER)
                     .sized(0.6F, 1.95F).build("lost"));
-
     public static final RegistryObject<EntityType<Rotten>> ROTTEN =
             ENTITY_TYPES.register("rotten", () -> EntityType.Builder.of(Rotten::new, MobCategory.MONSTER)
                     .sized(0.6F, 1.95F).build("rotten"));
-
     public static final RegistryObject<EntityType<Illapista>> ILLAPISTA =
             ENTITY_TYPES.register("illapista", () -> EntityType.Builder.of(Illapista::new, MobCategory.MONSTER)
                     .sized(0.6F, 1.95F).build("illapista"));
+    public static final RegistryObject<EntityType<Decadent>> DECADENT =
+            ENTITY_TYPES.register("decadent", () -> EntityType.Builder.of(Decadent::new, MobCategory.MONSTER)
+                    .sized(0.7F, 2.4F).build("decadent"));
+    public static final RegistryObject<EntityType<Fungus>> FUNGUS =
+            ENTITY_TYPES.register("fungus", () -> EntityType.Builder.of(Fungus::new, MobCategory.MONSTER)
+                    .sized(0.7F, 2.4F).build("fungus"));
 
     //Skeletons
     public static final RegistryObject<EntityType<SoulReaper>> SOUL_REAPER =
             ENTITY_TYPES.register("soul_reaper", () -> EntityType.Builder.of(SoulReaper::new, MobCategory.MONSTER)
                     .sized(0.6F, 1.99F).build("soul_reaper"));
-
     public static final RegistryObject<EntityType<Tlalocquian>> TLALOCQUIAN =
             ENTITY_TYPES.register("tlalocquian", () -> EntityType.Builder.of(Tlalocquian::new, MobCategory.MONSTER)
                     .sized(0.6F, 1.99F).build("tlalocquian"));
-
     public static final RegistryObject<EntityType<Sunken>> SUNKEN =
             ENTITY_TYPES.register("sunken", () -> EntityType.Builder.of(Sunken::new, MobCategory.MONSTER)
                     .sized(0.6F, 1.99F).build("sunken"));
-
     public static final RegistryObject<EntityType<Dried>> DRIED =
             ENTITY_TYPES.register("dried", () -> EntityType.Builder.of(Dried::new, MobCategory.MONSTER)
                     .sized(0.6F, 1.99F).build("dried"));
-
     public static final RegistryObject<EntityType<Putrid>> PUTRID =
             ENTITY_TYPES.register("putrid", () -> EntityType.Builder.of(Putrid::new, MobCategory.MONSTER)
                     .sized(0.6F, 1.99F).build("putrid"));
+    public static final RegistryObject<EntityType<Ashen>> ASHEN =
+            ENTITY_TYPES.register("ashen", () -> EntityType.Builder.of(Ashen::new, MobCategory.MONSTER)
+                    .sized(0.6F, 1.99F).build("ashen"));
+    public static final RegistryObject<EntityType<Blight>> BLIGHT =
+            ENTITY_TYPES.register("blight", () -> EntityType.Builder.of(Blight::new, MobCategory.MONSTER)
+                    .sized(0.6F, 1.99F).build("blight"));
 
     //Slimes
     public static final RegistryObject<EntityType<IceCube>> ICE_CUBE =
             ENTITY_TYPES.register("ice_cube", () -> EntityType.Builder.of(IceCube::new, MobCategory.MONSTER)
                     .sized(2.04F, 2.04F).build("ice_cube"));
-
     public static final RegistryObject<EntityType<SandCube>> SAND_CUBE =
             ENTITY_TYPES.register("sand_cube", () -> EntityType.Builder.of(SandCube::new, MobCategory.MONSTER)
                     .sized(2.04F, 2.04F).build("sand_cube"));
-
     public static final RegistryObject<EntityType<RedSandCube>> RED_SAND_CUBE =
             ENTITY_TYPES.register("red_sand_cube", () -> EntityType.Builder.of(RedSandCube::new, MobCategory.MONSTER)
                     .sized(2.04F, 2.04F).build("red_sand_cube"));
-
     public static final RegistryObject<EntityType<Phranque>> PHRANQUE =
             ENTITY_TYPES.register("phranque", () -> EntityType.Builder.of(Phranque::new, MobCategory.MONSTER)
                     .sized(2.04F, 2.04F).build("phranque"));
@@ -105,14 +105,15 @@ public class ECEntityTypes {
     public static final RegistryObject<EntityType<DesertSpider>> DESERT_SPIDER =
             ENTITY_TYPES.register("desert_spider", () -> EntityType.Builder.of(DesertSpider::new, MobCategory.MONSTER)
                     .sized(1.4F, 0.9F).build("desert_spider"));
-
     public static final RegistryObject<EntityType<SnowySpider>> SNOWY_SPIDER =
             ENTITY_TYPES.register("snowy_spider", () -> EntityType.Builder.of(SnowySpider::new, MobCategory.MONSTER)
                     .sized(1.0F, 0.7F).build("snowy_spider"));
-
     public static final RegistryObject<EntityType<Aracnian>> ARACNIAN =
             ENTITY_TYPES.register("aracnian", () -> EntityType.Builder.of(Aracnian::new, MobCategory.MONSTER)
                     .sized(1.6F, 1F).build("aracnian"));
+    public static final RegistryObject<EntityType<WitherSpider>> WITHER_SPIDER =
+            ENTITY_TYPES.register("whiter_spider", () -> EntityType.Builder.of(WitherSpider::new, MobCategory.MONSTER)
+                    .sized(1.6F, 1F).build("whither_spider"));
 
     public static void register(IEventBus eventBus){
         ElementalCreatures.LOGGER.info("Registering Elemental Creatures entities...");

@@ -1,6 +1,9 @@
 package net.marmar.elemental_creatures.entity.skeleton;
 
 import net.marmar.elemental_creatures.util.ECSounds;
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
+import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -19,6 +22,7 @@ import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
 
 public class Dried extends AbstractSkeleton {
+    private static final EntityDataAccessor<Boolean> UNDER_WATER_ACCESSOR = SynchedEntityData.defineId(Dried.class, EntityDataSerializers.BOOLEAN);
     private int timeUnderwater;
 
     public Dried(EntityType<? extends AbstractSkeleton> pEntityType, Level pLevel) {
@@ -33,9 +37,20 @@ public class Dried extends AbstractSkeleton {
     }
 
     @Override
+    protected void defineSynchedData() {
+        super.defineSynchedData();
+
+        this.getEntityData().define(UNDER_WATER_ACCESSOR, false);
+    }
+
+    @Override
     public void tick() {
         if (this.isUnderWater()){
             timeUnderwater++;
+
+            if (timeUnderwater >= 400){
+                this.getEntityData().set(UNDER_WATER_ACCESSOR, true);
+            }
 
             if (timeUnderwater >= 600){
                 this.level().playSound(this, this.getOnPos(), SoundEvents.HUSK_CONVERTED_TO_ZOMBIE, SoundSource.AMBIENT, 1f, 1f);
@@ -43,9 +58,14 @@ public class Dried extends AbstractSkeleton {
             }
         } else {
             timeUnderwater = 0;
+            this.getEntityData().set(UNDER_WATER_ACCESSOR, false);
         }
 
         super.tick();
+    }
+
+    public boolean isUnderwaterConverting(){
+        return this.getEntityData().get(UNDER_WATER_ACCESSOR);
     }
 
     @Override

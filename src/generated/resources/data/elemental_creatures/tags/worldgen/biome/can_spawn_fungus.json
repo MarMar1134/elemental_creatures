@@ -1,0 +1,8 @@
+{
+  "values": [
+    "#elemental_creatures:can_spawn_brown_fungus",
+    "#elemental_creatures:can_spawn_red_fungus",
+    "#elemental_creatures:can_spawn_crimson_fungus",
+    "#elemental_creatures:can_spawn_warped_fungus"
+  ]
+}

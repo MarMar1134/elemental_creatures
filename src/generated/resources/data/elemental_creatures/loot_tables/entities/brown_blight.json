@@ -1,0 +1,84 @@
+{
+  "type": "minecraft:entity",
+  "pools": [
+    {
+      "bonus_rolls": 1.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "chance": 0.115,
+              "condition": "minecraft:random_chance_with_looting",
+              "looting_multiplier": 0.1
+            }
+          ],
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 2.0,
+                "min": 1.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "elemental_creatures:fungal_flesh"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 1.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "chance": 0.115,
+              "condition": "minecraft:random_chance_with_looting",
+              "looting_multiplier": 0.1
+            }
+          ],
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 2.0,
+                "min": 1.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:stick"
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "chance": 0.083,
+              "condition": "minecraft:random_chance_with_looting",
+              "looting_multiplier": 0.1
+            }
+          ],
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 2.0,
+                "min": 1.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:brown_mushroom"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "elemental_creatures:entities/brown_blight"
+}

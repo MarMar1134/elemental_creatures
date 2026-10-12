@@ -7,25 +7,22 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.network.PacketDistributor;
 
 public class SoulFireUtils {
-    private static boolean applyingSoulFire = false;
-
     public static void applySoulFire(LivingEntity target){
-        if (target.level().isClientSide())
+        if (target.level().isClientSide()) {
             return;
+        }
 
         target.getPersistentData().putBoolean("elemental_creatures.soul_fire", true);
         SyncFireStateToNetwork(target, true);
     }
 
     public static void applySoulFire(LivingEntity target, int seconds) {
-        if (target.level().isClientSide())
+        if (target.level().isClientSide()) {
             return;
+        }
 
-        applyingSoulFire = true;
-        try {
-            if (seconds > 0) target.setSecondsOnFire(seconds);
-        } finally {
-            applyingSoulFire = false;
+        if (seconds > 0) {
+            target.setSecondsOnFire(seconds);
         }
 
         target.getPersistentData().putBoolean("elemental_creatures.soul_fire", true);
@@ -33,8 +30,9 @@ public class SoulFireUtils {
     }
 
     public static void clearSoulFire(LivingEntity target) {
-        if (target.level().isClientSide())
+        if (target.level().isClientSide()) {
             return;
+        }
 
         target.getPersistentData().remove("elemental_creatures.soul_fire");
         SyncFireStateToNetwork(target, false);
@@ -42,10 +40,6 @@ public class SoulFireUtils {
 
     public static boolean hasSoulFire(LivingEntity target) {
         return target.getPersistentData().getBoolean("elemental_creatures.soul_fire");
-    }
-
-    public static boolean isApplyingSoulFire() {
-        return applyingSoulFire;
     }
 
     private static void SyncFireStateToNetwork(LivingEntity target, boolean onFire) {

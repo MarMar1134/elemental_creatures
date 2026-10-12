@@ -31,8 +31,9 @@ public class ECForgeEvents {
     public static void onLivingEntityTick(LivingEvent.LivingTickEvent event){
         LivingEntity entity = event.getEntity();
 
-        if (entity == null)
+        if (entity == null) {
             return;
+        }
 
         if (SoulFireUtils.hasSoulFire(entity) && !entity.isOnFire()){
             SoulFireUtils.clearSoulFire(entity);
@@ -41,11 +42,13 @@ public class ECForgeEvents {
 
     @SubscribeEvent
     public static void onZombieSpawn(MobSpawnEvent.FinalizeSpawn event){
-        if (!(event.getEntity() instanceof Zombie zombie) || zombie.getClass() != Zombie.class)
+        if (!(event.getEntity() instanceof Zombie zombie) || zombie.getClass() != Zombie.class) {
             return;
+        }
 
-        if (zombie.getSpawnType() == MobSpawnType.SPAWN_EGG)
+        if (zombie.getSpawnType() == MobSpawnType.SPAWN_EGG) {
             return;
+        }
 
         ServerLevelAccessor level = event.getLevel();
         BlockPos pos = zombie.blockPosition();
@@ -71,15 +74,25 @@ public class ECForgeEvents {
         if (ECConfig.SPAWN_ILLAPISTA.get() && biome.is(ECTags.Biomes.CAN_SPAWN_ILLAPISTA) && random.nextDouble() < ECConfig.ILLAPISTA_SPAWN_RATE.get()) {
             spawnReplacement(ECEntityTypes.ILLAPISTA.get(), event, level, pos);
         }
+
+        if (ECConfig.SPAWN_DECADENT.get() && biome.is(ECTags.Biomes.CAN_SPAWN_DECADENT) && random.nextDouble() < ECConfig.DECADENT_SPAWN_RATE.get()) {
+            spawnReplacement(ECEntityTypes.DECADENT.get(), event, level, pos);
+        }
+
+        if (ECConfig.SPAWN_FUNGUS.get() && biome.is(ECTags.Biomes.CAN_SPAWN_FUNGUS) && random.nextDouble() < ECConfig.FUNGUS_SPAWN_RATE.get()) {
+            spawnReplacement(ECEntityTypes.FUNGUS.get(), event, level, pos);
+        }
     }
 
     @SubscribeEvent
     public static void onSkeletonSpawn(MobSpawnEvent.FinalizeSpawn event){
-        if (!(event.getEntity() instanceof Skeleton skeleton) || skeleton.getClass() != Skeleton.class)
+        if (!(event.getEntity() instanceof Skeleton skeleton) || skeleton.getClass() != Skeleton.class) {
             return;
+        }
 
-        if (skeleton.getSpawnType() == MobSpawnType.SPAWN_EGG)
+        if (skeleton.getSpawnType() == MobSpawnType.SPAWN_EGG) {
             return;
+        }
 
         ServerLevelAccessor level = event.getLevel();
         BlockPos pos = skeleton.blockPosition();
@@ -105,15 +118,25 @@ public class ECForgeEvents {
         if (ECConfig.SPAWN_PUTRID.get() && biome.is(ECTags.Biomes.CAN_SPAWN_PUTRID) && random.nextDouble() < ECConfig.PUTRID_SPAWN_RATE.get()){
             spawnReplacement(ECEntityTypes.PUTRID.get(), event, level, pos);
         }
+
+        if (ECConfig.SPAWN_ASHEN.get() && biome.is(ECTags.Biomes.CAN_SPAWN_ASHEN) && random.nextDouble() < ECConfig.ASHEN_SPAWN_RATE.get()){
+            spawnReplacement(ECEntityTypes.ASHEN.get(), event, level, pos);
+        }
+
+        if (ECConfig.SPAWN_BLIGHT.get() && biome.is(ECTags.Biomes.CAN_SPAWN_BLIGHT) && random.nextDouble() < ECConfig.BLIGHT_SPAWN_RATE.get()){
+            spawnReplacement(ECEntityTypes.BLIGHT.get(), event, level, pos);
+        }
     }
 
     @SubscribeEvent
     public static void onSlimeSpawn(MobSpawnEvent.FinalizeSpawn event){
-        if (!(event.getEntity() instanceof Slime slime) || slime.getClass() != Slime.class)
+        if (!(event.getEntity() instanceof Slime slime) || slime.getClass() != Slime.class) {
             return;
+        }
 
-        if (slime.getSpawnType() == MobSpawnType.SPAWN_EGG)
+        if (slime.getSpawnType() == MobSpawnType.SPAWN_EGG) {
             return;
+        }
 
         ServerLevelAccessor level = event.getLevel();
         BlockPos pos = slime.blockPosition();
@@ -139,11 +162,13 @@ public class ECForgeEvents {
 
     @SubscribeEvent
     public static void onSpiderSpawn(MobSpawnEvent.FinalizeSpawn event){
-        if (!(event.getEntity() instanceof Spider spider) || spider.getClass() != Spider.class)
+        if (!(event.getEntity() instanceof Spider spider) || spider.getClass() != Spider.class) {
             return;
+        }
 
-        if (spider.getSpawnType() == MobSpawnType.SPAWN_EGG)
+        if (spider.getSpawnType() == MobSpawnType.SPAWN_EGG) {
             return;
+        }
 
         ServerLevelAccessor level = event.getLevel();
         BlockPos pos = spider.blockPosition();
@@ -161,12 +186,18 @@ public class ECForgeEvents {
         if (ECConfig.SPAWN_ARACNIAN.get() && biome.is(ECTags.Biomes.CAN_SPAWN_ARACNIAN) && random.nextDouble() < ECConfig.ARACNIAN_SPAWN_RATE.get()){
             spawnReplacement(ECEntityTypes.ARACNIAN.get(), event, level, pos);
         }
+
+        if (ECConfig.SPAWN_WITHER_SPIDER.get() && biome.is(ECTags.Biomes.CAN_SPAWN_WITHER_SPIDER) && random.nextDouble() < ECConfig.WITHER_SPIDER_SPAWN_RATE.get()){
+            spawnReplacement(ECEntityTypes.WITHER_SPIDER.get(), event, level, pos);
+        }
     }
 
     private static <T extends Mob> void spawnReplacement(EntityType<T> pReplacement, MobSpawnEvent.FinalizeSpawn event, ServerLevelAccessor pLevel, BlockPos pPos) {
         T replacement = pReplacement.create(pLevel.getLevel());
-        if (replacement == null)
+
+        if (replacement == null) {
             return;
+        }
 
         Mob original = event.getEntity();
         replacement.moveTo(pPos.getX() + 1f, pPos.getY(), pPos.getZ() + 1f, original.getYRot(), original.getXRot());

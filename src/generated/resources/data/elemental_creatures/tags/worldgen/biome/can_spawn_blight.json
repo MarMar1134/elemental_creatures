@@ -1,0 +1,8 @@
+{
+  "values": [
+    "#elemental_creatures:can_spawn_brown_blight",
+    "#elemental_creatures:can_spawn_red_blight",
+    "#elemental_creatures:can_spawn_crimson_blight",
+    "#elemental_creatures:can_spawn_warped_blight"
+  ]
+}

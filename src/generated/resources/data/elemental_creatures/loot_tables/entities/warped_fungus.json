@@ -1,0 +1,88 @@
+{
+  "type": "minecraft:entity",
+  "pools": [
+    {
+      "bonus_rolls": 1.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "chance": 0.66,
+              "condition": "minecraft:random_chance_with_looting",
+              "looting_multiplier": 0.1
+            }
+          ],
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 2.0,
+                "min": 0.0
+              },
+              "function": "minecraft:set_count"
+            },
+            {
+              "function": "minecraft:set_potion",
+              "id": "elemental_creatures:blindness_potion"
+            }
+          ],
+          "name": "minecraft:tipped_arrow"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 1.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "chance": 0.66,
+              "condition": "minecraft:random_chance_with_looting",
+              "looting_multiplier": 0.1
+            }
+          ],
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 2.0,
+                "min": 0.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:bone"
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "chance": 0.083,
+              "condition": "minecraft:random_chance_with_looting",
+              "looting_multiplier": 0.1
+            }
+          ],
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 2.0,
+                "min": 1.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:warped_fungus"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "elemental_creatures:entities/warped_fungus"
+}

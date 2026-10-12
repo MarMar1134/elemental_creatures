@@ -6,6 +6,8 @@ import net.marmar.elemental_creatures.model.ECModelLayers;
 import net.marmar.elemental_creatures.model.projectile.LightningArrowRenderer;
 import net.marmar.elemental_creatures.model.projectile.PrismarineArrowRenderer;
 import net.marmar.elemental_creatures.model.projectile.SoulArrowRenderer;
+import net.marmar.elemental_creatures.model.skeleton.ashen.AshenRenderer;
+import net.marmar.elemental_creatures.model.skeleton.blight.BlightRenderer;
 import net.marmar.elemental_creatures.model.skeleton.dried.DriedRenderer;
 import net.marmar.elemental_creatures.model.skeleton.putrid.PutridRenderer;
 import net.marmar.elemental_creatures.model.skeleton.soulreaper.SoulReaperRenderer;
@@ -18,6 +20,9 @@ import net.marmar.elemental_creatures.model.slime.sandcube.SandCubeRenderer;
 import net.marmar.elemental_creatures.model.spider.aracnian.AracnianRenderer;
 import net.marmar.elemental_creatures.model.spider.desertspider.DesertSpiderRenderer;
 import net.marmar.elemental_creatures.model.spider.snowyspider.SnowySpiderRenderer;
+import net.marmar.elemental_creatures.model.spider.witherspider.WitherSpiderRenderer;
+import net.marmar.elemental_creatures.model.zombie.decadent.DecadentRenderer;
+import net.marmar.elemental_creatures.model.zombie.fungus.FungusRenderer;
 import net.marmar.elemental_creatures.model.zombie.illapista.IllapistaRenderer;
 import net.marmar.elemental_creatures.model.zombie.lost.LostRenderer;
 import net.marmar.elemental_creatures.model.zombie.rotten.RottenRenderer;
@@ -51,6 +56,8 @@ public class ECModClientEvents {
         EntityRenderers.register(ECEntityTypes.LOST.get(), LostRenderer::new);
         EntityRenderers.register(ECEntityTypes.ROTTEN.get(), RottenRenderer::new);
         EntityRenderers.register(ECEntityTypes.ILLAPISTA.get(), IllapistaRenderer::new);
+        EntityRenderers.register(ECEntityTypes.DECADENT.get(), DecadentRenderer::new);
+        EntityRenderers.register(ECEntityTypes.FUNGUS.get(), FungusRenderer::new);
 
         //Skeletons
         EntityRenderers.register(ECEntityTypes.SOUL_REAPER.get(), SoulReaperRenderer::new);
@@ -58,6 +65,8 @@ public class ECModClientEvents {
         EntityRenderers.register(ECEntityTypes.SUNKEN.get(), SunkenRenderer::new);
         EntityRenderers.register(ECEntityTypes.DRIED.get(), DriedRenderer::new);
         EntityRenderers.register(ECEntityTypes.PUTRID.get(), PutridRenderer::new);
+        EntityRenderers.register(ECEntityTypes.ASHEN.get(), AshenRenderer::new);
+        EntityRenderers.register(ECEntityTypes.BLIGHT.get(), BlightRenderer::new);
 
         //Slimes
         EntityRenderers.register(ECEntityTypes.ICE_CUBE.get(), IceCubeRenderer::new);
@@ -69,6 +78,7 @@ public class ECModClientEvents {
         EntityRenderers.register(ECEntityTypes.DESERT_SPIDER.get(), DesertSpiderRenderer::new);
         EntityRenderers.register(ECEntityTypes.SNOWY_SPIDER.get(), SnowySpiderRenderer::new);
         EntityRenderers.register(ECEntityTypes.ARACNIAN.get(), AracnianRenderer::new);
+        EntityRenderers.register(ECEntityTypes.WITHER_SPIDER.get(), WitherSpiderRenderer::new);
     }
 
     @SubscribeEvent
@@ -122,6 +132,26 @@ public class ECModClientEvents {
             event.registerLayerDefinition(ECModelLayers.ILLAPISTA_OUTER_ARMOR, () ->
                     LayerDefinition.create(HumanoidArmorModel.createBodyLayer(OUTER_ARMOR_DEFORMATION), 64, 32));
 
+            //Decadent
+            event.registerLayerDefinition(ECModelLayers.DECADENT, () ->
+                    LayerDefinition.create(HumanoidModel.createMesh(CubeDeformation.NONE, 0.0f), 64, 64));
+            event.registerLayerDefinition(ECModelLayers.DECADENT_INNER_ARMOR, () ->
+                    LayerDefinition.create(HumanoidArmorModel.createBodyLayer(INNER_ARMOR_DEFORMATION), 64, 32));
+            event.registerLayerDefinition(ECModelLayers.DECADENT_OUTER_ARMOR, () ->
+                    LayerDefinition.create(HumanoidArmorModel.createBodyLayer(OUTER_ARMOR_DEFORMATION), 64, 32));
+            event.registerLayerDefinition(ECModelLayers.DECADENT_OUTER, () ->
+                    LayerDefinition.create(HumanoidModel.createMesh(new CubeDeformation(0.25f), 0.0f), 64, 64));
+
+            //Fungus
+            event.registerLayerDefinition(ECModelLayers.FUNGUS, () ->
+                    LayerDefinition.create(HumanoidModel.createMesh(CubeDeformation.NONE, 0.0f), 64, 64));
+            event.registerLayerDefinition(ECModelLayers.FUNGUS_INNER_ARMOR, () ->
+                    LayerDefinition.create(HumanoidArmorModel.createBodyLayer(INNER_ARMOR_DEFORMATION), 64, 32));
+            event.registerLayerDefinition(ECModelLayers.FUNGUS_OUTER_ARMOR, () ->
+                    LayerDefinition.create(HumanoidArmorModel.createBodyLayer(OUTER_ARMOR_DEFORMATION), 64, 32));
+            event.registerLayerDefinition(ECModelLayers.FUNGUS_OUTER, () ->
+                    LayerDefinition.create(HumanoidModel.createMesh(new CubeDeformation(0.25f), 0.0f), 64, 64));
+
         //Skeletons
             //Soul Reaper
             event.registerLayerDefinition(ECModelLayers.SOUL_REAPER, SkeletonModel::createBodyLayer);
@@ -168,6 +198,24 @@ public class ECModClientEvents {
             event.registerLayerDefinition(ECModelLayers.PUTRID_OUTER, () ->
                     LayerDefinition.create(HumanoidModel.createMesh(new CubeDeformation(0.2f), 0.0f), 64, 32));
 
+            //Ashen
+            event.registerLayerDefinition(ECModelLayers.ASHEN, SkeletonModel::createBodyLayer);
+            event.registerLayerDefinition(ECModelLayers.ASHEN_INNER_ARMOR, () ->
+                    LayerDefinition.create(HumanoidArmorModel.createBodyLayer(INNER_ARMOR_DEFORMATION), 64, 32));
+            event.registerLayerDefinition(ECModelLayers.ASHEN_OUTER_ARMOR, () ->
+                    LayerDefinition.create(HumanoidArmorModel.createBodyLayer(OUTER_ARMOR_DEFORMATION), 64, 32));
+            event.registerLayerDefinition(ECModelLayers.ASHEN_OUTER, () ->
+                    LayerDefinition.create(HumanoidModel.createMesh(new CubeDeformation(0.2f), 0.0f), 64, 32));
+
+            //Blight
+            event.registerLayerDefinition(ECModelLayers.BLIGHT, SkeletonModel::createBodyLayer);
+            event.registerLayerDefinition(ECModelLayers.BLIGHT_INNER_ARMOR, () ->
+                    LayerDefinition.create(HumanoidArmorModel.createBodyLayer(INNER_ARMOR_DEFORMATION), 64, 32));
+            event.registerLayerDefinition(ECModelLayers.BLIGHT_OUTER_ARMOR, () ->
+                    LayerDefinition.create(HumanoidArmorModel.createBodyLayer(OUTER_ARMOR_DEFORMATION), 64, 32));
+            event.registerLayerDefinition(ECModelLayers.BLIGHT_OUTER, () ->
+                    LayerDefinition.create(HumanoidModel.createMesh(new CubeDeformation(0.2f), 0.0f), 64, 32));
+
         //Slimes
             //Ice cube
             event.registerLayerDefinition(ECModelLayers.ICE_CUBE, SlimeModel::createInnerBodyLayer);
@@ -194,5 +242,8 @@ public class ECModClientEvents {
 
             //Aracnian
             event.registerLayerDefinition(ECModelLayers.ARACNIAN, SpiderModel::createSpiderBodyLayer);
+
+            //Wither spider
+            event.registerLayerDefinition(ECModelLayers.WITHER_SPIDER, SpiderModel::createSpiderBodyLayer);
     }
 }

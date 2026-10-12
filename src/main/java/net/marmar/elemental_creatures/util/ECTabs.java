@@ -26,6 +26,8 @@ public class ECTabs {
                         pOutput.accept(ECItems.LOST_SPAWN_EGG.get());
                         pOutput.accept(ECItems.ROTTEN_SPAWN_EGG.get());
                         pOutput.accept(ECItems.ILLAPISTA_SPAWN_EGG.get());
+                        pOutput.accept(ECItems.DECADENT_SPAWN_EGG.get());
+                        pOutput.accept(ECItems.FUNGUS_SPAWN_EGG.get());
 
                         //Skeletons
                         pOutput.accept(ECItems.SOUL_REAPER_SPAWN_EGG.get());
@@ -33,6 +35,8 @@ public class ECTabs {
                         pOutput.accept(ECItems.SUNKEN_SPAWN_EGG.get());
                         pOutput.accept(ECItems.DRIED_SPAWN_EGG.get());
                         pOutput.accept(ECItems.PUTRID_SPAWN_EGG.get());
+                        pOutput.accept(ECItems.ASHEN_SPAWN_EGG.get());
+                        pOutput.accept(ECItems.BLIGHT_SPAWN_EGG.get());
 
                         //Slimes
                         pOutput.accept(ECItems.ICE_CUBE_SPAWN_EGG.get());
@@ -44,6 +48,7 @@ public class ECTabs {
                         pOutput.accept(ECItems.DESERT_SPIDER_SPAWN_EGG.get());
                         pOutput.accept(ECItems.SNOWY_SPIDER_SPAWN_EGG.get());
                         pOutput.accept(ECItems.ARACNIAN_SPAWN_EGG.get());
+                        pOutput.accept(ECItems.WITHER_SPIDER_SPAWN_EGG.get());
                     }))
                     .build());
 
@@ -62,6 +67,11 @@ public class ECTabs {
                         pOutput.accept(ECItems.SOUL_SCORCHED_FLESH.get());
                         pOutput.accept(ECItems.FROZEN_FLESH.get());
                         pOutput.accept(ECItems.POISONOUS_FLESH.get());
+                        pOutput.accept(ECItems.DECAYING_FLESH.get());
+                        pOutput.accept(ECItems.FUNGAL_FLESH.get());
+
+                        //Other food
+                        pOutput.accept(ECItems.IDUNN_APPLE.get());
 
                         //Arrows
                         pOutput.accept(ECItems.LIGHTNING_ARROW.get());

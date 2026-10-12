@@ -1,6 +1,7 @@
 package net.marmar.elemental_creatures.model.skeleton.dried;
 
 import net.marmar.elemental_creatures.ElementalCreatures;
+import net.marmar.elemental_creatures.entity.skeleton.Dried;
 import net.marmar.elemental_creatures.model.ECModelLayers;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.SkeletonRenderer;
@@ -19,6 +20,15 @@ public class DriedRenderer extends SkeletonRenderer {
         super(pContext, ECModelLayers.DRIED, ECModelLayers.DRIED_INNER_ARMOR, ECModelLayers.DRIED_OUTER_ARMOR);
 
         this.addLayer(new DriedOuterLayer<>(this, pContext.getModelSet()));
+    }
+
+    @Override
+    protected boolean isShaking(AbstractSkeleton pEntity) {
+        if (pEntity instanceof Dried dried){
+            return super.isShaking(pEntity) || dried.isUnderwaterConverting();
+        }
+
+        return super.isShaking(pEntity);
     }
 
     @Override

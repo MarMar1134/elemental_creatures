@@ -26,6 +26,12 @@ public class SpanishLangProvider extends AbstractLangProvider {
         addItem(ECItems.SOUL_SCORCHED_FLESH, "Carne pneumática");
         addItem(ECItems.FROZEN_FLESH, "Carne congelada");
         addItem(ECItems.POISONOUS_FLESH, "Carne venenosa");
+        addItem(ECItems.DECAYING_FLESH, "Carne decadente");
+        addItem(ECItems.FUNGAL_FLESH, "Carne fúngica");
+
+        //Other food
+        addItem(ECItems.IDUNN_APPLE, "Manzana de Iðunn");
+        addItemDesc("idunn_apple", "Aplica Regeneración cuando se consume. Al dárselo a un mob, previene que se convierta en Elemental.");
 
         //Arrows
         addItem(ECItems.LIGHTNING_ARROW, "Flecha eléctrica");
@@ -36,6 +42,15 @@ public class SpanishLangProvider extends AbstractLangProvider {
 
         addItem(ECItems.PRISMARINE_ARROW, "Flecha de prismarina");
         addItemDesc("prismarine_arrow", "Recorre el agua como si fuése aire.");
+
+        //Potions
+        addPotion("decay_potion", "Poción de Decadencia", "Poción arojadiza de Decadencia", "Poción persistente de Decadencia", "Flecha de Decadencia");
+        addPotion("long_decay_potion", "Poción de Decadencia", "Poción arojadiza de Decadencia", "Poción persistente de Decadencia", "Flecha de Decadencia");
+        addPotion("strong_decay_potion", "Poción de Decadencia", "Poción arojadiza de Decadencia", "Poción persistente de Decadencia", "Flecha de Decadencia");
+
+        addPotion("blindness_potion", "Poción de Ceguera", "Poción arojadiza de Ceguera", "Poción persistente de Ceguera", "Flecha de Ceguera");
+        addPotion("long_blindness_potion", "Poción de Ceguera", "Poción arojadiza de Ceguera", "Poción persistente de Ceguera", "Flecha de Ceguera");
+        addPotion("strong_blindness_potion", "Poción de Ceguera", "Poción arojadiza de Ceguera", "Poción persistente de Ceguera", "Flecha de Ceguera");
 
         //Enchantments
         addEnchantment(ECEnchantments.ZEUS_BLESSING, "Bendición de Zeus");
@@ -61,6 +76,12 @@ public class SpanishLangProvider extends AbstractLangProvider {
         addMobSubtitles("illapista", "Adorador de Illapa gruñendo", "Adorador de Illapa caminando",
                 "Adorador de Illapa lastimado", "Adorador de Illapa muriendo");
 
+        addZombieType(ECEntityTypes.DECADENT.get(), "Decadente", ECItems.DECADENT_SPAWN_EGG, "Generar Decadente");
+        addMobDesc("decadent", "Este enemigo inflinge Wither al atacar. Se genera cuando un zombi se mantiene bajo el efecto de Wither durante 15 segundos.");
+
+        addZombieType(ECEntityTypes.FUNGUS.get(), "Fúngico", ECItems.FUNGUS_SPAWN_EGG, "Generar Fúngico");
+        addMobDesc("fungus", "Este enemigo inflinge Ceguera al atacar. Se genera cuando un zombi se queda en un bioma fúngico durante un dia entero (20 minutos).");
+
         //Skeletons
         addSkeletonType(ECEntityTypes.SOUL_REAPER.get(), "Segador de Almas", ECItems.SOUL_REAPER_SPAWN_EGG, "Generar Segador de Almas");
         addMobSubtitles("soul_reaper", "Segador de Almas gruñendo", "Segador de Almas caminando",
@@ -78,6 +99,12 @@ public class SpanishLangProvider extends AbstractLangProvider {
 
         addSkeletonType(ECEntityTypes.PUTRID.get(), "Pútrido", ECItems.PUTRID_SPAWN_EGG, "Generar Pútrido");
         addMobSubtitles("putrid", "Pútrido gruñendo", "Pútrido caminando", "Pútrido lastimado", "Pútrido muriendo");
+
+        addSkeletonType(ECEntityTypes.ASHEN.get(), "Pálido", ECItems.ASHEN_SPAWN_EGG, "Generar Pálido");
+        addMobSubtitles("ashen", "Pálido gruñendo", "Pálido caminando", "Pálido lastimado", "Pálido muriendo");
+
+        addSkeletonType(ECEntityTypes.BLIGHT.get(), "Marchito", ECItems.BLIGHT_SPAWN_EGG, "Generar Marchito");
+        addMobSubtitles("blight", "Marchito gruñendo", "Marchito caminando", "Marchito lastimado", "Marchito muriendo");
 
         //Slimes
         addSlimeType(ECEntityTypes.ICE_CUBE.get(), "Cubo Helado", ECItems.ICE_CUBE_SPAWN_EGG, "Generar Cubo Helado");
@@ -101,5 +128,8 @@ public class SpanishLangProvider extends AbstractLangProvider {
 
         addSpiderType(ECEntityTypes.ARACNIAN.get(), "Hija de Aracne", ECItems.ARACNIAN_SPAWN_EGG, "Generar Hija de Aracne");
         addMobSubtitles("aracnian", "Hija de Aracne hablando", "Hija de Aracne caminando", "Hija de Aracne lastimada", "Hija de Aracne muriendo");
+
+        addSpiderType(ECEntityTypes.WITHER_SPIDER.get(), "Araña del Wither", ECItems.WITHER_SPIDER_SPAWN_EGG, "Generar Araña del Wither");
+        addMobDesc("wither_spider", "Este mob neutral aplica Wither al atacar. Se genera cuando una araña se encuentra bajo el efecto Wither durante 7,5 segundos.");
     }
 }

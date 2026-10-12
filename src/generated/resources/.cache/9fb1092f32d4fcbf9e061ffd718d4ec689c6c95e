@@ -1,6 +1,8 @@
-// 1.20.1	2026-10-05T13:35:57.0653602	Recipes
+// 1.20.1	2026-10-12T12:43:49.8834236	Recipes
 965129bb065349da6bc4dc0a43de6bfaacb19c91 data/elemental_creatures/advancements/recipes/combat/lightning_arrow.json
 0065b16a795a167b72bb872a92e7e9c86f683ac0 data/elemental_creatures/advancements/recipes/combat/soul_arrow.json
+1fc856cd7bd665915c899c3739eaf20a12d6711e data/elemental_creatures/advancements/recipes/food/idunn_apple.json
+4ab617851c24f8de8c5a1a8bd4ab1af1cadaf4c0 data/elemental_creatures/recipes/idunn_apple.json
 0197d94ac8be35eed292e0b30dbadb4829630f45 data/elemental_creatures/recipes/lightning_arrow.json
 769172c38871f896db510c3a570ed8d4183a6ec4 data/elemental_creatures/recipes/soul_arrow.json
 65b57e1f6c878273e7d0d7743e02cfebe9846605 data/minecraft/advancements/recipes/building_blocks/soul_sand.json

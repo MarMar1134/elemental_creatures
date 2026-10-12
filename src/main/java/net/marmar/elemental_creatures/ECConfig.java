@@ -22,6 +22,12 @@ public class ECConfig {
     public static final ForgeConfigSpec.BooleanValue SPAWN_ILLAPISTA;
     public static final ForgeConfigSpec.DoubleValue ILLAPISTA_SPAWN_RATE;
 
+    public static final ForgeConfigSpec.BooleanValue SPAWN_DECADENT;
+    public static final ForgeConfigSpec.DoubleValue DECADENT_SPAWN_RATE;
+
+    public static final ForgeConfigSpec.BooleanValue SPAWN_FUNGUS;
+    public static final ForgeConfigSpec.DoubleValue FUNGUS_SPAWN_RATE;
+
     //Skeletons
     public static final ForgeConfigSpec.BooleanValue SPAWN_SOUL_REAPER;
     public static final ForgeConfigSpec.DoubleValue SOUL_REAPER_SPAWN_RATE;
@@ -37,6 +43,12 @@ public class ECConfig {
 
     public static final ForgeConfigSpec.BooleanValue SPAWN_PUTRID;
     public static final ForgeConfigSpec.DoubleValue PUTRID_SPAWN_RATE;
+
+    public static final ForgeConfigSpec.BooleanValue SPAWN_ASHEN;
+    public static final ForgeConfigSpec.DoubleValue ASHEN_SPAWN_RATE;
+
+    public static final ForgeConfigSpec.BooleanValue SPAWN_BLIGHT;
+    public static final ForgeConfigSpec.DoubleValue BLIGHT_SPAWN_RATE;
 
     //Slimes
     public static final ForgeConfigSpec.BooleanValue SPAWN_ICE_CUBE;
@@ -60,6 +72,9 @@ public class ECConfig {
 
     public static final ForgeConfigSpec.BooleanValue SPAWN_ARACNIAN;
     public static final ForgeConfigSpec.DoubleValue ARACNIAN_SPAWN_RATE;
+
+    public static final ForgeConfigSpec.BooleanValue SPAWN_WITHER_SPIDER;
+    public static final ForgeConfigSpec.DoubleValue WITHER_SPIDER_SPAWN_RATE;
 
     static {
         BUILDER.push("Elemental Creatures spawn configuration");
@@ -90,6 +105,16 @@ public class ECConfig {
         ILLAPISTA_SPAWN_RATE = BUILDER.comment("Determines the probability of a Zombie being replaced by a Worshipper of Illapa.")
                 .defineInRange("worshipper_of_illapa_spawn_rate", 0.8d, 0.01d, 1d);
 
+        SPAWN_DECADENT = BUILDER.comment("Defines if the Decadent can spawn naturally on the Overworld.")
+                .define("spawn_decadent", false);
+        DECADENT_SPAWN_RATE = BUILDER.comment("Determines the probability of a Zombie being replaced by a Decadent.")
+                .defineInRange("decadent_spawn_rate", 0.8d, 0.01d, 1d);
+
+        SPAWN_FUNGUS = BUILDER.comment("Defines if a Fungal can spawn naturally on the Overworld.")
+                .define("spawn_fungal", false);
+        FUNGUS_SPAWN_RATE = BUILDER.comment("Determines the probability of a Zombie being replaced by a Fungal.")
+                .defineInRange("fungal_spawn_rate", 0.8d, 0.01d, 1d);
+
         //Skeletons
         SPAWN_SOUL_REAPER = BUILDER.comment("Defines if the Soul Reaper can spawn naturally on the Nether.")
                 .define("spawn_soul_reaper", true);
@@ -115,6 +140,16 @@ public class ECConfig {
                 .define("spawn_putrid", true);
         PUTRID_SPAWN_RATE = BUILDER.comment("Determines the probability of a Putrid to be placed.")
                 .defineInRange("putrid_spawn_rate", 0.8d, 0.01d, 1d);
+
+        SPAWN_ASHEN = BUILDER.comment("Defines if the Ashen can spawn naturally on the Overworld.")
+                .define("spawn_putrid", false);
+        ASHEN_SPAWN_RATE = BUILDER.comment("Determines the probability of a Ashen to be placed.")
+                .defineInRange("putrid_spawn_rate", 0.8d, 0.01d, 1d);
+
+        SPAWN_BLIGHT = BUILDER.comment("Defines if the Blight can spawn naturally on the Overworld.")
+                .define("spawn_blight", false);
+        BLIGHT_SPAWN_RATE = BUILDER.comment("Determines the probability of a Blight to be placed.")
+                .defineInRange("blight_spawn_rate", 0.8d, 0.01d, 1d);
 
         //Slimes
         SPAWN_ICE_CUBE = BUILDER.comment("defines if the Ice Cubes can spawn on Slime chunks.")
@@ -152,6 +187,11 @@ public class ECConfig {
                 .define("spawn_child_of_aracne", false);
         ARACNIAN_SPAWN_RATE = BUILDER.comment("Determines the probability of a Child of Aracne replacing a Spider.")
                 .defineInRange("child_of_aracne_spawn_rate", 0.8d, 0.1d, 1d);
+
+        SPAWN_WITHER_SPIDER = BUILDER.comment("defines if a Wither Spider can spawn naturally on the Overworld.")
+                .define("spawn_wither_spider", false);
+        WITHER_SPIDER_SPAWN_RATE = BUILDER.comment("Determines the probability of a Wither Spider replacing a Spider.")
+                .defineInRange("wither_spider_spawn_rate", 0.8d, 0.1d, 1d);
 
         BUILDER.pop();
         SPEC = BUILDER.build();

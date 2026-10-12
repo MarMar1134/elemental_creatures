@@ -2,6 +2,7 @@ package net.marmar.elemental_creatures.datagen.loot;
 
 import net.marmar.elemental_creatures.ElementalCreatures;
 import net.marmar.elemental_creatures.item.ECItems;
+import net.marmar.elemental_creatures.util.ECPotions;
 import net.minecraft.advancements.critereon.EntityPredicate;
 import net.minecraft.advancements.critereon.MinMaxBounds;
 import net.minecraft.advancements.critereon.SlimePredicate;
@@ -33,6 +34,13 @@ public class ECEntityLootTables implements LootTableSubProvider {
     public static final ResourceLocation LOST = register("lost");
     public static final ResourceLocation ROTTEN = register("rotten");
     public static final ResourceLocation ILLAPISTA = register("illapista");
+    public static final ResourceLocation DECADENT = register("decadent");
+
+        //Fungus loot table locations
+        public static final ResourceLocation BROWN_FUNGUS = register("brown_blight");
+        public static final ResourceLocation RED_FUNGUS = register("red_blight");
+        public static final ResourceLocation CRIMSON_FUNGUS = register("crimson_blight");
+        public static final ResourceLocation WARPED_FUNGUS = register("warped_blight");
 
     //Skeletons
     public static final ResourceLocation SOUL_REAPER = register("soul_reaper");
@@ -40,6 +48,13 @@ public class ECEntityLootTables implements LootTableSubProvider {
     public static final ResourceLocation DRIED = register("dried");
     public static final ResourceLocation PUTRID = register("putrid");
     public static final ResourceLocation TLALOQUIAN = register("tlalocquian");
+    public static final ResourceLocation ASHEN = register("ashen");
+
+        //Blight loot table locations
+        public static final ResourceLocation BROWN_BLIGHT = register("brown_fungus");
+        public static final ResourceLocation RED_BLIGHT = register("red_fungus");
+        public static final ResourceLocation CRIMSON_BLIGHT = register("crimson_fungus");
+        public static final ResourceLocation WARPED_BLIGHT = register("warped_fungus");
 
     //Slimes
     public static final ResourceLocation ICE_CUBE = register("ice_cube");
@@ -51,6 +66,7 @@ public class ECEntityLootTables implements LootTableSubProvider {
     public static final ResourceLocation DESERT_SPIDER = register("desert_spider");
     public static final ResourceLocation SNOWY_SPIDER = register("snowy_spider");
     public static final ResourceLocation ARACNIAN = register("aracnian");
+    public static final ResourceLocation WITHER_SPIDER = register("wither_spider");
 
     @Override
     public void generate(BiConsumer<ResourceLocation, LootTable.Builder> pOutput) {
@@ -60,6 +76,13 @@ public class ECEntityLootTables implements LootTableSubProvider {
         pOutput.accept(LOST, generateLostLootTable());
         pOutput.accept(ROTTEN, generateRottenLootTable());
         pOutput.accept(ILLAPISTA, generateIllapistaLootTable());
+        pOutput.accept(DECADENT, generateDecadentLootTable());
+
+        //Fungus loot tables
+            pOutput.accept(BROWN_FUNGUS, generateFungusLootTable(Items.BROWN_MUSHROOM));
+            pOutput.accept(RED_FUNGUS, generateFungusLootTable(Items.RED_MUSHROOM));
+            pOutput.accept(CRIMSON_FUNGUS, generateFungusLootTable(Items.CRIMSON_FUNGUS));
+            pOutput.accept(WARPED_FUNGUS, generateFungusLootTable(Items.WARPED_FUNGUS));
 
         //Skeletons
         pOutput.accept(SOUL_REAPER, generateSoulReaperLootTable());
@@ -67,6 +90,13 @@ public class ECEntityLootTables implements LootTableSubProvider {
         pOutput.accept(DRIED, generateDriedLootTable());
         pOutput.accept(PUTRID, generatePutridLootTable());
         pOutput.accept(TLALOQUIAN, generateTlaloquianLootTable());
+        pOutput.accept(ASHEN, generateAshenLootTable());
+
+            //Blight loot tables
+            pOutput.accept(BROWN_BLIGHT, generateBlightLootTable(Items.BROWN_MUSHROOM));
+            pOutput.accept(RED_BLIGHT, generateBlightLootTable(Items.RED_MUSHROOM));
+            pOutput.accept(CRIMSON_BLIGHT, generateBlightLootTable(Items.CRIMSON_FUNGUS));
+            pOutput.accept(WARPED_BLIGHT, generateBlightLootTable(Items.WARPED_FUNGUS));
 
         //Slimes
         pOutput.accept(ICE_CUBE, generateSlimeLootTable(Items.SNOWBALL));
@@ -78,6 +108,7 @@ public class ECEntityLootTables implements LootTableSubProvider {
         pOutput.accept(DESERT_SPIDER, generateSpiderLootTable());
         pOutput.accept(SNOWY_SPIDER, generateSpiderLootTable());
         pOutput.accept(ARACNIAN, generateAracnianLootTable());
+        pOutput.accept(WITHER_SPIDER, generateSpiderLootTable());
     }
 
     //Zombies
@@ -131,7 +162,7 @@ public class ECEntityLootTables implements LootTableSubProvider {
         return LootTable.lootTable()
                 .withPool(LootPool.lootPool().setBonusRolls(ConstantValue.exactly(1))
                         .add(LootItem.lootTableItem(ECItems.POISONOUS_FLESH.get())
-                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1, 4)))
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(0, 3)))
                                 .apply(LootingEnchantFunction.lootingMultiplier(ConstantValue.exactly(1))))
                 )
                 .withPool(LootPool.lootPool().setBonusRolls(ConstantValue.exactly(1))
@@ -148,13 +179,45 @@ public class ECEntityLootTables implements LootTableSubProvider {
         return LootTable.lootTable()
                 .withPool(LootPool.lootPool().setBonusRolls(ConstantValue.exactly(1))
                         .add(LootItem.lootTableItem(Items.ROTTEN_FLESH)
-                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1, 4)))
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(0, 3)))
                                 .apply(LootingEnchantFunction.lootingMultiplier(ConstantValue.exactly(1))))
                 )
                 .withPool(LootPool.lootPool().setBonusRolls(ConstantValue.exactly(1))
                         .add(LootItem.lootTableItem(ECItems.LIGHTNING_ESSENCE.get())
                                 .when(LootItemRandomChanceWithLootingCondition.randomChanceAndLootingBoost(0.083f, 0.1f))
                                 .apply(SetItemCountFunction.setCount(ConstantValue.exactly(1))))
+                );
+    }
+
+    private LootTable.Builder generateDecadentLootTable(){
+        return LootTable.lootTable()
+                .withPool(LootPool.lootPool().setBonusRolls(ConstantValue.exactly(1))
+                        .add(LootItem.lootTableItem(ECItems.DECAYING_FLESH.get())
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(0, 2))))
+                )
+                .withPool(LootPool.lootPool().setBonusRolls(ConstantValue.exactly(1))
+                        .add(LootItem.lootTableItem(Items.COAL)
+                            .when(LootItemRandomChanceWithLootingCondition.randomChanceAndLootingBoost(0.115f, 0.1f))
+                            .apply(SetItemCountFunction.setCount(UniformGenerator.between(1, 2))))
+                        .add(LootItem.lootTableItem(Items.POISONOUS_POTATO)
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(0, 2))))
+                );
+    }
+
+    private LootTable.Builder generateFungusLootTable(ItemLike pMushroom){
+        return LootTable.lootTable()
+                .withPool(LootPool.lootPool().setBonusRolls(ConstantValue.exactly(1))
+                        .add(LootItem.lootTableItem(ECItems.FUNGAL_FLESH.get())
+                                .when(LootItemRandomChanceWithLootingCondition.randomChanceAndLootingBoost(0.115f, 0.1f))
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1, 2))))
+                )
+                .withPool(LootPool.lootPool().setBonusRolls(ConstantValue.exactly(1))
+                        .add(LootItem.lootTableItem(Items.STICK)
+                                .when(LootItemRandomChanceWithLootingCondition.randomChanceAndLootingBoost(0.115f, 0.1f))
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1, 2))))
+                        .add(LootItem.lootTableItem(pMushroom)
+                                .when(LootItemRandomChanceWithLootingCondition.randomChanceAndLootingBoost(0.083f, 0.1f))
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1, 2))))
                 );
     }
 
@@ -241,6 +304,22 @@ public class ECEntityLootTables implements LootTableSubProvider {
                 );
     }
 
+    private LootTable.Builder generateBlightLootTable(ItemLike pMushroom){
+        return LootTable.lootTable()
+                .withPool(LootPool.lootPool().setBonusRolls(ConstantValue.exactly(1))
+                        .add(LootItem.lootTableItem(Items.TIPPED_ARROW)
+                                .when(LootItemRandomChanceWithLootingCondition.randomChanceAndLootingBoost(0.66f, 0.1f))
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(0, 2)))
+                                .apply(SetPotionFunction.setPotion(ECPotions.BLINDNESS_POTION.get())))
+                ).withPool(LootPool.lootPool().setBonusRolls(ConstantValue.exactly(1))
+                        .add(LootItem.lootTableItem(Items.BONE)
+                                .when(LootItemRandomChanceWithLootingCondition.randomChanceAndLootingBoost(0.66f, 0.1f))
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(0,2))))
+                        .add(LootItem.lootTableItem(pMushroom)
+                                .when(LootItemRandomChanceWithLootingCondition.randomChanceAndLootingBoost(0.083f, 0.1f))
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1, 2)))));
+    }
+
     private LootTable.Builder generateTlaloquianLootTable(){
         return LootTable.lootTable()
                 .withPool(LootPool.lootPool().setBonusRolls(ConstantValue.exactly(1))
@@ -253,6 +332,26 @@ public class ECEntityLootTables implements LootTableSubProvider {
                 )
                 .withPool(LootPool.lootPool().setBonusRolls(ConstantValue.exactly(1))
                         .add(LootItem.lootTableItem(ECItems.LIGHTNING_ESSENCE.get())
+                                .when(LootItemRandomChanceWithLootingCondition.randomChanceAndLootingBoost(0.66f, 0.1f))
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(0, 2))))
+                );
+    }
+
+    private LootTable.Builder generateAshenLootTable(){
+        return LootTable.lootTable()
+                .withPool(LootPool.lootPool().setBonusRolls(ConstantValue.exactly(1))
+                        .add(LootItem.lootTableItem(Items.ARROW)
+                                .when(LootItemRandomChanceWithLootingCondition.randomChanceAndLootingBoost(0.66f, 0.1f))
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(0, 2))))
+                        .add(LootItem.lootTableItem(Items.BONE)
+                                .when(LootItemRandomChanceWithLootingCondition.randomChanceAndLootingBoost(0.66f, 0.1f))
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(0,2))))
+                )
+                .withPool(LootPool.lootPool().setBonusRolls(ConstantValue.exactly(1))
+                        .add(LootItem.lootTableItem(Items.COAL)
+                                .when(LootItemRandomChanceWithLootingCondition.randomChanceAndLootingBoost(0.083f, 0.1f))
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(0, 2))))
+                        .add(LootItem.lootTableItem(Items.STICK)
                                 .when(LootItemRandomChanceWithLootingCondition.randomChanceAndLootingBoost(0.66f, 0.1f))
                                 .apply(SetItemCountFunction.setCount(UniformGenerator.between(0, 2))))
                 );

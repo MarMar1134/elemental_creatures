@@ -3,11 +3,14 @@ package net.marmar.elemental_creatures.event;
 import net.marmar.elemental_creatures.ElementalCreatures;
 import net.marmar.elemental_creatures.entity.ECEntityTypes;
 import net.marmar.elemental_creatures.entity.skeleton.*;
+import net.marmar.elemental_creatures.entity.skeleton.blight.Blight;
 import net.marmar.elemental_creatures.entity.slime.*;
 import net.marmar.elemental_creatures.entity.spider.Aracnian;
 import net.marmar.elemental_creatures.entity.spider.DesertSpider;
 import net.marmar.elemental_creatures.entity.spider.SnowySpider;
+import net.marmar.elemental_creatures.entity.spider.WitherSpider;
 import net.marmar.elemental_creatures.entity.zombie.*;
+import net.marmar.elemental_creatures.entity.zombie.fungus.Fungus;
 import net.marmar.elemental_creatures.network.ECNetwork;
 import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.entity.monster.Monster;
@@ -28,6 +31,8 @@ public class ECModEvents {
         event.put(ECEntityTypes.LOST.get(), Lost.createLostAttributes().build());
         event.put(ECEntityTypes.ROTTEN.get(), Rotten.createRottenAttributes().build());
         event.put(ECEntityTypes.ILLAPISTA.get(), Illapista.createIllapistaAttributes().build());
+        event.put(ECEntityTypes.DECADENT.get(), Decadent.createDecadentAttributes().build());
+        event.put(ECEntityTypes.FUNGUS.get(), Fungus.createFungusAttributes().build());
 
         //Skeleton attributes
         event.put(ECEntityTypes.SOUL_REAPER.get(), SoulReaper.createSoulReaperAttributes().build());
@@ -35,6 +40,8 @@ public class ECModEvents {
         event.put(ECEntityTypes.SUNKEN.get(), Sunken.createSunkenAttributes().build());
         event.put(ECEntityTypes.DRIED.get(), Dried.createDriedAttributes().build());
         event.put(ECEntityTypes.PUTRID.get(), Putrid.createPutridAttributes().build());
+        event.put(ECEntityTypes.ASHEN.get(), Ashen.createAshenAttributes().build());
+        event.put(ECEntityTypes.BLIGHT.get(), Blight.createBlightAttributes().build());
 
         //Slime attributes
         event.put(ECEntityTypes.ICE_CUBE.get(), IceCube.createIceCubeAttributes().build());
@@ -46,6 +53,7 @@ public class ECModEvents {
         event.put(ECEntityTypes.DESERT_SPIDER.get(), DesertSpider.createDesertSpiderAttributes().build());
         event.put(ECEntityTypes.SNOWY_SPIDER.get(), SnowySpider.createSnowySpiderAttributes().build());
         event.put(ECEntityTypes.ARACNIAN.get(), Aracnian.createAracnianAttributes().build());
+        event.put(ECEntityTypes.WITHER_SPIDER.get(), WitherSpider.createWitheredSpiderAttributes().build());
     }
 
     @SubscribeEvent
@@ -61,6 +69,10 @@ public class ECModEvents {
                 Rotten::checkMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
         event.register(ECEntityTypes.ILLAPISTA.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 Illapista::checkMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
+        event.register(ECEntityTypes.DECADENT.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                Decadent::checkMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
+        event.register(ECEntityTypes.FUNGUS.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                Fungus::checkMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
 
         //Skeletons
         event.register(ECEntityTypes.SOUL_REAPER.get(),SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
@@ -73,6 +85,10 @@ public class ECModEvents {
                 Dried::checkMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
         event.register(ECEntityTypes.PUTRID.get(),SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 Putrid::checkMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
+        event.register(ECEntityTypes.ASHEN.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                Ashen::checkMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
+        event.register(ECEntityTypes.BLIGHT.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                Blight::checkMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
 
         //Slimes
         event.register(ECEntityTypes.ICE_CUBE.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
@@ -91,6 +107,8 @@ public class ECModEvents {
                 Monster::checkMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
         event.register(ECEntityTypes.ARACNIAN.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 Monster::checkMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
+        event.register(ECEntityTypes.WITHER_SPIDER.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                WitherSpider::checkMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
     }
 
     @SubscribeEvent

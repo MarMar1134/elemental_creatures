@@ -24,6 +24,11 @@ public class ECItemModelProvider extends ItemModelProvider {
         addItem(ECItems.SOUL_SCORCHED_FLESH);
         addItem(ECItems.FROZEN_FLESH);
         addItem(ECItems.POISONOUS_FLESH);
+        addItem(ECItems.DECAYING_FLESH);
+        addItem(ECItems.FUNGAL_FLESH);
+
+        //Other food
+        addItem(ECItems.IDUNN_APPLE);
 
         //Projectiles
         addItem(ECItems.LIGHTNING_ARROW);
@@ -36,6 +41,8 @@ public class ECItemModelProvider extends ItemModelProvider {
         spawnEggItem(ECItems.LOST_SPAWN_EGG);
         spawnEggItem(ECItems.ROTTEN_SPAWN_EGG);
         spawnEggItem(ECItems.ILLAPISTA_SPAWN_EGG);
+        spawnEggItem(ECItems.DECADENT_SPAWN_EGG);
+        spawnEggItem(ECItems.FUNGUS_SPAWN_EGG);
 
         //Skeleton spawn eggs
         spawnEggItem(ECItems.SOUL_REAPER_SPAWN_EGG);
@@ -43,6 +50,8 @@ public class ECItemModelProvider extends ItemModelProvider {
         spawnEggItem(ECItems.SUNKEN_SPAWN_EGG);
         spawnEggItem(ECItems.DRIED_SPAWN_EGG);
         spawnEggItem(ECItems.PUTRID_SPAWN_EGG);
+        spawnEggItem(ECItems.ASHEN_SPAWN_EGG);
+        spawnEggItem(ECItems.BLIGHT_SPAWN_EGG);
 
         //Slime spawn eggs
         spawnEggItem(ECItems.ICE_CUBE_SPAWN_EGG);
@@ -54,6 +63,7 @@ public class ECItemModelProvider extends ItemModelProvider {
         spawnEggItem(ECItems.DESERT_SPIDER_SPAWN_EGG);
         spawnEggItem(ECItems.SNOWY_SPIDER_SPAWN_EGG);
         spawnEggItem(ECItems.ARACNIAN_SPAWN_EGG);
+        spawnEggItem(ECItems.WITHER_SPIDER_SPAWN_EGG);
     }
 
     private void addItem(RegistryObject<Item> pItem){

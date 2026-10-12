@@ -2,12 +2,13 @@ package net.marmar.elemental_creatures.item;
 
 import net.marmar.elemental_creatures.ElementalCreatures;
 import net.marmar.elemental_creatures.entity.ECEntityTypes;
-import net.marmar.elemental_creatures.item.arrow.LightningArrowItem;
-import net.marmar.elemental_creatures.item.arrow.PrismarineArrowItem;
-import net.marmar.elemental_creatures.item.arrow.SoulArrowItem;
+import net.marmar.elemental_creatures.item.custom.arrow.LightningArrowItem;
+import net.marmar.elemental_creatures.item.custom.arrow.PrismarineArrowItem;
+import net.marmar.elemental_creatures.item.custom.arrow.SoulArrowItem;
 import net.marmar.elemental_creatures.item.custom.SoulFragmentItem;
 import net.marmar.elemental_creatures.item.custom.food.BurningFleshItem;
 import net.marmar.elemental_creatures.item.custom.food.ECFoods;
+import net.marmar.elemental_creatures.item.custom.food.IdunnAppleItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
 import net.minecraftforge.common.ForgeSpawnEggItem;
@@ -35,6 +36,14 @@ public class ECItems {
             "frozen_flesh", () -> new Item(new Item.Properties().food(ECFoods.FROZEN_FLESH)));
     public static final RegistryObject<Item> POISONOUS_FLESH = ITEMS.register(
             "poisonous_flesh", () -> new Item(new Item.Properties().food(ECFoods.POISONOUS_FLESH)));
+    public static final RegistryObject<Item> DECAYING_FLESH = ITEMS.register(
+            "decaying_flesh", () -> new Item(new Item.Properties().food(ECFoods.DECAYING_FLESH)));
+    public static final RegistryObject<Item> FUNGAL_FLESH = ITEMS.register(
+            "fungal_flesh", () -> new Item(new Item.Properties().food(ECFoods.FUNGAL_FLESH)));
+
+    //Other food
+    public static final RegistryObject<Item> IDUNN_APPLE = ITEMS.register(
+            "idunn_apple", () -> new IdunnAppleItem(new Item.Properties().food(ECFoods.IDUNN_APPLE)));
 
     //Projectiles
     public static final RegistryObject<Item> LIGHTNING_ARROW = ITEMS.register(
@@ -60,6 +69,12 @@ public class ECItems {
     public static final RegistryObject<Item> ILLAPISTA_SPAWN_EGG = ITEMS.register(
             "illapista_spawn_egg", () -> new ForgeSpawnEggItem(ECEntityTypes.ILLAPISTA, 0x6d1604,
                     0x3a4730, new Item.Properties()));
+    public static final RegistryObject<Item> DECADENT_SPAWN_EGG = ITEMS.register(
+            "decadent_spawn_egg", () -> new ForgeSpawnEggItem(ECEntityTypes.DECADENT, 0x434732,
+                    0x37304b, new Item.Properties()));
+    public static final RegistryObject<Item> FUNGUS_SPAWN_EGG = ITEMS.register(
+            "fungus_spawn_egg", () -> new ForgeSpawnEggItem(ECEntityTypes.FUNGUS, 0x232235,
+                    0x6a6a5f, new Item.Properties()));
 
     //Skeleton spawn eggs
     public static final RegistryObject<Item> SOUL_REAPER_SPAWN_EGG = ITEMS.register(
@@ -77,6 +92,12 @@ public class ECItems {
     public static final RegistryObject<Item> PUTRID_SPAWN_EGG = ITEMS.register(
             "putrid_spawn_egg", () -> new ForgeSpawnEggItem(ECEntityTypes.PUTRID, 0xcbccbb,
                     0x212c06, new Item.Properties()));
+    public static final RegistryObject<Item> ASHEN_SPAWN_EGG = ITEMS.register(
+            "ashen_spawn_egg", () -> new ForgeSpawnEggItem(ECEntityTypes.ASHEN, 0x3c3c3c,
+                    0xa35c10, new Item.Properties()));
+    public static final RegistryObject<Item> BLIGHT_SPAWN_EGG = ITEMS.register(
+            "blight_spawn_egg", () -> new ForgeSpawnEggItem(ECEntityTypes.BLIGHT, 0x82827b,
+                    0xa9121a, new Item.Properties()));
 
     //Slime spawn eggs
     public static final RegistryObject<Item> ICE_CUBE_SPAWN_EGG = ITEMS.register(
@@ -102,6 +123,9 @@ public class ECItems {
     public static final RegistryObject<Item> ARACNIAN_SPAWN_EGG = ITEMS.register(
             "aracnian_spawn_egg", () -> new ForgeSpawnEggItem(ECEntityTypes.ARACNIAN, 0x376260,
                     0xa8710e, new Item.Properties()));
+    public static final RegistryObject<Item> WITHER_SPIDER_SPAWN_EGG = ITEMS.register(
+            "wither_spider_spawn_egg", () -> new ForgeSpawnEggItem(ECEntityTypes.WITHER_SPIDER, 0x0e0e0e,
+                    0x302922, new Item.Properties()));
 
     public static void register(IEventBus eventBus){
         ElementalCreatures.LOGGER.info("Registering Elemental Creatures items...");

@@ -35,6 +35,18 @@ public class ECModelLayers {
         public static final ModelLayerLocation ILLAPISTA_INNER_ARMOR = registerInnerArmorLayer("illapista_inner_armor");
         public static final ModelLayerLocation ILLAPISTA_OUTER_ARMOR = registerOuterArmorLayer("illapista_outer_armor");
 
+        //Decadent
+        public static final ModelLayerLocation DECADENT = registerMainLayer("decadent");
+        public static final ModelLayerLocation DECADENT_INNER_ARMOR = registerInnerArmorLayer("decadent_inner_armor");
+        public static final ModelLayerLocation DECADENT_OUTER_ARMOR = registerOuterArmorLayer("decadent_outer_armor");
+        public static final ModelLayerLocation DECADENT_OUTER = registerOuterLayer("decadent_outer");
+
+        //Fungus
+        public static final ModelLayerLocation FUNGUS = registerMainLayer("fungus");
+        public static final ModelLayerLocation FUNGUS_INNER_ARMOR = registerInnerArmorLayer("fungus_inner_armor");
+        public static final ModelLayerLocation FUNGUS_OUTER_ARMOR = registerOuterArmorLayer("fungus_outer_armor");
+        public static final ModelLayerLocation FUNGUS_OUTER = registerOuterLayer("fungus_outer");
+
     //Skeletons
         //Soul Reaper
         public static final ModelLayerLocation SOUL_REAPER = registerMainLayer("soul_reaper");
@@ -66,6 +78,18 @@ public class ECModelLayers {
         public static final ModelLayerLocation PUTRID_OUTER_ARMOR = registerOuterArmorLayer("putrid_outer_armor");
         public static final ModelLayerLocation PUTRID_OUTER = registerOuterLayer("putrid_outer");
 
+        //Ashen
+        public static final ModelLayerLocation ASHEN = registerMainLayer("ashen");
+        public static final ModelLayerLocation ASHEN_INNER_ARMOR = registerInnerArmorLayer("ashen_inner_armor");
+        public static final ModelLayerLocation ASHEN_OUTER_ARMOR = registerOuterArmorLayer("ashen_outer_armor");
+        public static final ModelLayerLocation ASHEN_OUTER = registerOuterLayer("ashen_outer");
+
+        //Blight
+        public static final ModelLayerLocation BLIGHT = registerMainLayer("blight");
+        public static final ModelLayerLocation BLIGHT_INNER_ARMOR = registerInnerArmorLayer("blight_inner_armor");
+        public static final ModelLayerLocation BLIGHT_OUTER_ARMOR = registerOuterArmorLayer("blight_outer_armor");
+        public static final ModelLayerLocation BLIGHT_OUTER = registerOuterLayer("blight_outer");
+
     //Slimes
         //Ice Cube
         public static final ModelLayerLocation ICE_CUBE = registerMainLayer("ice_cube");
@@ -92,6 +116,9 @@ public class ECModelLayers {
 
         //Aracnian
         public static final ModelLayerLocation ARACNIAN = registerMainLayer("aracnian");
+
+        //Wither spider
+        public static final ModelLayerLocation WITHER_SPIDER = registerMainLayer("wither_spider");
 
     //Helpers
     @SuppressWarnings("removal")
